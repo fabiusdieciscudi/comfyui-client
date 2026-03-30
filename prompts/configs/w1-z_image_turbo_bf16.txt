@@ -1,0 +1,9 @@
+@w1.diffusion_model:z_image_turbo_bf16.safetensors
+
+@w1.width:512,  @w1.height:768
+
+@w1.steps:5
+@w1.cfg:1.0
+@w1.denoise:1.0
+@w1.sampler_name:ddim
+@w1.scheduler:sgm_uniform

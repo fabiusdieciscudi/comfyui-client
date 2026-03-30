@@ -36,10 +36,13 @@ build:
 output: build
 	mkdir -p $(OUTPUT)
 
-cat: output
-	$(CLIENT) $(Z_IMAGE_T) --prompt "A cat" $(OPTIONS)
+prompt: output
+	$(CLIENT) submit $(Z_IMAGE_T) --prompt "$(PROMPT)" $(OPTIONS)
 
-prompt:
-	$(CLIENT) $(Z_IMAGE_T) --prompt "$(PROMPT)" $(OPTIONS)
+cat: output
+	$(CLIENT) submit $(Z_IMAGE_T) --prompt "A cat sitting on a sofa, smoking a pipe" $(OPTIONS)
+
+moonlight: output
+	$(CLIENT) submit $(Z_IMAGE_T) --prompt-file prompts/moonlight.txt $(OPTIONS)
 
 include Makefile-py

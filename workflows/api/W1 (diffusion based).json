@@ -1,0 +1,1055 @@
+{
+  "1": {
+    "inputs": {
+      "unet_name": [
+        "39",
+        0
+      ],
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "2": {
+    "inputs": {
+      "clip_name": "qwen_3_4b.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "3": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "4": {
+    "inputs": {
+      "seed": [
+        "37:45",
+        0
+      ],
+      "steps": [
+        "37:48",
+        0
+      ],
+      "cfg": [
+        "37:256",
+        1
+      ],
+      "sampler_name": [
+        "276",
+        0
+      ],
+      "scheduler": [
+        "277",
+        0
+      ],
+      "denoise": [
+        "37:268",
+        1
+      ],
+      "model": [
+        "32",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": [
+        "37:42",
+        0
+      ],
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "6": {
+    "inputs": {
+      "conditioning": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "7": {
+    "inputs": {
+      "width": [
+        "37:55",
+        0
+      ],
+      "height": [
+        "37:56",
+        0
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "27": {
+    "inputs": {
+      "lora_name": [
+        "278",
+        0
+      ],
+      "strength_model": [
+        "37:281",
+        1
+      ],
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "32": {
+    "inputs": {
+      "switch": [
+        "37:286",
+        0
+      ],
+      "on_false": [
+        "1",
+        0
+      ],
+      "on_true": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Switch"
+    }
+  },
+  "39": {
+    "inputs": {
+      "text": [
+        "37:68",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "diffusion_model to combo"
+    }
+  },
+  "44": {
+    "inputs": {
+      "filename_prefix": [
+        "292",
+        0
+      ],
+      "samples": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "SaveLatent",
+    "_meta": {
+      "title": "SaveLatent"
+    }
+  },
+  "251": {
+    "inputs": {
+      "root_dir": "input",
+      "file": "prompts/empty.txt"
+    },
+    "class_type": "LoadText|pysssss",
+    "_meta": {
+      "title": "Load configuration"
+    }
+  },
+  "252": {
+    "inputs": {
+      "root_dir": "input",
+      "file": "prompts/empty.txt"
+    },
+    "class_type": "LoadText|pysssss",
+    "_meta": {
+      "title": "Load style"
+    }
+  },
+  "253": {
+    "inputs": {
+      "root_dir": "input",
+      "file": "prompts/empty.txt"
+    },
+    "class_type": "LoadText|pysssss",
+    "_meta": {
+      "title": "Load subject"
+    }
+  },
+  "276": {
+    "inputs": {
+      "text": [
+        "37:262",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "sampler_name to combo"
+    }
+  },
+  "277": {
+    "inputs": {
+      "text": [
+        "37:266",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "scheduler to combo"
+    }
+  },
+  "278": {
+    "inputs": {
+      "text": [
+        "37:274",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "lora_name to combo"
+    }
+  },
+  "288": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "no",
+      "text_a": [
+        "251",
+        0
+      ],
+      "text_b": [
+        "252",
+        0
+      ],
+      "text_c": [
+        "253",
+        0
+      ]
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "Prompt merger"
+    }
+  },
+  "291": {
+    "inputs": {
+      "date": "true",
+      "date_directory": "true",
+      "custom_directory": "",
+      "custom_text": ""
+    },
+    "class_type": "FileNamePrefix",
+    "_meta": {
+      "title": "File Name Prefix (Mikey)"
+    }
+  },
+  "292": {
+    "inputs": {
+      "string": [
+        "291",
+        0
+      ],
+      "regex_pattern": "^(\\d{2})(\\d{2})(\\d{2})/(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})_?(.*)$",
+      "replace": "20\\1-\\2-\\3/W1 20\\1-\\2-\\3 \\7-\\8F",
+      "case_insensitive": true,
+      "multiline": false,
+      "dotall": false,
+      "count": 0
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "Adjust file name"
+    }
+  },
+  "298": {
+    "inputs": {
+      "filename_prefix": [
+        "292",
+        0
+      ],
+      "filename_keys": "",
+      "foldername_prefix": "",
+      "foldername_keys": "",
+      "delimiter": "_",
+      "save_job_data": "basic, models, sampler, prompt",
+      "job_data_per_image": true,
+      "job_custom_text": "",
+      "save_metadata": true,
+      "counter_digits": 5,
+      "counter_position": "last",
+      "one_counter_per_folder": true,
+      "image_preview": true,
+      "output_ext": ".png",
+      "quality": 100,
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImageExtended",
+    "_meta": {
+      "title": "💾 Save Image Extended"
+    }
+  },
+  "299": {
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "300": {
+    "inputs": {},
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Keywords"
+    }
+  },
+  "37:45": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:60",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:48": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:51",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:56": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:59",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:53": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.width:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract width"
+    }
+  },
+  "37:59": {
+    "inputs": {
+      "text_0": "768",
+      "text": [
+        "37:62",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.height"
+    }
+  },
+  "37:51": {
+    "inputs": {
+      "text_0": "5",
+      "text": [
+        "37:63",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.steps"
+    }
+  },
+  "37:64": {
+    "inputs": {
+      "Text": [
+        "37:53",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1024",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:62": {
+    "inputs": {
+      "Text": [
+        "37:54",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1600",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:61": {
+    "inputs": {
+      "Text": [
+        "37:46",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "56234532624987",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:63": {
+    "inputs": {
+      "Text": [
+        "37:47",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "9",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:67": {
+    "inputs": {
+      "Text": [
+        "37:69",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "z_image_turbo_bf16.safetensors",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:70": {
+    "inputs": {
+      "Text": [
+        "288",
+        0
+      ],
+      "Pattern": "^\\s*#.*\\n",
+      "Replace_With": "",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Strip entire comment lines"
+    }
+  },
+  "37:270": {
+    "inputs": {
+      "text_0": "1.0",
+      "text": [
+        "37:271",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.denoise"
+    }
+  },
+  "37:261": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.sampler_name:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract sampler_name"
+    }
+  },
+  "37:265": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.scheduler:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract scheduler"
+    }
+  },
+  "37:258": {
+    "inputs": {
+      "text_0": "1.0",
+      "text": [
+        "37:259",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.cfg"
+    }
+  },
+  "37:259": {
+    "inputs": {
+      "Text": [
+        "37:257",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1.0",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:263": {
+    "inputs": {
+      "Text": [
+        "37:261",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "ddim",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:267": {
+    "inputs": {
+      "Text": [
+        "37:265",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "sgm_uniform",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:271": {
+    "inputs": {
+      "Text": [
+        "37:269",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1.0",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:256": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:258",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:262": {
+    "inputs": {
+      "text_0": "ddim",
+      "text": [
+        "37:263",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.sampler_name"
+    }
+  },
+  "37:266": {
+    "inputs": {
+      "text_0": "sgm_uniform",
+      "text": [
+        "37:267",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.scheduler"
+    }
+  },
+  "37:69": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.diffusion_model:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract diffusion_model"
+    }
+  },
+  "37:269": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.denoise:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract denoise"
+    }
+  },
+  "37:257": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.cfg:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract cfg"
+    }
+  },
+  "37:274": {
+    "inputs": {
+      "text": [
+        "37:275",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.lora_name"
+    }
+  },
+  "37:280": {
+    "inputs": {
+      "Text": [
+        "37:282",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1.0",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:273": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.lora_name:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract lora_name"
+    }
+  },
+  "37:66": {
+    "inputs": {
+      "Text": [
+        "37:70",
+        0
+      ],
+      "Pattern": "#.*$",
+      "Replace_With": "",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Strip comments"
+    }
+  },
+  "37:60": {
+    "inputs": {
+      "text_0": "56234532624987",
+      "text": [
+        "37:61",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.seed"
+    }
+  },
+  "37:275": {
+    "inputs": {
+      "Text": [
+        "37:273",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:268": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:270",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:54": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.height:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract height"
+    }
+  },
+  "37:46": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.seed:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract seed"
+    }
+  },
+  "37:58": {
+    "inputs": {
+      "text_0": "512",
+      "text": [
+        "37:64",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.width"
+    }
+  },
+  "37:55": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:58",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:47": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.steps:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract steps"
+    }
+  },
+  "37:42": {
+    "inputs": {
+      "text_0": "  ",
+      "text": [
+        "37:57",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Prompt"
+    }
+  },
+  "37:281": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:279",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:286": {
+    "inputs": {
+      "text": [
+        "37:285",
+        0
+      ]
+    },
+    "class_type": "CR String To Boolean",
+    "_meta": {
+      "title": "Cast to boolean"
+    }
+  },
+  "37:282": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.lora_strenght:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract lora_strenght"
+    }
+  },
+  "37:279": {
+    "inputs": {
+      "text_0": "1.0",
+      "text": [
+        "37:280",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.lora_strenght"
+    }
+  },
+  "37:284": {
+    "inputs": {
+      "Text": [
+        "37:275",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "false",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:287": {
+    "inputs": {
+      "Text": [
+        "37:284",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "true",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:68": {
+    "inputs": {
+      "text_0": "z_image_turbo_bf16.safetensors",
+      "text": [
+        "37:67",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.diffusion_model"
+    }
+  },
+  "37:285": {
+    "inputs": {
+      "text_0": "false",
+      "text": [
+        "37:287",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.lora_present"
+    }
+  },
+  "37:57": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "@[^:\\s]+(:[^,\\s]+)*\\s*[,]*",
+      "Replace_With": "",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Strip tags"
+    }
+  }
+}

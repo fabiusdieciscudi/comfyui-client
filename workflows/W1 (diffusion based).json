@@ -1,0 +1,6123 @@
+{
+  "config": {},
+  "definitions": {
+    "subgraphs": [
+      {
+        "config": {},
+        "extra": {
+          "workflowRendererVersion": "LG"
+        },
+        "groups": [],
+        "id": "b03c82d6-4b39-4428-94cb-f7a1c901df15",
+        "inputNode": {
+          "bounding": [
+            -3310,
+            765,
+            120,
+            60
+          ],
+          "id": -10
+        },
+        "inputs": [
+          {
+            "id": "55caf34f-f7b2-4c32-8ae9-9ee5b7d8abdd",
+            "label": "prompt",
+            "linkIds": [
+              84
+            ],
+            "localized_name": "string",
+            "name": "string",
+            "pos": [
+              -3210,
+              785
+            ],
+            "type": "STRING"
+          }
+        ],
+        "links": [
+          {
+            "id": 53,
+            "origin_id": 45,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 55,
+            "origin_id": 42,
+            "origin_slot": 0,
+            "parentId": 77,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 57,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 57,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 58,
+            "origin_id": 57,
+            "origin_slot": 0,
+            "target_id": 42,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 59,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 46,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 61,
+            "origin_id": 60,
+            "origin_slot": 0,
+            "target_id": 45,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 63,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 47,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 64,
+            "origin_id": 48,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 69,
+            "origin_id": 51,
+            "origin_slot": 0,
+            "target_id": 48,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 75,
+            "origin_id": 55,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 76,
+            "origin_id": 56,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 4,
+            "type": "INT"
+          },
+          {
+            "id": 77,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 53,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 78,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 54,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 79,
+            "origin_id": 59,
+            "origin_slot": 0,
+            "target_id": 56,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 80,
+            "origin_id": 58,
+            "origin_slot": 0,
+            "target_id": 55,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 83,
+            "origin_id": 70,
+            "origin_slot": 0,
+            "target_id": 66,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 84,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 70,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 85,
+            "origin_id": 64,
+            "origin_slot": 0,
+            "target_id": 58,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 86,
+            "origin_id": 53,
+            "origin_slot": 0,
+            "target_id": 64,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 87,
+            "origin_id": 62,
+            "origin_slot": 0,
+            "target_id": 59,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 88,
+            "origin_id": 54,
+            "origin_slot": 0,
+            "target_id": 62,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 89,
+            "origin_id": 61,
+            "origin_slot": 0,
+            "target_id": 60,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 90,
+            "origin_id": 46,
+            "origin_slot": 0,
+            "target_id": 61,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 91,
+            "origin_id": 63,
+            "origin_slot": 0,
+            "target_id": 51,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 94,
+            "origin_id": 47,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 95,
+            "origin_id": 68,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 5,
+            "type": "STRING"
+          },
+          {
+            "id": 96,
+            "origin_id": 69,
+            "origin_slot": 0,
+            "target_id": 67,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 97,
+            "origin_id": 67,
+            "origin_slot": 0,
+            "target_id": 68,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 98,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 69,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 322,
+            "origin_id": 258,
+            "origin_slot": 0,
+            "target_id": 256,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 323,
+            "origin_id": 259,
+            "origin_slot": 0,
+            "target_id": 258,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 324,
+            "origin_id": 257,
+            "origin_slot": 0,
+            "target_id": 259,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 326,
+            "origin_id": 263,
+            "origin_slot": 0,
+            "target_id": 262,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 327,
+            "origin_id": 261,
+            "origin_slot": 0,
+            "target_id": 263,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 329,
+            "origin_id": 267,
+            "origin_slot": 0,
+            "target_id": 266,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 330,
+            "origin_id": 265,
+            "origin_slot": 0,
+            "target_id": 267,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 331,
+            "origin_id": 270,
+            "origin_slot": 0,
+            "target_id": 268,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 332,
+            "origin_id": 271,
+            "origin_slot": 0,
+            "target_id": 270,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 333,
+            "origin_id": 269,
+            "origin_slot": 0,
+            "target_id": 271,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 335,
+            "origin_id": 275,
+            "origin_slot": 0,
+            "target_id": 274,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 336,
+            "origin_id": 273,
+            "origin_slot": 0,
+            "target_id": 275,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 337,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 257,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 338,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 261,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 339,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 265,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 340,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 269,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 341,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 273,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 342,
+            "origin_id": 256,
+            "origin_slot": 1,
+            "target_id": -20,
+            "target_slot": 6,
+            "type": "FLOAT"
+          },
+          {
+            "id": 343,
+            "origin_id": 262,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 7,
+            "type": "STRING"
+          },
+          {
+            "id": 344,
+            "origin_id": 266,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 8,
+            "type": "STRING"
+          },
+          {
+            "id": 345,
+            "origin_id": 268,
+            "origin_slot": 1,
+            "target_id": -20,
+            "target_slot": 9,
+            "type": "FLOAT"
+          },
+          {
+            "id": 346,
+            "origin_id": 274,
+            "origin_slot": 0,
+            "parentId": 80,
+            "target_id": -20,
+            "target_slot": 10,
+            "type": "STRING"
+          },
+          {
+            "id": 355,
+            "origin_id": 280,
+            "origin_slot": 0,
+            "target_id": 279,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 356,
+            "origin_id": 282,
+            "origin_slot": 0,
+            "target_id": 280,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 357,
+            "origin_id": 279,
+            "origin_slot": 0,
+            "target_id": 281,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 360,
+            "origin_id": 285,
+            "origin_slot": 0,
+            "target_id": 286,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 362,
+            "origin_id": 286,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 11,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 363,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 282,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 368,
+            "origin_id": 275,
+            "origin_slot": 0,
+            "parentId": 79,
+            "target_id": 284,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 369,
+            "origin_id": 284,
+            "origin_slot": 0,
+            "target_id": 287,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 370,
+            "origin_id": 287,
+            "origin_slot": 0,
+            "target_id": 285,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 371,
+            "origin_id": 281,
+            "origin_slot": 1,
+            "target_id": -20,
+            "target_slot": 12,
+            "type": "FLOAT"
+          }
+        ],
+        "name": "Preprocess prompt",
+        "nodes": [
+          {
+            "flags": {},
+            "id": 45,
+            "inputs": [
+              {
+                "link": 61,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              },
+              {
+                "link": null,
+                "localized_name": "round_integer",
+                "name": "round_integer",
+                "type": "COMBO",
+                "widget": {
+                  "name": "round_integer"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 1,
+            "outputs": [
+              {
+                "links": [
+                  53
+                ],
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT"
+              },
+              {
+                "links": null,
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1200,
+              15
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Number"
+            },
+            "size": [
+              210,
+              100
+            ],
+            "title": "Cast to integer",
+            "type": "CR String To Number",
+            "widgets_values": [
+              "round"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 48,
+            "inputs": [
+              {
+                "link": 69,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              },
+              {
+                "link": null,
+                "localized_name": "round_integer",
+                "name": "round_integer",
+                "type": "COMBO",
+                "widget": {
+                  "name": "round_integer"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 4,
+            "outputs": [
+              {
+                "links": [
+                  64
+                ],
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT"
+              },
+              {
+                "links": null,
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1200,
+              235
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Number"
+            },
+            "size": [
+              210,
+              100
+            ],
+            "title": "Cast to integer",
+            "type": "CR String To Number",
+            "widgets_values": [
+              "round"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 56,
+            "inputs": [
+              {
+                "link": 79,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              },
+              {
+                "link": null,
+                "localized_name": "round_integer",
+                "name": "round_integer",
+                "type": "COMBO",
+                "widget": {
+                  "name": "round_integer"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 9,
+            "outputs": [
+              {
+                "links": [
+                  76
+                ],
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT"
+              },
+              {
+                "links": null,
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1185,
+              645
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Number"
+            },
+            "size": [
+              210,
+              100
+            ],
+            "title": "Cast to integer",
+            "type": "CR String To Number",
+            "widgets_values": [
+              "round"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 53,
+            "inputs": [
+              {
+                "link": 77,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 6,
+            "outputs": [
+              {
+                "links": [
+                  86
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2150,
+              435
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              285,
+              130
+            ],
+            "title": "Extract width",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "",
+              "^(?:[\\s\\S]*@w1\\.width:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 59,
+            "inputs": [
+              {
+                "link": 87,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 12,
+            "outputs": [
+              {
+                "links": [
+                  79
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1475,
+              655
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              90
+            ],
+            "title": "Tag: w1.height",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "768"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 51,
+            "inputs": [
+              {
+                "link": 91,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 5,
+            "outputs": [
+              {
+                "links": [
+                  69
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1490,
+              230
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.steps",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "5"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 64,
+            "inputs": [
+              {
+                "link": 86,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 17,
+            "outputs": [
+              {
+                "links": [
+                  85
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1755,
+              415
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "1024",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 62,
+            "inputs": [
+              {
+                "link": 88,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 15,
+            "outputs": [
+              {
+                "links": [
+                  87
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1760,
+              645
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "1600",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 61,
+            "inputs": [
+              {
+                "link": 90,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 14,
+            "outputs": [
+              {
+                "links": [
+                  89
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1770,
+              25
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "56234532624987",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 63,
+            "inputs": [
+              {
+                "link": 94,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 16,
+            "outputs": [
+              {
+                "links": [
+                  91
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1765,
+              205
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "9",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 67,
+            "inputs": [
+              {
+                "link": 96,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 19,
+            "outputs": [
+              {
+                "links": [
+                  97
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1750,
+              850
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "z_image_turbo_bf16.safetensors",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 70,
+            "inputs": [
+              {
+                "link": 84,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 22,
+            "outputs": [
+              {
+                "links": [
+                  83
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -3080,
+              750
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              215,
+              130
+            ],
+            "title": "Strip entire comment lines",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "",
+              "^\\s*#.*\\n",
+              "",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 270,
+            "inputs": [
+              {
+                "link": 332,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 35,
+            "outputs": [
+              {
+                "links": [
+                  331
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1470,
+              1705
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.denoise",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "1.0"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 261,
+            "inputs": [
+              {
+                "link": 338,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 27,
+            "outputs": [
+              {
+                "links": [
+                  327
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2140,
+              1280
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract sampler_name",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.sampler_name:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 265,
+            "inputs": [
+              {
+                "link": 339,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 30,
+            "outputs": [
+              {
+                "links": [
+                  330
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2140,
+              1485
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract scheduler",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.scheduler:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 258,
+            "inputs": [
+              {
+                "link": 323,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 25,
+            "outputs": [
+              {
+                "links": [
+                  322
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1485,
+              1080
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.cfg",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "1.0"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 259,
+            "inputs": [
+              {
+                "link": 324,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 26,
+            "outputs": [
+              {
+                "links": [
+                  323
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1760,
+              1055
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "1.0",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 263,
+            "inputs": [
+              {
+                "link": 327,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 29,
+            "outputs": [
+              {
+                "links": [
+                  326
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1755,
+              1260
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "ddim",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 267,
+            "inputs": [
+              {
+                "link": 330,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 32,
+            "outputs": [
+              {
+                "links": [
+                  329
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1755,
+              1465
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "sgm_uniform",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 271,
+            "inputs": [
+              {
+                "link": 333,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 36,
+            "outputs": [
+              {
+                "links": [
+                  332
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1745,
+              1680
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "1.0",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 256,
+            "inputs": [
+              {
+                "link": 322,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              },
+              {
+                "link": null,
+                "localized_name": "round_integer",
+                "name": "round_integer",
+                "type": "COMBO",
+                "widget": {
+                  "name": "round_integer"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 23,
+            "outputs": [
+              {
+                "links": [],
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT"
+              },
+              {
+                "links": [
+                  342
+                ],
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1195,
+              1085
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Number"
+            },
+            "size": [
+              210,
+              100
+            ],
+            "title": "Cast to integer",
+            "type": "CR String To Number",
+            "widgets_values": [
+              "round"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 262,
+            "inputs": [
+              {
+                "link": 326,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 28,
+            "outputs": [
+              {
+                "links": [
+                  343
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1480,
+              1285
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.sampler_name",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "ddim"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 266,
+            "inputs": [
+              {
+                "link": 329,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 31,
+            "outputs": [
+              {
+                "links": [
+                  344
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1480,
+              1490
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.scheduler",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "sgm_uniform"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 69,
+            "inputs": [
+              {
+                "link": 98,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 21,
+            "outputs": [
+              {
+                "links": [
+                  96
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2155,
+              875
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract diffusion_model",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.diffusion_model:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 269,
+            "inputs": [
+              {
+                "link": 340,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 34,
+            "outputs": [
+              {
+                "links": [
+                  333
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2130,
+              1700
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract denoise",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.denoise:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 257,
+            "inputs": [
+              {
+                "link": 337,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 24,
+            "outputs": [
+              {
+                "links": [
+                  324
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2145,
+              1075
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract cfg",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.cfg:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 274,
+            "inputs": [
+              {
+                "link": 335,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 38,
+            "outputs": [
+              {
+                "links": [
+                  346
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1470,
+              1905
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.lora_name",
+            "type": "ShowText|pysssss",
+            "widgets_values": []
+          },
+          {
+            "flags": {},
+            "id": 280,
+            "inputs": [
+              {
+                "link": 356,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 41,
+            "outputs": [
+              {
+                "links": [
+                  355
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1735,
+              2375
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "1.0",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 273,
+            "inputs": [
+              {
+                "link": 341,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 37,
+            "outputs": [
+              {
+                "links": [
+                  336
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2130,
+              1900
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract lora_name",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.lora_name:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 66,
+            "inputs": [
+              {
+                "link": 83,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 18,
+            "outputs": [
+              {
+                "links": [
+                  57,
+                  59,
+                  63,
+                  77,
+                  78,
+                  98,
+                  337,
+                  338,
+                  339,
+                  340,
+                  341,
+                  363
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2785,
+              745
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Strip comments",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "",
+              "#.*$",
+              "",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 60,
+            "inputs": [
+              {
+                "link": 89,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 13,
+            "outputs": [
+              {
+                "links": [
+                  61
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1485,
+              50
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              90
+            ],
+            "title": "Tag: w1.seed",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "56234532624987"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 275,
+            "inputs": [
+              {
+                "link": 336,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 39,
+            "outputs": [
+              {
+                "links": [
+                  335,
+                  368
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1745,
+              1880
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 268,
+            "inputs": [
+              {
+                "link": 331,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              },
+              {
+                "link": null,
+                "localized_name": "round_integer",
+                "name": "round_integer",
+                "type": "COMBO",
+                "widget": {
+                  "name": "round_integer"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 33,
+            "outputs": [
+              {
+                "links": [],
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT"
+              },
+              {
+                "links": [
+                  345
+                ],
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1180,
+              1680
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Number"
+            },
+            "size": [
+              210,
+              100
+            ],
+            "title": "Cast to integer",
+            "type": "CR String To Number",
+            "widgets_values": [
+              "round"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 54,
+            "inputs": [
+              {
+                "link": 78,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 7,
+            "outputs": [
+              {
+                "links": [
+                  88
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2155,
+              660
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              285,
+              135
+            ],
+            "title": "Extract height",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "",
+              "^(?:[\\s\\S]*@w1\\.height:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 46,
+            "inputs": [
+              {
+                "link": 59,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 2,
+            "outputs": [
+              {
+                "links": [
+                  90
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2160,
+              35
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract seed",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "",
+              "^(?:[\\s\\S]*@w1\\.seed:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 58,
+            "inputs": [
+              {
+                "link": 85,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 11,
+            "outputs": [
+              {
+                "links": [
+                  80
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1470,
+              430
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              90
+            ],
+            "title": "Tag: w1.width",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "512"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 55,
+            "inputs": [
+              {
+                "link": 80,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              },
+              {
+                "link": null,
+                "localized_name": "round_integer",
+                "name": "round_integer",
+                "type": "COMBO",
+                "widget": {
+                  "name": "round_integer"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 8,
+            "outputs": [
+              {
+                "links": [
+                  75
+                ],
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT"
+              },
+              {
+                "links": null,
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1185,
+              420
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Number"
+            },
+            "size": [
+              210,
+              100
+            ],
+            "title": "Cast to integer",
+            "type": "CR String To Number",
+            "widgets_values": [
+              "round"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 47,
+            "inputs": [
+              {
+                "link": 63,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 3,
+            "outputs": [
+              {
+                "links": [
+                  94
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2150,
+              225
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract steps",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.steps:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 42,
+            "inputs": [
+              {
+                "link": 58,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 0,
+            "outputs": [
+              {
+                "links": [
+                  55
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1475,
+              -180
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              215,
+              90
+            ],
+            "title": "Prompt",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "  "
+            ]
+          },
+          {
+            "flags": {},
+            "id": 281,
+            "inputs": [
+              {
+                "link": 357,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              },
+              {
+                "link": null,
+                "localized_name": "round_integer",
+                "name": "round_integer",
+                "type": "COMBO",
+                "widget": {
+                  "name": "round_integer"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 42,
+            "outputs": [
+              {
+                "links": [],
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT"
+              },
+              {
+                "links": [
+                  371
+                ],
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1170,
+              2405
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Number"
+            },
+            "size": [
+              210,
+              100
+            ],
+            "title": "Cast to integer",
+            "type": "CR String To Number",
+            "widgets_values": [
+              "round"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 286,
+            "inputs": [
+              {
+                "link": 360,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 46,
+            "outputs": [
+              {
+                "links": [
+                  362
+                ],
+                "localized_name": "BOOLEAN",
+                "name": "BOOLEAN",
+                "type": "BOOLEAN"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1190,
+              2140
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Boolean"
+            },
+            "size": [
+              205,
+              50
+            ],
+            "title": "Cast to boolean",
+            "type": "CR String To Boolean",
+            "widgets_values": []
+          },
+          {
+            "flags": {},
+            "id": 282,
+            "inputs": [
+              {
+                "link": 363,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 43,
+            "outputs": [
+              {
+                "links": [
+                  356
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2120,
+              2395
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract lora_strenght",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.lora_strenght:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 279,
+            "inputs": [
+              {
+                "link": 355,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 40,
+            "outputs": [
+              {
+                "links": [
+                  357
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1460,
+              2400
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.lora_strenght",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "1.0"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 284,
+            "inputs": [
+              {
+                "link": 368,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 44,
+            "outputs": [
+              {
+                "links": [
+                  369
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2120,
+              2125
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "false",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 287,
+            "inputs": [
+              {
+                "link": 369,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 47,
+            "outputs": [
+              {
+                "links": [
+                  370
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1765,
+              2120
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "true",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 68,
+            "inputs": [
+              {
+                "link": 97,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 20,
+            "outputs": [
+              {
+                "links": [
+                  95
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1465,
+              855
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              220,
+              80
+            ],
+            "title": "Tag: w1.diffusion_model",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "z_image_turbo_bf16.safetensors"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 285,
+            "inputs": [
+              {
+                "link": 370,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 45,
+            "outputs": [
+              {
+                "links": [
+                  360
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1465,
+              2150
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              220,
+              80
+            ],
+            "title": "Tag: w1.lora_present",
+            "type": "ShowText|pysssss",
+            "widgets_values": [
+              "false"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 57,
+            "inputs": [
+              {
+                "link": 57,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 10,
+            "outputs": [
+              {
+                "links": [
+                  58
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2150,
+              -175
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              290,
+              135
+            ],
+            "title": "Strip tags",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "",
+              "@[^:\\s]+(:[^,\\s]+)*\\s*[,]*",
+              "",
+              "RegEx"
+            ]
+          }
+        ],
+        "outputNode": {
+          "bounding": [
+            -340,
+            930,
+            152.669921875,
+            300
+          ],
+          "id": -20
+        },
+        "outputs": [
+          {
+            "id": "008d37cd-dcb5-4ec3-8c63-2326a13a9df5",
+            "label": "PROMPT",
+            "linkIds": [
+              55
+            ],
+            "localized_name": "STRING",
+            "name": "STRING",
+            "pos": [
+              -320,
+              950
+            ],
+            "type": "STRING"
+          },
+          {
+            "id": "6cd41b8c-d77c-4154-948c-51ba9a98d36d",
+            "label": "SEED",
+            "linkIds": [
+              53
+            ],
+            "name": "INT",
+            "pos": [
+              -320,
+              970
+            ],
+            "type": "INT"
+          },
+          {
+            "id": "9c6b7481-09f2-4d82-934a-76e8771ff87a",
+            "label": "STEPS",
+            "linkIds": [
+              64
+            ],
+            "name": "INT_1",
+            "pos": [
+              -320,
+              990
+            ],
+            "type": "INT"
+          },
+          {
+            "id": "6fc68256-5934-4a43-81f3-9e46240e9de5",
+            "label": "WIDTH",
+            "linkIds": [
+              75
+            ],
+            "name": "INT_2",
+            "pos": [
+              -320,
+              1010
+            ],
+            "type": "INT"
+          },
+          {
+            "id": "d7446e07-3f0e-47dd-8617-719e5e023e50",
+            "label": "HEIGHT",
+            "linkIds": [
+              76
+            ],
+            "name": "INT_3",
+            "pos": [
+              -320,
+              1030
+            ],
+            "type": "INT"
+          },
+          {
+            "id": "b12544c0-9112-4b23-bb38-813887f3d01a",
+            "label": "DIFFUSION_MODEL",
+            "linkIds": [
+              95
+            ],
+            "name": "STRING_1",
+            "pos": [
+              -320,
+              1050
+            ],
+            "type": "STRING"
+          },
+          {
+            "id": "d9dcffc2-f97b-42c5-ada0-e8eec5af83d7",
+            "label": "CFG",
+            "linkIds": [
+              342
+            ],
+            "name": "FLOAT",
+            "pos": [
+              -320,
+              1070
+            ],
+            "type": "FLOAT"
+          },
+          {
+            "id": "803b030e-6206-4333-bd6e-1df57eae4e94",
+            "label": "SAMPLER_NAME",
+            "linkIds": [
+              343
+            ],
+            "name": "STRING_2",
+            "pos": [
+              -320,
+              1090
+            ],
+            "type": "STRING"
+          },
+          {
+            "id": "0e26f16b-34db-45f6-8e87-966f20266182",
+            "label": "SCHEDULER",
+            "linkIds": [
+              344
+            ],
+            "name": "STRING_3",
+            "pos": [
+              -320,
+              1110
+            ],
+            "type": "STRING"
+          },
+          {
+            "id": "89d7289b-9f06-4bdc-8550-20b9cdb5d6fe",
+            "label": "DENOISE",
+            "linkIds": [
+              345
+            ],
+            "name": "FLOAT_1",
+            "pos": [
+              -320,
+              1130
+            ],
+            "type": "FLOAT"
+          },
+          {
+            "id": "48efbc72-2ed6-4c3d-a360-e0db3b0a97cf",
+            "label": "LORA_NAME",
+            "linkIds": [
+              346
+            ],
+            "name": "STRING_4",
+            "pos": [
+              -320,
+              1150
+            ],
+            "type": "STRING"
+          },
+          {
+            "id": "62c73cea-e405-4b07-81ba-826958de75bf",
+            "label": "LORA_PRESENT",
+            "linkIds": [
+              362
+            ],
+            "name": "BOOLEAN_1",
+            "pos": [
+              -320,
+              1170
+            ],
+            "type": "BOOLEAN"
+          },
+          {
+            "id": "8fec2b04-2a0a-4205-b18d-05be3dc8260f",
+            "label": "LORA_STRENGTH",
+            "linkIds": [
+              371
+            ],
+            "name": "FLOAT_3",
+            "pos": [
+              -320,
+              1190
+            ],
+            "type": "FLOAT"
+          }
+        ],
+        "reroutes": [
+          {
+            "id": 77,
+            "linkIds": [
+              55
+            ],
+            "pos": [
+              -720,
+              55
+            ]
+          },
+          {
+            "id": 78,
+            "linkIds": [
+              368
+            ],
+            "pos": [
+              -1490,
+              2035
+            ]
+          },
+          {
+            "id": 79,
+            "linkIds": [
+              368
+            ],
+            "parentId": 78,
+            "pos": [
+              -2175,
+              2070
+            ]
+          },
+          {
+            "id": 80,
+            "linkIds": [
+              346
+            ],
+            "pos": [
+              -810,
+              1745
+            ]
+          }
+        ],
+        "revision": 0,
+        "state": {
+          "lastGroupId": 12,
+          "lastLinkId": 391,
+          "lastNodeId": 299,
+          "lastRerouteId": 88
+        },
+        "version": 1,
+        "widgets": []
+      }
+    ]
+  },
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "VHS_MetadataImage": true,
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "ds": {
+      "offset": [
+        4149.298756097793,
+        1285.6917306614348
+      ],
+      "scale": 0.8332589618658031
+    },
+    "frontendVersion": "1.30.6",
+    "linkExtensions": [
+      {
+        "id": 7,
+        "parentId": 9
+      },
+      {
+        "id": 51,
+        "parentId": 71
+      },
+      {
+        "id": 52,
+        "parentId": 2
+      },
+      {
+        "id": 61,
+        "parentId": 88
+      },
+      {
+        "id": 347,
+        "parentId": 67
+      },
+      {
+        "id": 348,
+        "parentId": 68
+      },
+      {
+        "id": 351,
+        "parentId": 70
+      },
+      {
+        "id": 352,
+        "parentId": 69
+      },
+      {
+        "id": 373,
+        "parentId": 75
+      },
+      {
+        "id": 374,
+        "parentId": 81
+      },
+      {
+        "id": 378,
+        "parentId": 4
+      },
+      {
+        "id": 388,
+        "parentId": 83
+      },
+      {
+        "id": 390,
+        "parentId": 85
+      }
+    ],
+    "links_added_by_ue": [],
+    "reroutes": [
+      {
+        "id": 2,
+        "linkIds": [
+          52
+        ],
+        "pos": [
+          -2255,
+          -970
+        ]
+      },
+      {
+        "id": 4,
+        "linkIds": [
+          378
+        ],
+        "parentId": 6,
+        "pos": [
+          -3145,
+          -840
+        ]
+      },
+      {
+        "id": 5,
+        "linkIds": [
+          378
+        ],
+        "pos": [
+          -2640,
+          -1055
+        ]
+      },
+      {
+        "id": 6,
+        "linkIds": [
+          378
+        ],
+        "parentId": 5,
+        "pos": [
+          -2645,
+          -850
+        ]
+      },
+      {
+        "id": 8,
+        "linkIds": [
+          7
+        ],
+        "pos": [
+          -970,
+          -470
+        ]
+      },
+      {
+        "id": 9,
+        "linkIds": [
+          7
+        ],
+        "parentId": 87,
+        "pos": [
+          -2065,
+          -285
+        ]
+      },
+      {
+        "id": 67,
+        "linkIds": [
+          347
+        ],
+        "parentId": 73,
+        "pos": [
+          -2065,
+          -770
+        ]
+      },
+      {
+        "id": 68,
+        "linkIds": [
+          348
+        ],
+        "pos": [
+          -2065,
+          -675
+        ]
+      },
+      {
+        "id": 69,
+        "linkIds": [
+          352
+        ],
+        "pos": [
+          -2065,
+          -705
+        ]
+      },
+      {
+        "id": 70,
+        "linkIds": [
+          351
+        ],
+        "pos": [
+          -2065,
+          -740
+        ]
+      },
+      {
+        "id": 71,
+        "linkIds": [
+          51
+        ],
+        "pos": [
+          -2255,
+          -1005
+        ]
+      },
+      {
+        "id": 73,
+        "linkIds": [
+          347
+        ],
+        "pos": [
+          -2450,
+          -755
+        ]
+      },
+      {
+        "id": 75,
+        "linkIds": [
+          373
+        ],
+        "pos": [
+          -2790,
+          -340
+        ]
+      },
+      {
+        "id": 81,
+        "linkIds": [
+          374
+        ],
+        "parentId": 82,
+        "pos": [
+          -1790,
+          -335
+        ]
+      },
+      {
+        "id": 82,
+        "linkIds": [
+          374
+        ],
+        "pos": [
+          -2845,
+          -320
+        ]
+      },
+      {
+        "id": 83,
+        "linkIds": [
+          388
+        ],
+        "parentId": 84,
+        "pos": [
+          -1695,
+          5
+        ]
+      },
+      {
+        "id": 84,
+        "linkIds": [
+          388
+        ],
+        "pos": [
+          -1270,
+          20
+        ]
+      },
+      {
+        "id": 85,
+        "linkIds": [
+          390
+        ],
+        "pos": [
+          -1480,
+          -130
+        ]
+      },
+      {
+        "id": 86,
+        "linkIds": [
+          7
+        ],
+        "parentId": 8,
+        "pos": [
+          -1665,
+          -455
+        ]
+      },
+      {
+        "id": 87,
+        "linkIds": [
+          7
+        ],
+        "parentId": 86,
+        "pos": [
+          -1760,
+          -300
+        ]
+      },
+      {
+        "id": 88,
+        "linkIds": [
+          61
+        ],
+        "pos": [
+          -1790,
+          -235
+        ]
+      }
+    ],
+    "ue_links": [],
+    "workflowRendererVersion": "LG"
+  },
+  "groups": [
+    {
+      "bounding": [
+        -3280,
+        -1335,
+        596.748046875,
+        458.6
+      ],
+      "color": "#3f789e",
+      "flags": {},
+      "font_size": 24,
+      "id": 11,
+      "title": "Prompt"
+    },
+    {
+      "bounding": [
+        -1715,
+        -280,
+        815,
+        813.6
+      ],
+      "color": "#3f789e",
+      "flags": {},
+      "font_size": 24,
+      "id": 12,
+      "title": "Save"
+    }
+  ],
+  "id": "cff3c9b6-230e-4a46-a631-034aab0083f8",
+  "last_link_id": 391,
+  "last_node_id": 299,
+  "links": [
+    [
+      2,
+      2,
+      0,
+      5,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      5,
+      0,
+      4,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      4,
+      5,
+      0,
+      6,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      6,
+      0,
+      4,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      4,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      3,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      30,
+      1,
+      0,
+      27,
+      0,
+      "MODEL"
+    ],
+    [
+      33,
+      7,
+      0,
+      4,
+      3,
+      "LATENT"
+    ],
+    [
+      35,
+      1,
+      0,
+      32,
+      0,
+      "MODEL"
+    ],
+    [
+      36,
+      27,
+      0,
+      32,
+      1,
+      "MODEL"
+    ],
+    [
+      37,
+      32,
+      0,
+      4,
+      0,
+      "MODEL"
+    ],
+    [
+      48,
+      37,
+      0,
+      5,
+      1,
+      "STRING"
+    ],
+    [
+      51,
+      37,
+      1,
+      4,
+      4,
+      "INT"
+    ],
+    [
+      52,
+      37,
+      2,
+      4,
+      5,
+      "INT"
+    ],
+    [
+      54,
+      37,
+      3,
+      7,
+      0,
+      "INT"
+    ],
+    [
+      55,
+      37,
+      4,
+      7,
+      1,
+      "INT"
+    ],
+    [
+      56,
+      39,
+      0,
+      1,
+      0,
+      "COMBO"
+    ],
+    [
+      57,
+      37,
+      5,
+      39,
+      0,
+      "STRING"
+    ],
+    [
+      61,
+      7,
+      0,
+      44,
+      0,
+      "LATENT"
+    ],
+    [
+      347,
+      37,
+      6,
+      4,
+      6,
+      "FLOAT"
+    ],
+    [
+      348,
+      37,
+      9,
+      4,
+      9,
+      "FLOAT"
+    ],
+    [
+      349,
+      37,
+      7,
+      276,
+      0,
+      "STRING"
+    ],
+    [
+      350,
+      37,
+      8,
+      277,
+      0,
+      "STRING"
+    ],
+    [
+      351,
+      276,
+      0,
+      4,
+      7,
+      "COMBO"
+    ],
+    [
+      352,
+      277,
+      0,
+      4,
+      8,
+      "COMBO"
+    ],
+    [
+      353,
+      37,
+      10,
+      278,
+      0,
+      "STRING"
+    ],
+    [
+      354,
+      278,
+      0,
+      27,
+      1,
+      "COMBO"
+    ],
+    [
+      373,
+      37,
+      12,
+      27,
+      2,
+      "FLOAT"
+    ],
+    [
+      374,
+      37,
+      11,
+      32,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      375,
+      251,
+      0,
+      288,
+      2,
+      "STRING"
+    ],
+    [
+      376,
+      252,
+      0,
+      288,
+      3,
+      "STRING"
+    ],
+    [
+      377,
+      253,
+      0,
+      288,
+      4,
+      "STRING"
+    ],
+    [
+      378,
+      288,
+      0,
+      37,
+      0,
+      "STRING"
+    ],
+    [
+      386,
+      8,
+      0,
+      298,
+      0,
+      "IMAGE"
+    ],
+    [
+      388,
+      291,
+      0,
+      292,
+      0,
+      "STRING"
+    ],
+    [
+      389,
+      292,
+      0,
+      44,
+      1,
+      "STRING"
+    ],
+    [
+      390,
+      292,
+      0,
+      298,
+      3,
+      "STRING"
+    ],
+    [
+      391,
+      8,
+      0,
+      299,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "nodes": [
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 1,
+      "inputs": [
+        {
+          "link": 56,
+          "localized_name": "unet_name",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "weight_dtype",
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 18,
+      "outputs": [
+        {
+          "links": [
+            30,
+            35
+          ],
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "pos": [
+        -2500,
+        -495
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "cnr_id": "comfy-core",
+        "ue_properties": {
+          "input_ue_unconnectable": {},
+          "version": "7.5.1",
+          "widget_ue_connectable": {}
+        },
+        "ver": "0.3.75"
+      },
+      "size": [
+        225,
+        85
+      ],
+      "type": "UNETLoader",
+      "widgets_values": [
+        "z_image_turbo_bf16.safetensors",
+        "default"
+      ]
+    },
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 2,
+      "inputs": [
+        {
+          "link": null,
+          "localized_name": "clip_name",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "device",
+          "name": "device",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 3,
+      "outputs": [
+        {
+          "links": [
+            2
+          ],
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP"
+        }
+      ],
+      "pos": [
+        -2605,
+        -1205
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "cnr_id": "comfy-core",
+        "ue_properties": {
+          "input_ue_unconnectable": {},
+          "version": "7.5.1",
+          "widget_ue_connectable": {}
+        },
+        "ver": "0.3.75"
+      },
+      "size": [
+        355,
+        120
+      ],
+      "type": "CLIPLoader",
+      "widgets_values": [
+        "qwen_3_4b.safetensors",
+        "qwen_image",
+        "default"
+      ]
+    },
+    {
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "id": 3,
+      "inputs": [
+        {
+          "link": null,
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 5,
+      "outputs": [
+        {
+          "links": [
+            8
+          ],
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "pos": [
+        -2495,
+        -215
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "cnr_id": "comfy-core",
+        "ue_properties": {
+          "input_ue_unconnectable": {},
+          "version": "7.5.1",
+          "widget_ue_connectable": {}
+        },
+        "ver": "0.3.75"
+      },
+      "size": [
+        285,
+        115
+      ],
+      "type": "VAELoader",
+      "widgets_values": [
+        "ae.safetensors"
+      ]
+    },
+    {
+      "bgcolor": "#353",
+      "color": "#232",
+      "flags": {
+        "pinned": true
+      },
+      "id": 4,
+      "inputs": [
+        {
+          "link": 37,
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL"
+        },
+        {
+          "link": 3,
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING"
+        },
+        {
+          "link": 5,
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING"
+        },
+        {
+          "link": 33,
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT"
+        },
+        {
+          "link": 51,
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "link": 52,
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          }
+        },
+        {
+          "link": 347,
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "link": 351,
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          }
+        },
+        {
+          "link": 352,
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          }
+        },
+        {
+          "link": 348,
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 21,
+      "outputs": [
+        {
+          "links": [
+            7
+          ],
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT"
+        }
+      ],
+      "pos": [
+        -1410,
+        -1110
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler",
+        "cnr_id": "comfy-core",
+        "ue_properties": {
+          "input_ue_unconnectable": {},
+          "version": "7.5.1",
+          "widget_ue_connectable": {}
+        },
+        "ver": "0.3.75"
+      },
+      "size": [
+        390,
+        575
+      ],
+      "type": "KSampler",
+      "widgets_values": [
+        268876620348332,
+        "fixed",
+        1,
+        1,
+        "ddim",
+        "sgm_uniform",
+        1
+      ]
+    },
+    {
+      "bgcolor": "#335",
+      "color": "#223",
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "id": 5,
+      "inputs": [
+        {
+          "link": 2,
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP"
+        },
+        {
+          "link": 48,
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 10,
+      "outputs": [
+        {
+          "links": [
+            3,
+            4
+          ],
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "pos": [
+        -2070,
+        -1150
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "cnr_id": "comfy-core",
+        "ue_properties": {
+          "input_ue_unconnectable": {},
+          "version": "7.5.1",
+          "widget_ue_connectable": {
+            "text": true
+          }
+        },
+        "ver": "0.3.75"
+      },
+      "size": [
+        220,
+        90
+      ],
+      "type": "CLIPTextEncode",
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "flags": {
+        "collapsed": true
+      },
+      "id": 6,
+      "inputs": [
+        {
+          "link": 4,
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING"
+        }
+      ],
+      "mode": 0,
+      "order": 16,
+      "outputs": [
+        {
+          "links": [
+            5
+          ],
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "pos": [
+        -1720,
+        -1045
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut",
+        "cnr_id": "comfy-core",
+        "ue_properties": {
+          "input_ue_unconnectable": {},
+          "version": "7.5.1",
+          "widget_ue_connectable": {}
+        },
+        "ver": "0.3.75"
+      },
+      "size": [
+        255,
+        80
+      ],
+      "type": "ConditioningZeroOut",
+      "widgets_values": []
+    },
+    {
+      "bgcolor": "#535",
+      "color": "#323",
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "id": 7,
+      "inputs": [
+        {
+          "link": 54,
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "link": 55,
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 11,
+      "outputs": [
+        {
+          "links": [
+            33,
+            61
+          ],
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT"
+        }
+      ],
+      "pos": [
+        -2265,
+        -905
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage",
+        "cnr_id": "comfy-core",
+        "ue_properties": {
+          "input_ue_unconnectable": {},
+          "version": "7.5.1",
+          "widget_ue_connectable": {}
+        },
+        "ver": "0.3.75"
+      },
+      "size": [
+        210,
+        115
+      ],
+      "type": "EmptyLatentImage",
+      "widgets_values": [
+        1024,
+        1600,
+        1
+      ]
+    },
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 8,
+      "inputs": [
+        {
+          "link": 7,
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT"
+        },
+        {
+          "link": 8,
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE"
+        }
+      ],
+      "mode": 0,
+      "order": 22,
+      "outputs": [
+        {
+          "links": [
+            386,
+            391
+          ],
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE"
+        }
+      ],
+      "pos": [
+        -2040,
+        -200
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "cnr_id": "comfy-core",
+        "ue_properties": {
+          "input_ue_unconnectable": {},
+          "version": "7.5.1",
+          "widget_ue_connectable": {}
+        },
+        "ver": "0.3.75"
+      },
+      "size": [
+        160,
+        80
+      ],
+      "type": "VAEDecode",
+      "widgets_values": []
+    },
+    {
+      "bgcolor": "#353",
+      "color": "#232",
+      "flags": {
+        "pinned": true
+      },
+      "id": 27,
+      "inputs": [
+        {
+          "link": 30,
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL"
+        },
+        {
+          "link": 354,
+          "localized_name": "lora_name",
+          "name": "lora_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          }
+        },
+        {
+          "link": 373,
+          "localized_name": "strength_model",
+          "name": "strength_model",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 19,
+      "outputs": [
+        {
+          "links": [
+            36
+          ],
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL"
+        }
+      ],
+      "pos": [
+        -2175,
+        -445
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly",
+        "cnr_id": "comfy-core",
+        "ue_properties": {
+          "input_ue_unconnectable": {},
+          "version": "7.5.1",
+          "widget_ue_connectable": {}
+        },
+        "ver": "0.3.75"
+      },
+      "size": [
+        315,
+        95
+      ],
+      "type": "LoraLoaderModelOnly",
+      "widgets_values": [
+        "sketch portrait.safetensors",
+        1
+      ]
+    },
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 32,
+      "inputs": [
+        {
+          "link": 35,
+          "localized_name": "on_false",
+          "name": "on_false",
+          "type": "MODEL"
+        },
+        {
+          "link": 36,
+          "localized_name": "on_true",
+          "name": "on_true",
+          "type": "MODEL"
+        },
+        {
+          "link": 374,
+          "localized_name": "switch",
+          "name": "switch",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "switch"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 20,
+      "outputs": [
+        {
+          "links": [
+            37
+          ],
+          "localized_name": "output",
+          "name": "output",
+          "type": "MODEL"
+        }
+      ],
+      "pos": [
+        -1785,
+        -665
+      ],
+      "properties": {
+        "Node name for S&R": "ComfySwitchNode"
+      },
+      "size": [
+        270,
+        80
+      ],
+      "type": "ComfySwitchNode",
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "id": 37,
+      "inputs": [
+        {
+          "label": "prompt",
+          "link": 378,
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 9,
+      "outputs": [
+        {
+          "label": "PROMPT",
+          "links": [
+            48
+          ],
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING"
+        },
+        {
+          "label": "SEED",
+          "links": [
+            51
+          ],
+          "name": "INT",
+          "type": "INT"
+        },
+        {
+          "label": "STEPS",
+          "links": [
+            52
+          ],
+          "name": "INT_1",
+          "type": "INT"
+        },
+        {
+          "label": "WIDTH",
+          "links": [
+            54
+          ],
+          "name": "INT_2",
+          "type": "INT"
+        },
+        {
+          "label": "HEIGHT",
+          "links": [
+            55
+          ],
+          "name": "INT_3",
+          "type": "INT"
+        },
+        {
+          "label": "DIFFUSION_MODEL",
+          "links": [
+            57
+          ],
+          "name": "STRING_1",
+          "type": "STRING"
+        },
+        {
+          "label": "CFG",
+          "links": [
+            347
+          ],
+          "name": "FLOAT",
+          "type": "FLOAT"
+        },
+        {
+          "label": "SAMPLER_NAME",
+          "links": [
+            349
+          ],
+          "name": "STRING_2",
+          "type": "STRING"
+        },
+        {
+          "label": "SCHEDULER",
+          "links": [
+            350
+          ],
+          "name": "STRING_3",
+          "type": "STRING"
+        },
+        {
+          "label": "DENOISE",
+          "links": [
+            348
+          ],
+          "name": "FLOAT_1",
+          "type": "FLOAT"
+        },
+        {
+          "label": "LORA_NAME",
+          "links": [
+            353
+          ],
+          "name": "STRING_4",
+          "type": "STRING"
+        },
+        {
+          "label": "LORA_PRESENT",
+          "links": [
+            374
+          ],
+          "name": "BOOLEAN_1",
+          "type": "BOOLEAN"
+        },
+        {
+          "label": "LORA_STRENGTH",
+          "links": [
+            373
+          ],
+          "name": "FLOAT_3",
+          "type": "FLOAT"
+        }
+      ],
+      "pos": [
+        -3135,
+        -690
+      ],
+      "properties": {
+        "proxyWidgets": [
+          [
+            "70",
+            "Text"
+          ]
+        ]
+      },
+      "size": [
+        210,
+        320
+      ],
+      "type": "b03c82d6-4b39-4428-94cb-f7a1c901df15",
+      "widgets_values": []
+    },
+    {
+      "bgcolor": "#653",
+      "color": "#432",
+      "flags": {
+        "pinned": true
+      },
+      "id": 38,
+      "inputs": [],
+      "mode": 0,
+      "order": 4,
+      "outputs": [],
+      "pos": [
+        -3270,
+        -210
+      ],
+      "properties": {},
+      "size": [
+        680,
+        755
+      ],
+      "type": "MarkdownNote",
+      "widgets_values": [
+        "Prompt comments are supported.\nTags in prompts:\n\n| tag                 | default value                  |\n| ------------------- | ---                            |\n| @w1.width           | 1024                           |\n| @w1.height          | 1600                           |\n| @w1.seed            |                                |\n| @w1.steps           | 9                              |\n| @w1.diffusion_model | z_image_turbo_bf16.safetensors |\n| @w1.cfg             | 1.0                            |\n| @w1.sampler_name    | ddim                           |\n| @w1.scheduler       | sgm_uniform                    |\n| @w1.denoise         | 1.0                            |\n| @w1.lora_name       | empty string                   |\n| @w1.lora_strenght   | 1.0                            |"
+      ]
+    },
+    {
+      "flags": {
+        "collapsed": true
+      },
+      "id": 39,
+      "inputs": [
+        {
+          "link": 57,
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING"
+        }
+      ],
+      "mode": 0,
+      "order": 12,
+      "outputs": [
+        {
+          "links": [
+            56
+          ],
+          "localized_name": "any",
+          "name": "any",
+          "type": "*"
+        },
+        {
+          "links": null,
+          "localized_name": "show_help",
+          "name": "show_help",
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -2775,
+        -425
+      ],
+      "properties": {
+        "Node name for S&R": "CR String To Combo"
+      },
+      "size": [
+        215,
+        50
+      ],
+      "title": "diffusion_model to combo",
+      "type": "CR String To Combo",
+      "widgets_values": []
+    },
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 44,
+      "inputs": [
+        {
+          "link": 61,
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT"
+        },
+        {
+          "link": 389,
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 17,
+      "outputs": [],
+      "pos": [
+        -1465,
+        -75
+      ],
+      "properties": {},
+      "size": [
+        210,
+        60
+      ],
+      "type": "SaveLatent",
+      "widgets_values": [
+        "%date:yyyy-MM-dd%/W1 %date:yyyy-MM-dd hh-mm%F"
+      ]
+    },
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 251,
+      "inputs": [
+        {
+          "link": null,
+          "localized_name": "root_dir",
+          "name": "root_dir",
+          "type": "COMBO",
+          "widget": {
+            "name": "root_dir"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "file",
+          "name": "file",
+          "type": "COMBO",
+          "widget": {
+            "name": "file"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 0,
+      "outputs": [
+        {
+          "links": [
+            375
+          ],
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -3265,
+        -1260
+      ],
+      "properties": {
+        "Node name for S&R": "LoadText|pysssss"
+      },
+      "size": [
+        380,
+        85
+      ],
+      "title": "Load configuration",
+      "type": "LoadText|pysssss",
+      "widgets_values": [
+        "input",
+        "prompts/configs/w1-z_image_turbo_bf16.txt"
+      ]
+    },
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 252,
+      "inputs": [
+        {
+          "link": null,
+          "localized_name": "root_dir",
+          "name": "root_dir",
+          "type": "COMBO",
+          "widget": {
+            "name": "root_dir"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "file",
+          "name": "file",
+          "type": "COMBO",
+          "widget": {
+            "name": "file"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 1,
+      "outputs": [
+        {
+          "links": [
+            376
+          ],
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -3270,
+        -1115
+      ],
+      "properties": {
+        "Node name for S&R": "LoadText|pysssss"
+      },
+      "size": [
+        385,
+        85
+      ],
+      "title": "Load style",
+      "type": "LoadText|pysssss",
+      "widgets_values": [
+        "input",
+        "prompts/empty.txt"
+      ]
+    },
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 253,
+      "inputs": [
+        {
+          "link": null,
+          "localized_name": "root_dir",
+          "name": "root_dir",
+          "type": "COMBO",
+          "widget": {
+            "name": "root_dir"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "file",
+          "name": "file",
+          "type": "COMBO",
+          "widget": {
+            "name": "file"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 2,
+      "outputs": [
+        {
+          "links": [
+            377
+          ],
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -3265,
+        -975
+      ],
+      "properties": {
+        "Node name for S&R": "LoadText|pysssss"
+      },
+      "size": [
+        375,
+        90
+      ],
+      "title": "Load subject",
+      "type": "LoadText|pysssss",
+      "widgets_values": [
+        "input",
+        "prompts/empty.txt"
+      ]
+    },
+    {
+      "flags": {
+        "collapsed": true
+      },
+      "id": 276,
+      "inputs": [
+        {
+          "link": 349,
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING"
+        }
+      ],
+      "mode": 0,
+      "order": 13,
+      "outputs": [
+        {
+          "links": [
+            351
+          ],
+          "localized_name": "any",
+          "name": "any",
+          "type": "*"
+        },
+        {
+          "links": null,
+          "localized_name": "show_help",
+          "name": "show_help",
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -2425,
+        -695
+      ],
+      "properties": {
+        "Node name for S&R": "CR String To Combo"
+      },
+      "size": [
+        205,
+        50
+      ],
+      "title": "sampler_name to combo",
+      "type": "CR String To Combo",
+      "widgets_values": []
+    },
+    {
+      "flags": {
+        "collapsed": true
+      },
+      "id": 277,
+      "inputs": [
+        {
+          "link": 350,
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING"
+        }
+      ],
+      "mode": 0,
+      "order": 14,
+      "outputs": [
+        {
+          "links": [
+            352
+          ],
+          "localized_name": "any",
+          "name": "any",
+          "type": "*"
+        },
+        {
+          "links": null,
+          "localized_name": "show_help",
+          "name": "show_help",
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -2425,
+        -650
+      ],
+      "properties": {
+        "Node name for S&R": "CR String To Combo"
+      },
+      "size": [
+        200,
+        50
+      ],
+      "title": "scheduler to combo",
+      "type": "CR String To Combo",
+      "widgets_values": []
+    },
+    {
+      "flags": {
+        "collapsed": true
+      },
+      "id": 278,
+      "inputs": [
+        {
+          "link": 353,
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING"
+        }
+      ],
+      "mode": 0,
+      "order": 15,
+      "outputs": [
+        {
+          "links": [
+            354
+          ],
+          "localized_name": "any",
+          "name": "any",
+          "type": "*"
+        },
+        {
+          "links": null,
+          "localized_name": "show_help",
+          "name": "show_help",
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -2775,
+        -360
+      ],
+      "properties": {
+        "Node name for S&R": "CR String To Combo"
+      },
+      "size": [
+        200,
+        50
+      ],
+      "title": "lora_name to combo",
+      "type": "CR String To Combo",
+      "widgets_values": []
+    },
+    {
+      "flags": {
+        "collapsed": true
+      },
+      "id": 288,
+      "inputs": [
+        {
+          "link": null,
+          "localized_name": "action",
+          "name": "action",
+          "type": "COMBO",
+          "widget": {
+            "name": "action"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "tidy_tags",
+          "name": "tidy_tags",
+          "type": "COMBO",
+          "widget": {
+            "name": "tidy_tags"
+          }
+        },
+        {
+          "link": 375,
+          "localized_name": "text_a",
+          "name": "text_a",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "link": 376,
+          "localized_name": "text_b",
+          "name": "text_b",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "link": 377,
+          "localized_name": "text_c",
+          "name": "text_c",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "text_c"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 7,
+      "outputs": [
+        {
+          "links": [
+            378
+          ],
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -2840,
+        -1100
+      ],
+      "properties": {
+        "Node name for S&R": "StringFunction|pysssss"
+      },
+      "size": [
+        210,
+        195
+      ],
+      "title": "Prompt merger",
+      "type": "StringFunction|pysssss",
+      "widgets_values": [
+        "append",
+        "no",
+        "",
+        "",
+        "",
+        [
+          "@w1.diffusion_model:z_image_turbo_bf16.safetensors\n\n@w1.width:512,  @w1.height:768\n# @w1.width:1024, @w1.height:1600\n# @w1.width:2048, @w1.height:3200\n\n@w1.steps:5\n@w1.cfg:1.0\n@w1.denoise:1.0\n@w1.sampler_name:ddim\n@w1.scheduler:sgm_uniform\n"
+        ]
+      ]
+    },
+    {
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "id": 291,
+      "inputs": [
+        {
+          "link": null,
+          "localized_name": "date",
+          "name": "date",
+          "type": "COMBO",
+          "widget": {
+            "name": "date"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "date_directory",
+          "name": "date_directory",
+          "type": "COMBO",
+          "widget": {
+            "name": "date_directory"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "custom_directory",
+          "name": "custom_directory",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_directory"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "custom_text",
+          "name": "custom_text",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_text"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 6,
+      "outputs": [
+        {
+          "links": [
+            388
+          ],
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -1465,
+        80
+      ],
+      "properties": {
+        "Node name for S&R": "FileNamePrefix"
+      },
+      "size": [
+        210,
+        130
+      ],
+      "type": "FileNamePrefix",
+      "widgets_values": [
+        "true",
+        "true",
+        "",
+        ""
+      ]
+    },
+    {
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "id": 292,
+      "inputs": [
+        {
+          "link": 388,
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "regex_pattern",
+          "name": "regex_pattern",
+          "type": "STRING",
+          "widget": {
+            "name": "regex_pattern"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "replace",
+          "name": "replace",
+          "type": "STRING",
+          "widget": {
+            "name": "replace"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "case_insensitive",
+          "name": "case_insensitive",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "case_insensitive"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "multiline",
+          "name": "multiline",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "multiline"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "dotall",
+          "name": "dotall",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "dotall"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "count",
+          "name": "count",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "count"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 8,
+      "outputs": [
+        {
+          "links": [
+            389,
+            390
+          ],
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -1680,
+        -25
+      ],
+      "properties": {
+        "Node name for S&R": "RegexReplace"
+      },
+      "size": [
+        1205,
+        370
+      ],
+      "title": "Adjust file name",
+      "type": "RegexReplace",
+      "widgets_values": [
+        "",
+        "^(\\d{2})(\\d{2})(\\d{2})/(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})_?(.*)$",
+        "20\\1-\\2-\\3/W1 20\\1-\\2-\\3 \\7-\\8F",
+        true,
+        false,
+        false,
+        0
+      ]
+    },
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 298,
+      "inputs": [
+        {
+          "link": 386,
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE"
+        },
+        {
+          "link": null,
+          "localized_name": "positive_text_opt",
+          "name": "positive_text_opt",
+          "shape": 7,
+          "type": "STRING"
+        },
+        {
+          "link": null,
+          "localized_name": "negative_text_opt",
+          "name": "negative_text_opt",
+          "shape": 7,
+          "type": "STRING"
+        },
+        {
+          "link": 390,
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "filename_keys",
+          "name": "filename_keys",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_keys"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "foldername_prefix",
+          "name": "foldername_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "foldername_prefix"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "foldername_keys",
+          "name": "foldername_keys",
+          "type": "STRING",
+          "widget": {
+            "name": "foldername_keys"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "delimiter",
+          "name": "delimiter",
+          "type": "STRING",
+          "widget": {
+            "name": "delimiter"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "save_job_data",
+          "name": "save_job_data",
+          "type": "COMBO",
+          "widget": {
+            "name": "save_job_data"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "job_data_per_image",
+          "name": "job_data_per_image",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "job_data_per_image"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "job_custom_text",
+          "name": "job_custom_text",
+          "type": "STRING",
+          "widget": {
+            "name": "job_custom_text"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "save_metadata",
+          "name": "save_metadata",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "save_metadata"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "counter_digits",
+          "name": "counter_digits",
+          "type": "INT",
+          "widget": {
+            "name": "counter_digits"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "counter_position",
+          "name": "counter_position",
+          "type": "COMBO",
+          "widget": {
+            "name": "counter_position"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "one_counter_per_folder",
+          "name": "one_counter_per_folder",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "one_counter_per_folder"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "image_preview",
+          "name": "image_preview",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "image_preview"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "output_ext",
+          "name": "output_ext",
+          "type": "COMBO",
+          "widget": {
+            "name": "output_ext"
+          }
+        },
+        {
+          "link": null,
+          "localized_name": "quality",
+          "name": "quality",
+          "type": "INT",
+          "widget": {
+            "name": "quality"
+          }
+        }
+      ],
+      "mode": 0,
+      "order": 23,
+      "outputs": [],
+      "pos": [
+        -1230,
+        -210
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImageExtended"
+      },
+      "size": [
+        320,
+        730
+      ],
+      "type": "SaveImageExtended",
+      "widgets_values": [
+        "%F/W6 %F %H-%MF",
+        "",
+        "",
+        "",
+        "_",
+        "basic, models, sampler, prompt",
+        true,
+        "",
+        true,
+        5,
+        "last",
+        true,
+        true,
+        ".png",
+        100
+      ]
+    },
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 299,
+      "inputs": [
+        {
+          "link": 391,
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE"
+        }
+      ],
+      "mode": 0,
+      "order": 24,
+      "outputs": [],
+      "pos": [
+        -1675,
+        150
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "size": [
+        415,
+        350
+      ],
+      "type": "PreviewImage",
+      "widgets_values": []
+    }
+  ],
+  "revision": 0,
+  "version": 0.4
+}
