@@ -1,0 +1,23 @@
+#!/bin/bash +e
+
+for FILE in "$@"; do
+    echo '----------------------------------------'
+    WORKFLOW=`exiftool "$FILE" | grep Workflow | sed 's/Workflow *: //'`
+    PROMPT=`exiftool "$FILE" | grep Prompt | sed 's/Prompt *: //'`
+
+    if [ -z "$WORKFLOW" ] && [ -n "$PROMPT" ]; then
+        echo "$PROMPT" | jq -r '.. | objects | select((.class_type? == "ShowText|pysssss") and (._meta.title? | strings | startswith("Tag:"))) | ._meta.title + " = " + (.inputs.text_0? // "n/a")' | sort | sed "s/^Tag:/$FILE: Tags:             /"
+        echo "$PROMPT" | jq -r 'to_entries[] | select(.value._meta.title == "Prompt") | .value.inputs.text_0' | sed "s/^/$FILE: Prompt:            /"
+    else    # This is retro-compatibility.
+        echo $WORKFLOW | jq --arg node_name "ShowText|pysssss" '.nodes[] | select(.properties["Node name for S&R"]? == $node_name) | .widgets_values' | perl -pe 's/\\n/\n/g' | sed "s/^/$FILE: Prompt:            /"
+
+        echo $WORKFLOW | jq '.. | select((.type? == "ShowText|pysssss") and (.title? == "Prompt")) | .widgets_values[]'| perl -pe 's/\\n/\n/g' | sed "s/^/$FILE: Prompt:            /"
+        echo $WORKFLOW | jq '.. | select((.type? == "ShowText|pysssss") and (.title? | startswith("Tag:"))) | .title + " " + .widgets_values[]' | sed "s/^/$FILE: Tags:              /" | sort
+        echo $WORKFLOW | jq '.. | select(.type? == "CheckpointLoaderSimple").widgets_values[0]?' | sed "s/^/$FILE: Checkpoint loader (BROKEN): /"
+        echo $WORKFLOW | jq '.. | select(.type? == "KSampler")
+                               | "\(.title)  \(.widgets_values[0] // "n.a.")  sampler: \(.widgets_values[4] // "n.a.")  scheduler: \(.widgets_values[5] // "n.a.")  steps: \(.widgets_values[2] // "n.a.")  cfg: \(.widgets_values[3] // "n.a.")  denoise: \(.widgets_values[6] // "n.a.")"
+                             ' | sed "s/^/$FILE: KSamplers:         /"
+        # echo $WORKFLOW | jq -r ' .nodes[] | select(.title == "Loaded Prompt") | .widgets_values[5][0] ' | perl -pe 's/\\n/\n/g' | sed "s/^/$FILE: Prompt:            /"
+        exiftool -Prompt -b "$FILE"  | jq -r ' to_entries[] | select(.value._meta.title == "Loaded Prompt") | .value.inputs.result.__value__[0] ' | perl -pe 's/\\n/\n/g' | sed "s/^/$FILE: Prompt:            /"
+        fi
+    done
