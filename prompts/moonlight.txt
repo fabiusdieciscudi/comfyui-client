@@ -1,0 +1,12 @@
+Painting of a nocturnal landscape,
+in the style of late romanticism,
+a wood,
+with fully visible, very dense oaks profiles,
+full moon,
+many heavy stormy clouds in the sky,
+a high hill profile at a distance,
+intense darkness.
+Vignetting effect.
+
+@w1.width:1600, @w1.height:1024, @w1.steps:5
+@w1.seed:268876620348332

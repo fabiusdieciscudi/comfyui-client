@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: © 2026-present Fabius Dieciscudi
+# SPDX-License-Identifier: MIT
+SHELL 		:= bash
+VENV  		:= .venv
+
+.PHONY: venv-prepare venv-init venv-clean venv-bash pip-install-tools pip-install pip-compile pip-audit pip-freeze
+
+venv-prepare: venv-clean venv-init pip-install-tools pip-install
+	@true
+
+venv-init:
+	python3 -m venv $(VENV)
+
+venv-clean:
+	rm -rfv $(VENV)
+
+venv-bash:
+	bash --rcfile <(echo "source $(VENV)/bin/activate") -i
+
+pip-install-tools:
+	source $(VENV)/bin/activate && pip install --upgrade pip
+	source $(VENV)/bin/activate && pip install pip-tools pip-audit
+
+pip-install:
+	source $(VENV)/bin/activate && pip install -r requirements.txt --require-hashes
+	source $(VENV)/bin/activate && pip install -e .
+
+pip-compile:
+	source $(VENV)/bin/activate && pip-compile --generate-hashes requirements.in -o requirements.txt
+
+pip-audit:
+	source $(VENV)/bin/activate && pip-audit
+
+pip-freeze:
+	source $(VENV)/bin/activate && pip freeze
