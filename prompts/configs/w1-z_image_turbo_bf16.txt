@@ -1,0 +1,17 @@
+@w1.diffusion_model:z_image_turbo_bf16.safetensors
+@w1.width:1024 @w1.height:1024
+@w1.steps:9
+@w1.cfg:1.0
+@w1.denoise:1.0
+@w1.clip_name:qwen_3_4b.safetensors
+@w1.clip_type:qwen_image
+@w1.vae_name:ae.safetensors
+@w1.sampler_name:ddim
+@w1.scheduler:sgm_uniform
+
+@w1.up_model:4x_NickelbackFS_72000_G.pth
+@w1.up_steps:25
+@w1.up_cfg:1.0
+@w1.up_denoise:0.4
+@w1.up_sampler_name:dpmpp_2m_sde
+@w1.up_scheduler:karras

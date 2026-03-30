@@ -1,0 +1,1902 @@
+{
+  "2": {
+    "inputs": {
+      "clip_name": [
+        "37:334:309",
+        0
+      ],
+      "type": [
+        "37:334:311",
+        0
+      ],
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "3": {
+    "inputs": {
+      "vae_name": [
+        "37:334:310",
+        0
+      ]
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "4": {
+    "inputs": {
+      "seed": [
+        "37:348:45",
+        0
+      ],
+      "steps": [
+        "37:393:367:48",
+        0
+      ],
+      "cfg": [
+        "37:393:368:256",
+        1
+      ],
+      "sampler_name": [
+        "276",
+        0
+      ],
+      "scheduler": [
+        "277",
+        0
+      ],
+      "denoise": [
+        "37:393:372:268",
+        1
+      ],
+      "model": [
+        "363:32",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": [
+        "37:371:42",
+        0
+      ],
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "6": {
+    "inputs": {
+      "conditioning": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "7": {
+    "inputs": {
+      "width": [
+        "37:393:366:55",
+        0
+      ],
+      "height": [
+        "37:393:370:56",
+        0
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "39": {
+    "inputs": {
+      "text": [
+        "37:393:369:68",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "diffusion_model to combo"
+    }
+  },
+  "44": {
+    "inputs": {
+      "filename_prefix": [
+        "362:292",
+        0
+      ],
+      "samples": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "SaveLatent",
+    "_meta": {
+      "title": "SaveLatent"
+    }
+  },
+  "251": {
+    "inputs": {
+      "root_dir": "input",
+      "file": "prompts/empty.txt"
+    },
+    "class_type": "LoadText|pysssss",
+    "_meta": {
+      "title": "Load configuration"
+    }
+  },
+  "252": {
+    "inputs": {
+      "root_dir": "input",
+      "file": "prompts/empty.txt"
+    },
+    "class_type": "LoadText|pysssss",
+    "_meta": {
+      "title": "Load style"
+    }
+  },
+  "253": {
+    "inputs": {
+      "root_dir": "input",
+      "file": "prompts/empty.txt"
+    },
+    "class_type": "LoadText|pysssss",
+    "_meta": {
+      "title": "Load subject"
+    }
+  },
+  "276": {
+    "inputs": {
+      "text": [
+        "37:393:374:262",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "sampler_name to combo"
+    }
+  },
+  "277": {
+    "inputs": {
+      "text": [
+        "37:393:373:266",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "scheduler to combo"
+    }
+  },
+  "278": {
+    "inputs": {
+      "text": [
+        "37:334:274",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "lora_name to combo"
+    }
+  },
+  "288": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "no",
+      "text_a": [
+        "251",
+        0
+      ],
+      "text_b": [
+        "252",
+        0
+      ],
+      "text_c": [
+        "253",
+        0
+      ],
+      "result": {
+        "__value__": [
+          "@w1.diffusion_model:z_image_turbo_bf16.safetensors\n@w1.width:1024 @w1.height:1024\n@w1.steps:9\n@w1.cfg:1.0\n@w1.denoise:1.0\n@w1.clip_name:qwen_3_4b.safetensors\n@w1.clip_type:qwen_image\n@w1.vae_name:ae.safetensors\n@w1.sampler_name:ddim\n@w1.scheduler:sgm_uniform\n\n@w1.up_model:4x_NickelbackFS_72000_G.pth\n@w1.up_steps:25\n@w1.up_cfg:1.0\n@w1.up_denoise:0.4\n@w1.up_sampler_name:dpmpp_2m_sde\n@w1.up_scheduler:karras\nA cat.\n\n@w1.steps:1\n@w1.up_steps:1\n\n@w1.up_width:1536\n@w1.up_height:1536\n@w1.up_model:4x_NickelbackFS_72000_G.pth"
+        ]
+      }
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "Prompt merger"
+    }
+  },
+  "298": {
+    "inputs": {
+      "filename_prefix": [
+        "362:292",
+        0
+      ],
+      "filename_keys": "",
+      "foldername_prefix": "",
+      "foldername_keys": "",
+      "delimiter": "_",
+      "save_job_data": "disabled",
+      "job_data_per_image": true,
+      "job_custom_text": "",
+      "save_metadata": true,
+      "counter_digits": 5,
+      "counter_position": "last",
+      "one_counter_per_folder": true,
+      "image_preview": true,
+      "output_ext": ".png",
+      "quality": 100,
+      "images": [
+        "364",
+        0
+      ]
+    },
+    "class_type": "SaveImageExtended",
+    "_meta": {
+      "title": "💾 Save Image Extended"
+    }
+  },
+  "299": {
+    "inputs": {
+      "images": [
+        "364",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "314": {
+    "inputs": {
+      "Text": ""
+    },
+    "class_type": "DF_Text",
+    "_meta": {
+      "title": "Keywords"
+    }
+  },
+  "364": {
+    "inputs": {
+      "switch": [
+        "37:356:357",
+        0
+      ],
+      "on_false": [
+        "8",
+        0
+      ],
+      "on_true": [
+        "318:315",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Switch"
+    }
+  },
+  "390": {
+    "inputs": {
+      "text": [
+        "37:381:389",
+        1
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "up_sampler_name to combo"
+    }
+  },
+  "391": {
+    "inputs": {
+      "text": [
+        "37:382:388",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "up_scheduler to combo"
+    }
+  },
+  "392": {
+    "inputs": {
+      "text": [
+        "37:386:387",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "up_model to combo"
+    }
+  },
+  "362:291": {
+    "inputs": {
+      "date": "true",
+      "date_directory": "true",
+      "custom_directory": "",
+      "custom_text": ""
+    },
+    "class_type": "FileNamePrefix",
+    "_meta": {
+      "title": "File Name Prefix (Mikey)"
+    }
+  },
+  "362:292": {
+    "inputs": {
+      "string": [
+        "362:291",
+        0
+      ],
+      "regex_pattern": "^(\\d{2})(\\d{2})(\\d{2})/(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})_?(.*)$",
+      "replace": "20\\1-\\2-\\3/W1 20\\1-\\2-\\3 \\7-\\8F",
+      "case_insensitive": true,
+      "multiline": false,
+      "dotall": false,
+      "count": 0
+    },
+    "class_type": "RegexReplace",
+    "_meta": {
+      "title": "Adjust file name"
+    }
+  },
+  "37:371:42": {
+    "inputs": {
+      "text_0": "A cat.\n\n",
+      "text": [
+        "37:371:57",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Prompt"
+    }
+  },
+  "37:371:57": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "@[^:\\s]+(:[^,\\s]+)*\\s*[,]*",
+      "Replace_With": "",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Strip tags"
+    }
+  },
+  "37:334:280": {
+    "inputs": {
+      "Text": [
+        "37:334:282",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1.0",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:334:275": {
+    "inputs": {
+      "Text": [
+        "37:334:273",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:334:281": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:334:279",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:334:286": {
+    "inputs": {
+      "text": [
+        "37:334:285",
+        0
+      ]
+    },
+    "class_type": "CR String To Boolean",
+    "_meta": {
+      "title": "Cast to boolean"
+    }
+  },
+  "37:334:282": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.lora_strength:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract lora_strength"
+    }
+  },
+  "37:334:279": {
+    "inputs": {
+      "text_0": "1.0",
+      "text": [
+        "37:334:280",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.lora_strength"
+    }
+  },
+  "37:334:285": {
+    "inputs": {
+      "text_0": "false",
+      "text": [
+        "37:334:287",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.lora_present"
+    }
+  },
+  "37:334:273": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.lora_name:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract lora_name"
+    }
+  },
+  "37:334:306": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.vae_name:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract vae_name"
+    }
+  },
+  "37:334:302": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.clip_name:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract clip_name"
+    }
+  },
+  "37:334:303": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.clip_type:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract clip_type"
+    }
+  },
+  "37:334:307": {
+    "inputs": {
+      "Text": [
+        "37:334:306",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "ae.safetensors",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:334:304": {
+    "inputs": {
+      "Text": [
+        "37:334:303",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "qwen_image",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:334:301": {
+    "inputs": {
+      "Text": [
+        "37:334:302",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "qwen_3_4b.safetensors",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:334:300": {
+    "inputs": {
+      "text_0": "qwen_3_4b.safetensors",
+      "text": [
+        "37:334:301",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.clip_name"
+    }
+  },
+  "37:334:305": {
+    "inputs": {
+      "text_0": "qwen_image",
+      "text": [
+        "37:334:304",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.clip_type"
+    }
+  },
+  "37:334:308": {
+    "inputs": {
+      "text_0": "ae.safetensors",
+      "text": [
+        "37:334:307",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.vae_name"
+    }
+  },
+  "37:334:311": {
+    "inputs": {
+      "text": [
+        "37:334:305",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "Convert clip_ type"
+    }
+  },
+  "37:334:310": {
+    "inputs": {
+      "text": [
+        "37:334:308",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "Convert vae_name"
+    }
+  },
+  "37:334:287": {
+    "inputs": {
+      "Text": [
+        "37:334:284",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "false",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:334:274": {
+    "inputs": {
+      "text": [
+        "37:334:275",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.lora_name"
+    }
+  },
+  "37:334:284": {
+    "inputs": {
+      "Text": [
+        "37:334:274",
+        0
+      ],
+      "Pattern": "^.+$",
+      "Replace_With": "true",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:334:309": {
+    "inputs": {
+      "text": [
+        "37:334:300",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "Convert clip_ name"
+    }
+  },
+  "37:343:328": {
+    "inputs": {
+      "Text": [
+        "37:343:332",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "9",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value for up_steps"
+    }
+  },
+  "37:343:325": {
+    "inputs": {
+      "text_0": "1",
+      "text": [
+        "37:343:328",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.up_steps"
+    }
+  },
+  "37:343:322": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:343:325",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:343:332": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.up_steps:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract up_steps"
+    }
+  },
+  "37:356:354": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.up_width:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract up_width"
+    }
+  },
+  "37:356:355": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:356:353",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:356:352": {
+    "inputs": {
+      "Text": [
+        "37:356:354",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "0",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value for up_width"
+    }
+  },
+  "37:356:358": {
+    "inputs": {
+      "text_0": "true",
+      "text": [
+        "37:356:359",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.up_width_present"
+    }
+  },
+  "37:356:353": {
+    "inputs": {
+      "text_0": "1536",
+      "text": [
+        "37:356:352",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.up_width"
+    }
+  },
+  "37:356:357": {
+    "inputs": {
+      "text": [
+        "37:356:358",
+        0
+      ]
+    },
+    "class_type": "CR String To Boolean",
+    "_meta": {
+      "title": "Cast to boolean"
+    }
+  },
+  "37:356:360": {
+    "inputs": {
+      "Text": [
+        "37:356:353",
+        0
+      ],
+      "Pattern": "^0$",
+      "Replace_With": "false",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:356:359": {
+    "inputs": {
+      "Text": [
+        "37:356:360",
+        0
+      ],
+      "Pattern": "^(?!false$).*",
+      "Replace_With": "true",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:386:383": {
+    "inputs": {
+      "Text": [
+        "37:386:385",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "4x_NickelbackFS_72000_G.pth",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value for up_model"
+    }
+  },
+  "37:386:385": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.up_model:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract up_model"
+    }
+  },
+  "37:386:387": {
+    "inputs": {
+      "text": [
+        "37:386:384",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "🔧 CR String To Combo"
+    }
+  },
+  "37:386:384": {
+    "inputs": {
+      "text_0": "4x_NickelbackFS_72000_G.pth",
+      "text": [
+        "37:386:383",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.up_model"
+    }
+  },
+  "37:346:336": {
+    "inputs": {
+      "Text": [
+        "37:346:338",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1.0",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value for up_cfg"
+    }
+  },
+  "37:346:335": {
+    "inputs": {
+      "text_0": "1.0",
+      "text": [
+        "37:346:336",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.up_cfg"
+    }
+  },
+  "37:346:338": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.up_cfg:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract up_cfg"
+    }
+  },
+  "37:346:337": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:346:335",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:347:341": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.up_denoise:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract up_denoise"
+    }
+  },
+  "37:347:340": {
+    "inputs": {
+      "Text": [
+        "37:347:341",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1.0",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value for up_denoise"
+    }
+  },
+  "37:347:339": {
+    "inputs": {
+      "text_0": "0.4",
+      "text": [
+        "37:347:340",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.up_denoise"
+    }
+  },
+  "37:347:342": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:347:339",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:381:375": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.up_sampler_name:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract up_sampler_name"
+    }
+  },
+  "37:381:376": {
+    "inputs": {
+      "Text": [
+        "37:381:375",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "dpmpp_2m_sde",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value for up_sampler_name"
+    }
+  },
+  "37:381:377": {
+    "inputs": {
+      "text_0": "dpmpp_2m_sde",
+      "text": [
+        "37:381:376",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.up_sampler_name"
+    }
+  },
+  "37:381:389": {
+    "inputs": {
+      "text": [
+        "37:381:377",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "up_sampler_name to combo"
+    }
+  },
+  "37:382:378": {
+    "inputs": {
+      "Text": [
+        "37:382:380",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "karras",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value for up_scheduler"
+    }
+  },
+  "37:382:379": {
+    "inputs": {
+      "text_0": "karras",
+      "text": [
+        "37:382:378",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.up_scheduler"
+    }
+  },
+  "37:382:380": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.up_scheduler:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract up_scheduler"
+    }
+  },
+  "37:382:388": {
+    "inputs": {
+      "text": [
+        "37:382:379",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "up_scheduler to combo"
+    }
+  },
+  "37:345:329": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.up_height:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract up_height"
+    }
+  },
+  "37:345:323": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:345:333",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:345:333": {
+    "inputs": {
+      "text_0": "1536",
+      "text": [
+        "37:345:327",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.up_height"
+    }
+  },
+  "37:345:327": {
+    "inputs": {
+      "Text": [
+        "37:345:329",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "0",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value for up_height"
+    }
+  },
+  "37:70": {
+    "inputs": {
+      "Text": [
+        "288",
+        0
+      ],
+      "Pattern": "^\\s*#.*\\n",
+      "Replace_With": "",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Strip entire comment lines"
+    }
+  },
+  "37:348:45": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:348:60",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:348:61": {
+    "inputs": {
+      "Text": [
+        "37:348:46",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "56234532624987",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:348:60": {
+    "inputs": {
+      "text_0": "56234532624987",
+      "text": [
+        "37:348:61",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.seed"
+    }
+  },
+  "37:348:46": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.seed:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract seed"
+    }
+  },
+  "37:66": {
+    "inputs": {
+      "Text": [
+        "37:70",
+        0
+      ],
+      "Pattern": "#.*$",
+      "Replace_With": "",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Strip comments"
+    }
+  },
+  "37:393:374:261": {
+    "inputs": {
+      "Text": "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+      "Pattern": "^(?:[\\s\\S]*@w1\\.sampler_name:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract sampler_name"
+    }
+  },
+  "37:393:374:263": {
+    "inputs": {
+      "Text": [
+        "37:393:374:261",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "ddim",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:393:374:262": {
+    "inputs": {
+      "text_0": "ddim",
+      "text": [
+        "37:393:374:263",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.sampler_name"
+    }
+  },
+  "37:393:373:267": {
+    "inputs": {
+      "Text": [
+        "37:393:373:265",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "sgm_uniform",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:393:373:266": {
+    "inputs": {
+      "text_0": "sgm_uniform",
+      "text": [
+        "37:393:373:267",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.scheduler"
+    }
+  },
+  "37:393:373:265": {
+    "inputs": {
+      "Text": "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+      "Pattern": "^(?:[\\s\\S]*@w1\\.scheduler:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract scheduler"
+    }
+  },
+  "37:393:368:259": {
+    "inputs": {
+      "Text": [
+        "37:393:368:257",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1.0",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:393:368:256": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:393:368:258",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:393:368:257": {
+    "inputs": {
+      "Text": "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+      "Pattern": "^(?:[\\s\\S]*@w1\\.cfg:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract cfg"
+    }
+  },
+  "37:393:368:258": {
+    "inputs": {
+      "text_0": "1.0",
+      "text": [
+        "37:393:368:259",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.cfg"
+    }
+  },
+  "37:393:369:67": {
+    "inputs": {
+      "Text": [
+        "37:393:369:69",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "z_image_turbo_bf16.safetensors",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:393:369:68": {
+    "inputs": {
+      "text_0": "z_image_turbo_bf16.safetensors",
+      "text": [
+        "37:393:369:67",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.diffusion_model"
+    }
+  },
+  "37:393:369:69": {
+    "inputs": {
+      "Text": "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+      "Pattern": "^(?:[\\s\\S]*@w1\\.diffusion_model:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract diffusion_model"
+    }
+  },
+  "37:393:370:56": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:393:370:59",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:393:370:62": {
+    "inputs": {
+      "Text": [
+        "37:393:370:54",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1600",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:393:370:54": {
+    "inputs": {
+      "Text": "",
+      "Pattern": "^(?:[\\s\\S]*@w1\\.height:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract height"
+    }
+  },
+  "37:393:370:59": {
+    "inputs": {
+      "text_0": "1600",
+      "text": [
+        "37:393:370:62",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.height"
+    }
+  },
+  "37:393:366:53": {
+    "inputs": {
+      "Text": "",
+      "Pattern": "^(?:[\\s\\S]*@w1\\.width:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract width"
+    }
+  },
+  "37:393:366:64": {
+    "inputs": {
+      "Text": [
+        "37:393:366:53",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1024",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:393:366:58": {
+    "inputs": {
+      "text_0": "1024",
+      "text": [
+        "37:393:366:64",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.width"
+    }
+  },
+  "37:393:366:55": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:393:366:58",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:393:367:48": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:393:367:51",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "37:393:367:63": {
+    "inputs": {
+      "Text": [
+        "37:393:367:47",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "9",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:393:367:47": {
+    "inputs": {
+      "Text": "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+      "Pattern": "^(?:[\\s\\S]*@w1\\.steps:([0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract steps"
+    }
+  },
+  "37:393:367:51": {
+    "inputs": {
+      "text_0": "9",
+      "text": [
+        "37:393:367:63",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.steps"
+    }
+  },
+  "37:393:372:270": {
+    "inputs": {
+      "text_0": "1.0",
+      "text": [
+        "37:393:372:271",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.denoise"
+    }
+  },
+  "37:393:372:271": {
+    "inputs": {
+      "Text": [
+        "37:393:372:269",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "1.0",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:393:372:269": {
+    "inputs": {
+      "Text": "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+      "Pattern": "^(?:[\\s\\S]*@w1\\.denoise:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract denoise"
+    }
+  },
+  "37:393:372:268": {
+    "inputs": {
+      "round_integer": "round",
+      "text": [
+        "37:393:372:270",
+        0
+      ]
+    },
+    "class_type": "CR String To Number",
+    "_meta": {
+      "title": "Cast to integer"
+    }
+  },
+  "363:27": {
+    "inputs": {
+      "lora_name": [
+        "278",
+        0
+      ],
+      "strength_model": [
+        "37:334:281",
+        1
+      ],
+      "model": [
+        "363:1",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "363:32": {
+    "inputs": {
+      "switch": [
+        "37:334:286",
+        0
+      ],
+      "on_false": [
+        "363:1",
+        0
+      ],
+      "on_true": [
+        "363:27",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Switch"
+    }
+  },
+  "363:1": {
+    "inputs": {
+      "unet_name": [
+        "39",
+        0
+      ],
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "318:315": {
+    "inputs": {
+      "samples": [
+        "318:52",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "318:316": {
+    "inputs": {
+      "tile_size": 512,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8,
+      "pixels": [
+        "318:50",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "VAEEncodeTiled",
+    "_meta": {
+      "title": "VAE Encode (Tiled)"
+    }
+  },
+  "318:49": {
+    "inputs": {
+      "upscale_model": [
+        "318:317",
+        0
+      ],
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "ImageUpscaleWithModel",
+    "_meta": {
+      "title": "Upscale Image (using Model)"
+    }
+  },
+  "318:317": {
+    "inputs": {
+      "model_name": [
+        "392",
+        0
+      ]
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "318:52": {
+    "inputs": {
+      "seed": [
+        "37:348:45",
+        0
+      ],
+      "steps": [
+        "37:343:322",
+        0
+      ],
+      "cfg": [
+        "37:346:337",
+        1
+      ],
+      "sampler_name": [
+        "390",
+        0
+      ],
+      "scheduler": [
+        "391",
+        0
+      ],
+      "denoise": [
+        "37:347:342",
+        1
+      ],
+      "model": [
+        "363:32",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "318:316",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Upscale KSampler"
+    }
+  },
+  "318:50": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "width": [
+        "37:356:355",
+        0
+      ],
+      "height": [
+        "37:345:323",
+        0
+      ],
+      "crop": "disabled",
+      "image": [
+        "318:49",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
+    }
+  }
+}

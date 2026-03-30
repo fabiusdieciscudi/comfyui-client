@@ -1,0 +1,11 @@
+@w1.diffusion_model:flux2_dev_fp8mixed.safetensors
+@w1.clip_name:mistral_3_small_flux2_bf16.safetensors
+@w1.clip_type:flux2
+@w1.vae_name:flux2-vae.safetensors
+
+@w1.width:768 @w1.height:1152
+@w1.steps:25
+@w1.cfg:1.0
+@w1.denoise:1.0
+@w1.sampler_name:euler
+@w1.scheduler:simple
