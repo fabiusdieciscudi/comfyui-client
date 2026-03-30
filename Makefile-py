@@ -19,6 +19,7 @@ pip-install-tools:
 
 pip-install:
 	source $(VENV)/bin/activate && pip install -r requirements.txt --require-hashes
+	source $(VENV)/bin/activate && pip install -e .
 
 pip-compile:
 	source $(VENV)/bin/activate && pip-compile --generate-hashes requirements.in -o requirements.txt
