@@ -37,8 +37,7 @@ output: build
 	mkdir -p $(OUTPUT)
 
 cat: output
-# 	$(CLIENT) $(Z_IMAGE_T) --prompt "A cat" $(OPTIONS)
-	$(CLIENT) $(Z_IMAGE_T) --prompt "A cat" --output-dir $(OUTPUT) $(OPTIONS)
+	$(CLIENT) $(Z_IMAGE_T) --prompt "A cat" $(OPTIONS)
 
 prompt:
 	$(CLIENT) Client.py $(Z_IMAGE_T) --prompt "$(PROMPT)" $(OPTIONS)
