@@ -249,7 +249,7 @@ def submit(args):
 
     print("\n=== BATCH COMPLETE ===")
 
-class EchoCheckerCommand(CommandBase):
+class SubmitCommand(CommandBase):
 
     def name(self) -> str:
         return "submit"
@@ -262,7 +262,6 @@ class EchoCheckerCommand(CommandBase):
         parser.add_argument("--w1",           action="store_true", help="Use the built-in W1 workflow and its default config file.")
         parser.add_argument("--comfyui",      default="http://127.0.0.1:8000")
         parser.add_argument("--scale",        type=float, default=1.0, help="Multiply width and height by this factor")
-        parser.add_argument("--dry-run",      action="store_true")
         parser.add_argument("--no-wait",      action="store_true", help="Don't wait for each job to finish before submitting the next")
 
     def _run(self, args, path: Path) -> None:
