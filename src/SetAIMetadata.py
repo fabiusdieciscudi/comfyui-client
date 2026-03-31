@@ -50,6 +50,7 @@ def exiftool_write(path: Path, keywords: list[str], hierarchicals: list[str]) ->
         args += [f"-XMP-lr:HierarchicalSubject-={h}", f"-XMP-lr:HierarchicalSubject+={h}"]
 
     args.append(str(path))
+    print(args)
     subprocess.run(args, capture_output=True, check=True)
 
 
@@ -164,9 +165,7 @@ def process_file(path: Path) -> None:
 
     print(f"=== {path} ===")
     for parent, child, hier in keywords:
-        print(f"  - Keyword: {parent}")
-        print(f"  - Keyword: {child}")
-        print(f"  → Hierarchy: {hier}")
+        print(f"  + Hierarchy: {hier}")
 
     try:
         exiftool_write(path, flat_keywords, hierarchicals)
