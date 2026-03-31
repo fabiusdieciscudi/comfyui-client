@@ -1,0 +1,9 @@
+#!/bin/bash
+# SPDX-FileCopyrightText: © 2026-present Fabius Dieciscudi
+# SPDX-License-Identifier: MIT
+set -euo pipefail
+
+COMFYUI_CLIENT=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
+source "$COMFYUI_CLIENT/.venv/bin/activate"
+python "$COMFYUI_CLIENT/src/SetAIMetadata.py" "$@"
+deactivate
