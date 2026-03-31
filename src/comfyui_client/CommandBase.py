@@ -41,18 +41,8 @@ class CommandBase(ABC):
         log(f"Command performed in {self._duration / 1_000_000_000:.1f} sec.")
 
     def run(self, args) -> None:
-        path = args.path
-        resolved = Path(path).resolve()
-        if not resolved.exists():
-            error(f"Doesn't exist: {path}")
-            return
-
         try:
             self._prepare()
-            if resolved.is_file():
-                self._run(args, resolved)
-            elif resolved.is_dir():
-                for txt_path in sorted(resolved.rglob("*.txt")):
-                    self._run(args, txt_path)
+            self._run(args)
         finally:
             self._finish()
