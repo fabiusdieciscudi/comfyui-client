@@ -5,5 +5,5 @@ set -euo pipefail
 
 COMFYUI_CLIENT=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 source "$COMFYUI_CLIENT/.venv/bin/activate"
-python "$COMFYUI_CLIENT/src/ComfyUIClient.py" "$@"
+python "$COMFYUI_CLIENT/src/comfyui_client/ComfyUIClient.py" "$@"
 deactivate

@@ -10,7 +10,7 @@ import time
 import requests
 from pathlib import Path
 from itertools import product
-
+from CommandBase import CommandBase
 
 DEFAULT_WORKFLOW_PATH = "w1_workflow_api.json"
 W1_WORKFLOW_PATH = Path(__file__).parent.parent / "workflows" / "api" / "W1 (diffusion based).json"
@@ -178,20 +178,7 @@ def parse_range_arg(arg: str):
     return key, value_list
 
 
-def main():
-    parser = argparse.ArgumentParser(description="W1 Batch Runner for ComfyUI")
-    parser.add_argument("--prompt-file",  action="append", default=[], help="Path to a prompt text file (repeatable, concatenated).")
-    parser.add_argument("--prompt",       action="append", default=[], help="Additional inline prompt text (repeatable, concatenated after --prompt-file content).")
-    parser.add_argument("--range",        action="append", default=[], help="Tag sweep, e.g. w1.seed=123,456 or @w1.steps=5,8")
-    parser.add_argument("--workflow",     default=DEFAULT_WORKFLOW_PATH)
-    parser.add_argument("--w1",           action="store_true", help="Use the built-in W1 workflow and its default config file.")
-    parser.add_argument("--comfyui",      default="http://127.0.0.1:8000")
-    parser.add_argument("--scale",        type=float, default=1.0, help="Multiply width and height by this factor")
-    parser.add_argument("--dry-run",      action="store_true")
-    parser.add_argument("--no-wait",      action="store_true", help="Don't wait for each job to finish before submitting the next")
-
-    args = parser.parse_args()
-
+def submit(args):
     # --w1 injects the bundled config as an implicit leading prompt file
     if args.w1:
         if not hasattr(args, 'workflow') or args.workflow == DEFAULT_WORKFLOW_PATH:
@@ -262,6 +249,21 @@ def main():
 
     print("\n=== BATCH COMPLETE ===")
 
+class EchoCheckerCommand(CommandBase):
 
-if __name__ == "__main__":
-    main()
+    def name(self) -> str:
+        return "submit"
+
+    def process_args(self, parser: argparse.ArgumentParser) -> None:
+        parser.add_argument("--prompt-file",  action="append", default=[], help="Path to a prompt text file (repeatable, concatenated).")
+        parser.add_argument("--prompt",       action="append", default=[], help="Additional inline prompt text (repeatable, concatenated after --prompt-file content).")
+        parser.add_argument("--range",        action="append", default=[], help="Tag sweep, e.g. w1.seed=123,456 or @w1.steps=5,8")
+        parser.add_argument("--workflow",     default=DEFAULT_WORKFLOW_PATH)
+        parser.add_argument("--w1",           action="store_true", help="Use the built-in W1 workflow and its default config file.")
+        parser.add_argument("--comfyui",      default="http://127.0.0.1:8000")
+        parser.add_argument("--scale",        type=float, default=1.0, help="Multiply width and height by this factor")
+        parser.add_argument("--dry-run",      action="store_true")
+        parser.add_argument("--no-wait",      action="store_true", help="Don't wait for each job to finish before submitting the next")
+
+    def _run(self, args, path: Path) -> None:
+        submit(args)
