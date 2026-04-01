@@ -46,8 +46,11 @@ TAG_NODE_TITLES = {
     "sampler_name":    "Tag: w1.sampler_name",
     "scheduler":       "Tag: w1.scheduler",
     "diffusion_model": "Tag: w1.diffusion_model",
+    "clip_name":       "Tag: w1.clip_name",
+    "clip_type":       "Tag: w1.clip_type",
+    "vae_name":        "Tag: w1.vae_name",
     "lora_name":       "Tag: w1.lora_name",
-    "lora_strenght":   "Tag: w1.lora_strenght",
+    "lora_strength":   "Tag: w1.lora_strength",
 }
 
 TAG_PATTERNS = {
@@ -60,8 +63,11 @@ TAG_PATTERNS = {
     "sampler_name":    r"@w1\.sampler_name:([0-9A-Za-z_\.-]+)",
     "scheduler":       r"@w1\.scheduler:([0-9A-Za-z_\.]+)",
     "diffusion_model": r"@w1\.diffusion_model:([0-9A-Za-z_\.-]+)",
+    "clip_name":       r"@w1\.clip_name:([0-9A-Za-z_\.-]+)",
+    "clip_type":       r"@w1\.clip_type:([0-9A-Za-z_\.-]+)",
+    "vae_name":        r"@w1\.vae_name:([0-9A-Za-z_\.-]+)",
     "lora_name":       r"@w1\.lora_name:([0-9A-Za-z_\.-]+)",
-    "lora_strenght":   r"@w1\.lora_strenght:([0-9]*\.[0-9]+)",
+    "lora_strength":   r"@w1\.lora_strength:([0-9]*\.[0-9]+)",
     "aspect":          r"@aspect:([0-9]*\.[0-9]+)",
 }
 
