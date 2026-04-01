@@ -14,8 +14,14 @@
   },
   "2": {
     "inputs": {
-      "clip_name": "qwen_3_4b.safetensors",
-      "type": "qwen_image",
+      "clip_name": [
+        "37:309",
+        0
+      ],
+      "type": [
+        "37:311",
+        0
+      ],
       "device": "default"
     },
     "class_type": "CLIPLoader",
@@ -25,7 +31,10 @@
   },
   "3": {
     "inputs": {
-      "vae_name": "ae.safetensors"
+      "vae_name": [
+        "37:310",
+        0
+      ]
     },
     "class_type": "VAELoader",
     "_meta": {
@@ -369,7 +378,7 @@
       "title": "Preview Image"
     }
   },
-  "300": {
+  "312": {
     "inputs": {},
     "class_type": "ShowText|pysssss",
     "_meta": {
@@ -432,7 +441,7 @@
   },
   "37:59": {
     "inputs": {
-      "text_0": "768",
+      "text_0": "1600",
       "text": [
         "37:62",
         0
@@ -445,7 +454,7 @@
   },
   "37:51": {
     "inputs": {
-      "text_0": "5",
+      "text_0": "9",
       "text": [
         "37:63",
         0
@@ -531,21 +540,6 @@
       "title": "Default value"
     }
   },
-  "37:70": {
-    "inputs": {
-      "Text": [
-        "288",
-        0
-      ],
-      "Pattern": "^\\s*#.*\\n",
-      "Replace_With": "",
-      "Mode": "RegEx"
-    },
-    "class_type": "DF_String_Replace",
-    "_meta": {
-      "title": "Strip entire comment lines"
-    }
-  },
   "37:270": {
     "inputs": {
       "text_0": "1.0",
@@ -572,21 +566,6 @@
     "class_type": "DF_String_Replace",
     "_meta": {
       "title": "Extract sampler_name"
-    }
-  },
-  "37:265": {
-    "inputs": {
-      "Text": [
-        "37:66",
-        0
-      ],
-      "Pattern": "^(?:[\\s\\S]*@w1\\.scheduler:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
-      "Replace_With": "\\1",
-      "Mode": "RegEx"
-    },
-    "class_type": "DF_String_Replace",
-    "_meta": {
-      "title": "Extract scheduler"
     }
   },
   "37:258": {
@@ -701,21 +680,6 @@
       "title": "Tag: w1.scheduler"
     }
   },
-  "37:69": {
-    "inputs": {
-      "Text": [
-        "37:66",
-        0
-      ],
-      "Pattern": "^(?:[\\s\\S]*@w1\\.diffusion_model:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
-      "Replace_With": "\\1",
-      "Mode": "RegEx"
-    },
-    "class_type": "DF_String_Replace",
-    "_meta": {
-      "title": "Extract diffusion_model"
-    }
-  },
   "37:269": {
     "inputs": {
       "Text": [
@@ -771,36 +735,6 @@
     "class_type": "DF_String_Replace",
     "_meta": {
       "title": "Default value"
-    }
-  },
-  "37:273": {
-    "inputs": {
-      "Text": [
-        "37:66",
-        0
-      ],
-      "Pattern": "^(?:[\\s\\S]*@w1\\.lora_name:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
-      "Replace_With": "\\1",
-      "Mode": "RegEx"
-    },
-    "class_type": "DF_String_Replace",
-    "_meta": {
-      "title": "Extract lora_name"
-    }
-  },
-  "37:66": {
-    "inputs": {
-      "Text": [
-        "37:70",
-        0
-      ],
-      "Pattern": "#.*$",
-      "Replace_With": "",
-      "Mode": "RegEx"
-    },
-    "class_type": "DF_String_Replace",
-    "_meta": {
-      "title": "Strip comments"
     }
   },
   "37:60": {
@@ -876,7 +810,7 @@
   },
   "37:58": {
     "inputs": {
-      "text_0": "512",
+      "text_0": "1024",
       "text": [
         "37:64",
         0
@@ -917,7 +851,6 @@
   },
   "37:42": {
     "inputs": {
-      "text_0": "  ",
       "text": [
         "37:57",
         0
@@ -1050,6 +983,246 @@
     "class_type": "DF_String_Replace",
     "_meta": {
       "title": "Strip tags"
+    }
+  },
+  "37:69": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.diffusion_model:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract diffusion_model"
+    }
+  },
+  "37:265": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.scheduler:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract scheduler"
+    }
+  },
+  "37:273": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.lora_name:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract lora_name"
+    }
+  },
+  "37:306": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.vae_name:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract vae_name"
+    }
+  },
+  "37:302": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.clip_name:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract clip_name"
+    }
+  },
+  "37:303": {
+    "inputs": {
+      "Text": [
+        "37:66",
+        0
+      ],
+      "Pattern": "^(?:[\\s\\S]*@w1\\.clip_type:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Replace_With": "\\1",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Extract clip_type"
+    }
+  },
+  "37:66": {
+    "inputs": {
+      "Text": [
+        "37:70",
+        0
+      ],
+      "Pattern": "#.*$",
+      "Replace_With": "",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Strip comments"
+    }
+  },
+  "37:307": {
+    "inputs": {
+      "Text": [
+        "37:306",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "ae.safetensors",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:304": {
+    "inputs": {
+      "Text": [
+        "37:303",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "qwen_image",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:301": {
+    "inputs": {
+      "Text": [
+        "37:302",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "qwen_3_4b.safetensors",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:300": {
+    "inputs": {
+      "text_0": "qwen_3_4b.safetensors",
+      "text": [
+        "37:301",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.clip_name"
+    }
+  },
+  "37:70": {
+    "inputs": {
+      "Text": [
+        "288",
+        0
+      ],
+      "Pattern": "^\\s*#.*\\n",
+      "Replace_With": "",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Strip entire comment lines"
+    }
+  },
+  "37:309": {
+    "inputs": {
+      "text": [
+        "37:300",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "Convert clip_ name"
+    }
+  },
+  "37:305": {
+    "inputs": {
+      "text_0": "qwen_image",
+      "text": [
+        "37:304",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.clip_type"
+    }
+  },
+  "37:308": {
+    "inputs": {
+      "text_0": "ae.safetensors",
+      "text": [
+        "37:307",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.vae_name"
+    }
+  },
+  "37:311": {
+    "inputs": {
+      "text": [
+        "37:305",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "Convert clip_ type"
+    }
+  },
+  "37:310": {
+    "inputs": {
+      "text": [
+        "37:308",
+        0
+      ]
+    },
+    "class_type": "CR String To Combo",
+    "_meta": {
+      "title": "Convert vae_name"
     }
   }
 }

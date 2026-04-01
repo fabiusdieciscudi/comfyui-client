@@ -11,8 +11,8 @@
         "id": "b03c82d6-4b39-4428-94cb-f7a1c901df15",
         "inputNode": {
           "bounding": [
-            -3310,
-            765,
+            -3475,
+            1475,
             120,
             60
           ],
@@ -28,8 +28,8 @@
             "localized_name": "string",
             "name": "string",
             "pos": [
-              -3210,
-              785
+              -3375,
+              1495
             ],
             "type": "STRING"
           }
@@ -525,6 +525,126 @@
             "target_id": -20,
             "target_slot": 12,
             "type": "FLOAT"
+          },
+          {
+            "id": 392,
+            "origin_id": 301,
+            "origin_slot": 0,
+            "target_id": 300,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 393,
+            "origin_id": 302,
+            "origin_slot": 0,
+            "target_id": 301,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 394,
+            "origin_id": 303,
+            "origin_slot": 0,
+            "target_id": 304,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 395,
+            "origin_id": 304,
+            "origin_slot": 0,
+            "target_id": 305,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 396,
+            "origin_id": 306,
+            "origin_slot": 0,
+            "target_id": 307,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 397,
+            "origin_id": 307,
+            "origin_slot": 0,
+            "target_id": 308,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 398,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 302,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 399,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 303,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 400,
+            "origin_id": 66,
+            "origin_slot": 0,
+            "target_id": 306,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 401,
+            "origin_id": 300,
+            "origin_slot": 0,
+            "target_id": 309,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 402,
+            "origin_id": 309,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 13,
+            "type": "*"
+          },
+          {
+            "id": 404,
+            "origin_id": 305,
+            "origin_slot": 0,
+            "target_id": 311,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 405,
+            "origin_id": 308,
+            "origin_slot": 0,
+            "target_id": 310,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 406,
+            "origin_id": 311,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 14,
+            "type": "*"
+          },
+          {
+            "id": 407,
+            "origin_id": 310,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 15,
+            "type": "*"
           }
         ],
         "name": "Preprocess prompt",
@@ -822,9 +942,7 @@
             ],
             "title": "Tag: w1.height",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "768"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -863,9 +981,7 @@
             ],
             "title": "Tag: w1.steps",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "5"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -1234,79 +1350,6 @@
           },
           {
             "flags": {},
-            "id": 70,
-            "inputs": [
-              {
-                "link": 84,
-                "localized_name": "Text",
-                "name": "Text",
-                "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Pattern",
-                "name": "Pattern",
-                "type": "STRING",
-                "widget": {
-                  "name": "Pattern"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Replace_With",
-                "name": "Replace_With",
-                "type": "STRING",
-                "widget": {
-                  "name": "Replace_With"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Mode",
-                "name": "Mode",
-                "type": "COMBO",
-                "widget": {
-                  "name": "Mode"
-                }
-              }
-            ],
-            "mode": 0,
-            "order": 22,
-            "outputs": [
-              {
-                "links": [
-                  83
-                ],
-                "localized_name": "TEXT",
-                "name": "TEXT",
-                "type": "STRING"
-              }
-            ],
-            "pos": [
-              -3080,
-              750
-            ],
-            "properties": {
-              "Node name for S&R": "DF_String_Replace"
-            },
-            "size": [
-              215,
-              130
-            ],
-            "title": "Strip entire comment lines",
-            "type": "DF_String_Replace",
-            "widgets_values": [
-              "",
-              "^\\s*#.*\\n",
-              "",
-              "RegEx"
-            ]
-          },
-          {
-            "flags": {},
             "id": 270,
             "inputs": [
               {
@@ -1342,9 +1385,7 @@
             ],
             "title": "Tag: w1.denoise",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "1.0"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -1421,79 +1462,6 @@
           },
           {
             "flags": {},
-            "id": 265,
-            "inputs": [
-              {
-                "link": 339,
-                "localized_name": "Text",
-                "name": "Text",
-                "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Pattern",
-                "name": "Pattern",
-                "type": "STRING",
-                "widget": {
-                  "name": "Pattern"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Replace_With",
-                "name": "Replace_With",
-                "type": "STRING",
-                "widget": {
-                  "name": "Replace_With"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Mode",
-                "name": "Mode",
-                "type": "COMBO",
-                "widget": {
-                  "name": "Mode"
-                }
-              }
-            ],
-            "mode": 0,
-            "order": 30,
-            "outputs": [
-              {
-                "links": [
-                  330
-                ],
-                "localized_name": "TEXT",
-                "name": "TEXT",
-                "type": "STRING"
-              }
-            ],
-            "pos": [
-              -2140,
-              1485
-            ],
-            "properties": {
-              "Node name for S&R": "DF_String_Replace"
-            },
-            "size": [
-              270,
-              130
-            ],
-            "title": "Extract scheduler",
-            "type": "DF_String_Replace",
-            "widgets_values": [
-              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
-              "^(?:[\\s\\S]*@w1\\.scheduler:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
-              "\\1",
-              "RegEx"
-            ]
-          },
-          {
-            "flags": {},
             "id": 258,
             "inputs": [
               {
@@ -1529,9 +1497,7 @@
             ],
             "title": "Tag: w1.cfg",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "1.0"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -1923,9 +1889,7 @@
             ],
             "title": "Tag: w1.sampler_name",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "ddim"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -1964,82 +1928,7 @@
             ],
             "title": "Tag: w1.scheduler",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "sgm_uniform"
-            ]
-          },
-          {
-            "flags": {},
-            "id": 69,
-            "inputs": [
-              {
-                "link": 98,
-                "localized_name": "Text",
-                "name": "Text",
-                "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Pattern",
-                "name": "Pattern",
-                "type": "STRING",
-                "widget": {
-                  "name": "Pattern"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Replace_With",
-                "name": "Replace_With",
-                "type": "STRING",
-                "widget": {
-                  "name": "Replace_With"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Mode",
-                "name": "Mode",
-                "type": "COMBO",
-                "widget": {
-                  "name": "Mode"
-                }
-              }
-            ],
-            "mode": 0,
-            "order": 21,
-            "outputs": [
-              {
-                "links": [
-                  96
-                ],
-                "localized_name": "TEXT",
-                "name": "TEXT",
-                "type": "STRING"
-              }
-            ],
-            "pos": [
-              -2155,
-              875
-            ],
-            "properties": {
-              "Node name for S&R": "DF_String_Replace"
-            },
-            "size": [
-              270,
-              130
-            ],
-            "title": "Extract diffusion_model",
-            "type": "DF_String_Replace",
-            "widgets_values": [
-              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
-              "^(?:[\\s\\S]*@w1\\.diffusion_model:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
-              "\\1",
-              "RegEx"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -2301,163 +2190,6 @@
           },
           {
             "flags": {},
-            "id": 273,
-            "inputs": [
-              {
-                "link": 341,
-                "localized_name": "Text",
-                "name": "Text",
-                "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Pattern",
-                "name": "Pattern",
-                "type": "STRING",
-                "widget": {
-                  "name": "Pattern"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Replace_With",
-                "name": "Replace_With",
-                "type": "STRING",
-                "widget": {
-                  "name": "Replace_With"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Mode",
-                "name": "Mode",
-                "type": "COMBO",
-                "widget": {
-                  "name": "Mode"
-                }
-              }
-            ],
-            "mode": 0,
-            "order": 37,
-            "outputs": [
-              {
-                "links": [
-                  336
-                ],
-                "localized_name": "TEXT",
-                "name": "TEXT",
-                "type": "STRING"
-              }
-            ],
-            "pos": [
-              -2130,
-              1900
-            ],
-            "properties": {
-              "Node name for S&R": "DF_String_Replace"
-            },
-            "size": [
-              270,
-              130
-            ],
-            "title": "Extract lora_name",
-            "type": "DF_String_Replace",
-            "widgets_values": [
-              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
-              "^(?:[\\s\\S]*@w1\\.lora_name:([0-9,A-Z,a-z,_,.]+)[\\s\\S]*|[\\s\\S]*)$",
-              "\\1",
-              "RegEx"
-            ]
-          },
-          {
-            "flags": {},
-            "id": 66,
-            "inputs": [
-              {
-                "link": 83,
-                "localized_name": "Text",
-                "name": "Text",
-                "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Pattern",
-                "name": "Pattern",
-                "type": "STRING",
-                "widget": {
-                  "name": "Pattern"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Replace_With",
-                "name": "Replace_With",
-                "type": "STRING",
-                "widget": {
-                  "name": "Replace_With"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Mode",
-                "name": "Mode",
-                "type": "COMBO",
-                "widget": {
-                  "name": "Mode"
-                }
-              }
-            ],
-            "mode": 0,
-            "order": 18,
-            "outputs": [
-              {
-                "links": [
-                  57,
-                  59,
-                  63,
-                  77,
-                  78,
-                  98,
-                  337,
-                  338,
-                  339,
-                  340,
-                  341,
-                  363
-                ],
-                "localized_name": "TEXT",
-                "name": "TEXT",
-                "type": "STRING"
-              }
-            ],
-            "pos": [
-              -2785,
-              745
-            ],
-            "properties": {
-              "Node name for S&R": "DF_String_Replace"
-            },
-            "size": [
-              210,
-              130
-            ],
-            "title": "Strip comments",
-            "type": "DF_String_Replace",
-            "widgets_values": [
-              "",
-              "#.*$",
-              "",
-              "RegEx"
-            ]
-          },
-          {
-            "flags": {},
             "id": 60,
             "inputs": [
               {
@@ -2493,9 +2225,7 @@
             ],
             "title": "Tag: w1.seed",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "56234532624987"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -2815,9 +2545,7 @@
             ],
             "title": "Tag: w1.width",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "512"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -2990,9 +2718,7 @@
             ],
             "title": "Prompt",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "  "
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -3209,9 +2935,7 @@
             ],
             "title": "Tag: w1.lora_strenght",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "1.0"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -3396,9 +3120,7 @@
             ],
             "title": "Tag: w1.diffusion_model",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "z_image_turbo_bf16.safetensors"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -3437,9 +3159,7 @@
             ],
             "title": "Tag: w1.lora_present",
             "type": "ShowText|pysssss",
-            "widgets_values": [
-              "false"
-            ]
+            "widgets_values": []
           },
           {
             "flags": {},
@@ -3513,14 +3233,1086 @@
               "",
               "RegEx"
             ]
+          },
+          {
+            "flags": {},
+            "id": 69,
+            "inputs": [
+              {
+                "link": 98,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 21,
+            "outputs": [
+              {
+                "links": [
+                  96
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2155,
+              875
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract diffusion_model",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.diffusion_model:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 265,
+            "inputs": [
+              {
+                "link": 339,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 30,
+            "outputs": [
+              {
+                "links": [
+                  330
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2140,
+              1485
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract scheduler",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.scheduler:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 273,
+            "inputs": [
+              {
+                "link": 341,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 37,
+            "outputs": [
+              {
+                "links": [
+                  336
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2130,
+              1900
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract lora_name",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.lora_name:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 306,
+            "inputs": [
+              {
+                "link": 400,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 54,
+            "outputs": [
+              {
+                "links": [
+                  396
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2120,
+              3030
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract vae_name",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.vae_name:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 302,
+            "inputs": [
+              {
+                "link": 398,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 50,
+            "outputs": [
+              {
+                "links": [
+                  393
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2105,
+              2605
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract clip_name",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.clip_name:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 303,
+            "inputs": [
+              {
+                "link": 399,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 51,
+            "outputs": [
+              {
+                "links": [
+                  394
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2100,
+              2815
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              270,
+              130
+            ],
+            "title": "Extract clip_type",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^(?:[\\s\\S]*@w1\\.clip_type:([0-9,A-Z,a-z,_,.,-]+)[\\s\\S]*|[\\s\\S]*)$",
+              "\\1",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 66,
+            "inputs": [
+              {
+                "link": 83,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 18,
+            "outputs": [
+              {
+                "links": [
+                  57,
+                  59,
+                  63,
+                  77,
+                  78,
+                  98,
+                  337,
+                  338,
+                  339,
+                  340,
+                  341,
+                  363,
+                  398,
+                  399,
+                  400
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2950,
+              1455
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Strip comments",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "",
+              "#.*$",
+              "",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 307,
+            "inputs": [
+              {
+                "link": 396,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 55,
+            "outputs": [
+              {
+                "links": [
+                  397
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1735,
+              3010
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "ae.safetensors",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 304,
+            "inputs": [
+              {
+                "link": 394,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 52,
+            "outputs": [
+              {
+                "links": [
+                  395
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1715,
+              2795
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "qwen_image",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 301,
+            "inputs": [
+              {
+                "link": 393,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 49,
+            "outputs": [
+              {
+                "links": [
+                  392
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1720,
+              2585
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "qwen_3_4b.safetensors",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 300,
+            "inputs": [
+              {
+                "link": 392,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 48,
+            "outputs": [
+              {
+                "links": [
+                  401
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1445,
+              2610
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.clip_name",
+            "type": "ShowText|pysssss",
+            "widgets_values": []
+          },
+          {
+            "flags": {},
+            "id": 70,
+            "inputs": [
+              {
+                "link": 84,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 22,
+            "outputs": [
+              {
+                "links": [
+                  83
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -3245,
+              1460
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              215,
+              130
+            ],
+            "title": "Strip entire comment lines",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "",
+              "^\\s*#.*\\n",
+              "",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {
+              "collapsed": false
+            },
+            "id": 309,
+            "inputs": [
+              {
+                "link": 401,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 57,
+            "outputs": [
+              {
+                "links": [
+                  402
+                ],
+                "localized_name": "any",
+                "name": "any",
+                "type": "*"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1055,
+              2645
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Combo"
+            },
+            "size": [
+              205,
+              50
+            ],
+            "title": "Convert clip_ name",
+            "type": "CR String To Combo",
+            "widgets_values": []
+          },
+          {
+            "flags": {},
+            "id": 305,
+            "inputs": [
+              {
+                "link": 395,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 53,
+            "outputs": [
+              {
+                "links": [
+                  404
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1440,
+              2820
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.clip_type",
+            "type": "ShowText|pysssss",
+            "widgets_values": []
+          },
+          {
+            "flags": {},
+            "id": 308,
+            "inputs": [
+              {
+                "link": 397,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 56,
+            "outputs": [
+              {
+                "links": [
+                  405
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1460,
+              3035
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.vae_name",
+            "type": "ShowText|pysssss",
+            "widgets_values": []
+          },
+          {
+            "flags": {
+              "collapsed": false
+            },
+            "id": 311,
+            "inputs": [
+              {
+                "link": 404,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 59,
+            "outputs": [
+              {
+                "links": [
+                  406
+                ],
+                "localized_name": "any",
+                "name": "any",
+                "type": "*"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1125,
+              2860
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Combo"
+            },
+            "size": [
+              205,
+              50
+            ],
+            "title": "Convert clip_ type",
+            "type": "CR String To Combo",
+            "widgets_values": []
+          },
+          {
+            "flags": {
+              "collapsed": false
+            },
+            "id": 310,
+            "inputs": [
+              {
+                "link": 405,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 58,
+            "outputs": [
+              {
+                "links": [
+                  407
+                ],
+                "localized_name": "any",
+                "name": "any",
+                "type": "*"
+              },
+              {
+                "links": null,
+                "localized_name": "show_help",
+                "name": "show_help",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1170,
+              3060
+            ],
+            "properties": {
+              "Node name for S&R": "CR String To Combo"
+            },
+            "size": [
+              205,
+              50
+            ],
+            "title": "Convert vae_name",
+            "type": "CR String To Combo",
+            "widgets_values": []
           }
         ],
         "outputNode": {
           "bounding": [
-            -340,
-            930,
+            -265,
+            1380,
             152.669921875,
-            300
+            360
           ],
           "id": -20
         },
@@ -3534,8 +4326,8 @@
             "localized_name": "STRING",
             "name": "STRING",
             "pos": [
-              -320,
-              950
+              -245,
+              1400
             ],
             "type": "STRING"
           },
@@ -3547,8 +4339,8 @@
             ],
             "name": "INT",
             "pos": [
-              -320,
-              970
+              -245,
+              1420
             ],
             "type": "INT"
           },
@@ -3560,8 +4352,8 @@
             ],
             "name": "INT_1",
             "pos": [
-              -320,
-              990
+              -245,
+              1440
             ],
             "type": "INT"
           },
@@ -3573,8 +4365,8 @@
             ],
             "name": "INT_2",
             "pos": [
-              -320,
-              1010
+              -245,
+              1460
             ],
             "type": "INT"
           },
@@ -3586,8 +4378,8 @@
             ],
             "name": "INT_3",
             "pos": [
-              -320,
-              1030
+              -245,
+              1480
             ],
             "type": "INT"
           },
@@ -3599,8 +4391,8 @@
             ],
             "name": "STRING_1",
             "pos": [
-              -320,
-              1050
+              -245,
+              1500
             ],
             "type": "STRING"
           },
@@ -3612,8 +4404,8 @@
             ],
             "name": "FLOAT",
             "pos": [
-              -320,
-              1070
+              -245,
+              1520
             ],
             "type": "FLOAT"
           },
@@ -3625,8 +4417,8 @@
             ],
             "name": "STRING_2",
             "pos": [
-              -320,
-              1090
+              -245,
+              1540
             ],
             "type": "STRING"
           },
@@ -3638,8 +4430,8 @@
             ],
             "name": "STRING_3",
             "pos": [
-              -320,
-              1110
+              -245,
+              1560
             ],
             "type": "STRING"
           },
@@ -3651,8 +4443,8 @@
             ],
             "name": "FLOAT_1",
             "pos": [
-              -320,
-              1130
+              -245,
+              1580
             ],
             "type": "FLOAT"
           },
@@ -3664,8 +4456,8 @@
             ],
             "name": "STRING_4",
             "pos": [
-              -320,
-              1150
+              -245,
+              1600
             ],
             "type": "STRING"
           },
@@ -3677,8 +4469,8 @@
             ],
             "name": "BOOLEAN_1",
             "pos": [
-              -320,
-              1170
+              -245,
+              1620
             ],
             "type": "BOOLEAN"
           },
@@ -3690,10 +4482,49 @@
             ],
             "name": "FLOAT_3",
             "pos": [
-              -320,
-              1190
+              -245,
+              1640
             ],
             "type": "FLOAT"
+          },
+          {
+            "id": "72d45cb5-1df2-4f52-98df-695fca6de3ff",
+            "label": "CLIP_NAME",
+            "linkIds": [
+              402
+            ],
+            "name": "any",
+            "pos": [
+              -245,
+              1660
+            ],
+            "type": "*"
+          },
+          {
+            "id": "ae9d4cf8-95f5-45b9-aecc-3258bd5efe9a",
+            "label": "CLIP_TYPE",
+            "linkIds": [
+              406
+            ],
+            "name": "any_1",
+            "pos": [
+              -245,
+              1680
+            ],
+            "type": "*"
+          },
+          {
+            "id": "6be6e320-ec07-45be-93eb-fc0dd530e925",
+            "label": "VAE_NAME",
+            "linkIds": [
+              407
+            ],
+            "name": "any_2",
+            "pos": [
+              -245,
+              1700
+            ],
+            "type": "*"
           }
         ],
         "reroutes": [
@@ -3742,9 +4573,9 @@
         "revision": 0,
         "state": {
           "lastGroupId": 12,
-          "lastLinkId": 391,
-          "lastNodeId": 299,
-          "lastRerouteId": 88
+          "lastLinkId": 409,
+          "lastNodeId": 312,
+          "lastRerouteId": 92
         },
         "version": 1,
         "widgets": []
@@ -3758,10 +4589,10 @@
     "VHS_latentpreviewrate": 0,
     "ds": {
       "offset": [
-        4149.298756097793,
-        1285.6917306614348
+        3808.6056647361643,
+        1075.6489491939026
       ],
-      "scale": 0.8332589618658031
+      "scale": 1.1
     },
     "frontendVersion": "1.30.6",
     "linkExtensions": [
@@ -3816,6 +4647,18 @@
       {
         "id": 390,
         "parentId": 85
+      },
+      {
+        "id": 403,
+        "parentId": 92
+      },
+      {
+        "id": 408,
+        "parentId": 90
+      },
+      {
+        "id": 409,
+        "parentId": 91
       }
     ],
     "links_added_by_ue": [],
@@ -4037,6 +4880,47 @@
           -1790,
           -235
         ]
+      },
+      {
+        "id": 89,
+        "linkIds": [
+          408
+        ],
+        "pos": [
+          -2865,
+          -290
+        ]
+      },
+      {
+        "id": 90,
+        "linkIds": [
+          408
+        ],
+        "parentId": 89,
+        "pos": [
+          -2550,
+          -280
+        ]
+      },
+      {
+        "id": 91,
+        "linkIds": [
+          409
+        ],
+        "pos": [
+          -2540,
+          -910
+        ]
+      },
+      {
+        "id": 92,
+        "linkIds": [
+          403
+        ],
+        "pos": [
+          -2585,
+          -895
+        ]
       }
     ],
     "ue_links": [],
@@ -4070,9 +4954,9 @@
       "title": "Save"
     }
   ],
-  "id": "cff3c9b6-230e-4a46-a631-034aab0083f8",
-  "last_link_id": 391,
-  "last_node_id": 299,
+  "id": "16cc0f0f-05f5-45de-8e8c-e1c9aac1e65b",
+  "last_link_id": 409,
+  "last_node_id": 312,
   "links": [
     [
       2,
@@ -4377,6 +5261,30 @@
       299,
       0,
       "IMAGE"
+    ],
+    [
+      403,
+      37,
+      13,
+      2,
+      0,
+      "COMBO"
+    ],
+    [
+      408,
+      37,
+      15,
+      3,
+      0,
+      "COMBO"
+    ],
+    [
+      409,
+      37,
+      14,
+      2,
+      1,
+      "COMBO"
     ]
   ],
   "nodes": [
@@ -4406,7 +5314,7 @@
         }
       ],
       "mode": 0,
-      "order": 18,
+      "order": 17,
       "outputs": [
         {
           "links": [
@@ -4449,7 +5357,7 @@
       "id": 2,
       "inputs": [
         {
-          "link": null,
+          "link": 403,
           "localized_name": "clip_name",
           "name": "clip_name",
           "type": "COMBO",
@@ -4458,7 +5366,7 @@
           }
         },
         {
-          "link": null,
+          "link": 409,
           "localized_name": "type",
           "name": "type",
           "type": "COMBO",
@@ -4478,7 +5386,7 @@
         }
       ],
       "mode": 0,
-      "order": 3,
+      "order": 14,
       "outputs": [
         {
           "links": [
@@ -4490,8 +5398,8 @@
         }
       ],
       "pos": [
-        -2605,
-        -1205
+        -2475,
+        -1250
       ],
       "properties": {
         "Node name for S&R": "CLIPLoader",
@@ -4522,7 +5430,7 @@
       "id": 3,
       "inputs": [
         {
-          "link": null,
+          "link": 408,
           "localized_name": "vae_name",
           "name": "vae_name",
           "type": "COMBO",
@@ -4532,7 +5440,7 @@
         }
       ],
       "mode": 0,
-      "order": 5,
+      "order": 15,
       "outputs": [
         {
           "links": [
@@ -4654,7 +5562,7 @@
         }
       ],
       "mode": 0,
-      "order": 21,
+      "order": 22,
       "outputs": [
         {
           "links": [
@@ -4720,7 +5628,7 @@
         }
       ],
       "mode": 0,
-      "order": 10,
+      "order": 18,
       "outputs": [
         {
           "links": [
@@ -4771,7 +5679,7 @@
         }
       ],
       "mode": 0,
-      "order": 16,
+      "order": 20,
       "outputs": [
         {
           "links": [
@@ -4841,7 +5749,7 @@
         }
       ],
       "mode": 0,
-      "order": 11,
+      "order": 9,
       "outputs": [
         {
           "links": [
@@ -4898,7 +5806,7 @@
         }
       ],
       "mode": 0,
-      "order": 22,
+      "order": 23,
       "outputs": [
         {
           "links": [
@@ -5010,13 +5918,13 @@
           "link": 35,
           "localized_name": "on_false",
           "name": "on_false",
-          "type": "MODEL"
+          "type": "*"
         },
         {
           "link": 36,
           "localized_name": "on_true",
           "name": "on_true",
-          "type": "MODEL"
+          "type": "*"
         },
         {
           "link": 374,
@@ -5029,7 +5937,7 @@
         }
       ],
       "mode": 0,
-      "order": 20,
+      "order": 21,
       "outputs": [
         {
           "links": [
@@ -5037,7 +5945,7 @@
           ],
           "localized_name": "output",
           "name": "output",
-          "type": "MODEL"
+          "type": "*"
         }
       ],
       "pos": [
@@ -5075,7 +5983,7 @@
         }
       ],
       "mode": 0,
-      "order": 9,
+      "order": 8,
       "outputs": [
         {
           "label": "PROMPT",
@@ -5181,6 +6089,30 @@
           ],
           "name": "FLOAT_3",
           "type": "FLOAT"
+        },
+        {
+          "label": "CLIP_NAME",
+          "links": [
+            403
+          ],
+          "name": "any",
+          "type": "*"
+        },
+        {
+          "label": "CLIP_TYPE",
+          "links": [
+            409
+          ],
+          "name": "any_1",
+          "type": "*"
+        },
+        {
+          "label": "VAE_NAME",
+          "links": [
+            408
+          ],
+          "name": "any_2",
+          "type": "*"
         }
       ],
       "pos": [
@@ -5197,7 +6129,7 @@
       },
       "size": [
         210,
-        320
+        360
       ],
       "type": "b03c82d6-4b39-4428-94cb-f7a1c901df15",
       "widgets_values": []
@@ -5224,7 +6156,7 @@
       ],
       "type": "MarkdownNote",
       "widgets_values": [
-        "Prompt comments are supported.\nTags in prompts:\n\n| tag                 | default value                  |\n| ------------------- | ---                            |\n| @w1.width           | 1024                           |\n| @w1.height          | 1600                           |\n| @w1.seed            |                                |\n| @w1.steps           | 9                              |\n| @w1.diffusion_model | z_image_turbo_bf16.safetensors |\n| @w1.cfg             | 1.0                            |\n| @w1.sampler_name    | ddim                           |\n| @w1.scheduler       | sgm_uniform                    |\n| @w1.denoise         | 1.0                            |\n| @w1.lora_name       | empty string                   |\n| @w1.lora_strenght   | 1.0                            |"
+        "Prompt comments are supported.\nTags in prompts:\n\n| tag                 | default value                  |\n| ------------------- | ---                            |\n| @w1.width           | 1024                           |\n| @w1.height          | 1600                           |\n| @w1.seed            |                                |\n| @w1.steps           | 9                              |\n| @w1.diffusion_model | z_image_turbo_bf16.safetensors |\n| @w1.clip_name       | qwen_3_4b.safetensors          |\n| @w1.clip_type       | qwen_image                     |\n| @w1.vae_name        | ae.safetensors                 |\n| @w1.cfg             | 1.0                            |\n| @w1.sampler_name    | ddim                           |\n| @w1.scheduler       | sgm_uniform                    |\n| @w1.denoise         | 1.0                            |\n| @w1.lora_name       | empty string                   |\n| @w1.lora_strenght   | 1.0                            |\n\n\n"
       ]
     },
     {
@@ -5241,7 +6173,7 @@
         }
       ],
       "mode": 0,
-      "order": 12,
+      "order": 10,
       "outputs": [
         {
           "links": [
@@ -5296,7 +6228,7 @@
         }
       ],
       "mode": 0,
-      "order": 17,
+      "order": 16,
       "outputs": [],
       "pos": [
         -1465,
@@ -5364,7 +6296,7 @@
       "type": "LoadText|pysssss",
       "widgets_values": [
         "input",
-        "prompts/configs/w1-z_image_turbo_bf16.txt"
+        "prompts/empty.txt"
       ]
     },
     {
@@ -5491,7 +6423,7 @@
         }
       ],
       "mode": 0,
-      "order": 13,
+      "order": 11,
       "outputs": [
         {
           "links": [
@@ -5537,7 +6469,7 @@
         }
       ],
       "mode": 0,
-      "order": 14,
+      "order": 12,
       "outputs": [
         {
           "links": [
@@ -5583,7 +6515,7 @@
         }
       ],
       "mode": 0,
-      "order": 15,
+      "order": 13,
       "outputs": [
         {
           "links": [
@@ -5671,7 +6603,7 @@
         }
       ],
       "mode": 0,
-      "order": 7,
+      "order": 6,
       "outputs": [
         {
           "links": [
@@ -5700,10 +6632,7 @@
         "no",
         "",
         "",
-        "",
-        [
-          "@w1.diffusion_model:z_image_turbo_bf16.safetensors\n\n@w1.width:512,  @w1.height:768\n# @w1.width:1024, @w1.height:1600\n# @w1.width:2048, @w1.height:3200\n\n@w1.steps:5\n@w1.cfg:1.0\n@w1.denoise:1.0\n@w1.sampler_name:ddim\n@w1.scheduler:sgm_uniform\n"
-        ]
+        ""
       ]
     },
     {
@@ -5751,7 +6680,7 @@
         }
       ],
       "mode": 0,
-      "order": 6,
+      "order": 3,
       "outputs": [
         {
           "links": [
@@ -5857,7 +6786,7 @@
         }
       ],
       "mode": 0,
-      "order": 8,
+      "order": 7,
       "outputs": [
         {
           "links": [
@@ -6055,7 +6984,7 @@
         }
       ],
       "mode": 0,
-      "order": 23,
+      "order": 24,
       "outputs": [],
       "pos": [
         -1230,
@@ -6101,7 +7030,7 @@
         }
       ],
       "mode": 0,
-      "order": 24,
+      "order": 25,
       "outputs": [],
       "pos": [
         -1675,
@@ -6115,6 +7044,45 @@
         350
       ],
       "type": "PreviewImage",
+      "widgets_values": []
+    },
+    {
+      "flags": {
+        "pinned": true
+      },
+      "id": 312,
+      "inputs": [
+        {
+          "link": null,
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING"
+        }
+      ],
+      "mode": 0,
+      "order": 5,
+      "outputs": [
+        {
+          "links": null,
+          "localized_name": "STRING",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING"
+        }
+      ],
+      "pos": [
+        -2495,
+        125
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "size": [
+        140,
+        30
+      ],
+      "title": "Keywords",
+      "type": "ShowText|pysssss",
       "widgets_values": []
     }
   ],
