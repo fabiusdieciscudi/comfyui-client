@@ -1,7 +1,9 @@
 @w1.diffusion_model:z_image_turbo_bf16.safetensors
+@w1.clip_name:qwen_3_4b.safetensors
+@w1.clip_type:qwen_image
+@w1.vae_name:ae.safetensors
 
-@w1.width:512,  @w1.height:768
-
+@w1.width:512 @w1.height:768
 @w1.steps:5
 @w1.cfg:1.0
 @w1.denoise:1.0
