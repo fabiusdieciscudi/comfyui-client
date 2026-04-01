@@ -275,7 +275,7 @@ def submit(args):
         prompt_id = submit_prompt(base_url, wf)
         print(f"  [OK] Prompt ID: {prompt_id}")
 
-        if not args.no_wait:
+        if args.wait:
             print("  Waiting for completion...", end="", flush=True)
             ok = wait_for_completion(base_url, prompt_id)
             print(" done." if ok else " FAILED.")
@@ -297,7 +297,7 @@ class SubmitCommand(CommandBase):
         parser.add_argument("--scale",        type=float, default=1.0, help="Multiply width and height by this factor")
         parser.add_argument("--title",        default="", help="Title info to embed in the image")
         parser.add_argument("--keyword",      action="append", default=[], help="Keyword to embed in the image (repeatable).")
-        parser.add_argument("--no-wait",      action="store_true", help="Don't wait for each job to finish before submitting the next")
+        parser.add_argument("--wait",         action="store_true", help="Wait for each job to finish before submitting the next")
 
     def _run(self, args) -> None:
         submit(args)
