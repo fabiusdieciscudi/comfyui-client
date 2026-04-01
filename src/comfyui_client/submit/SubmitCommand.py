@@ -31,7 +31,7 @@ DEFAULTS = {
     "scheduler":       "sgm_uniform",
     "diffusion_model": "z_image_turbo_bf16.safetensors",
     "lora_name":       "",
-    "lora_strenght":   "1.0",   # sic — matches the typo in the workflow
+    "lora_strength":   "1.0",   # sic — matches the typo in the workflow
     "aspect":          "",      # empty means no aspect forcing
 }
 
