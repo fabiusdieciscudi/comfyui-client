@@ -892,13 +892,13 @@
         "37:66",
         0
       ],
-      "Pattern": "^(?:[\\s\\S]*@w1\\.lora_strenght:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
+      "Pattern": "^(?:[\\s\\S]*@w1\\.lora_strength:([0-9]*\\.[0-9]+)[\\s\\S]*|[\\s\\S]*)$",
       "Replace_With": "\\1",
       "Mode": "RegEx"
     },
     "class_type": "DF_String_Replace",
     "_meta": {
-      "title": "Extract lora_strenght"
+      "title": "Extract lora_strength"
     }
   },
   "37:279": {
@@ -911,7 +911,7 @@
     },
     "class_type": "ShowText|pysssss",
     "_meta": {
-      "title": "Tag: w1.lora_strenght"
+      "title": "Tag: w1.lora_strength"
     }
   },
   "37:284": {
