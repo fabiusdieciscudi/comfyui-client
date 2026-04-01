@@ -68,7 +68,7 @@ TAG_PATTERNS = {
     "vae_name":        r"@w1\.vae_name:([0-9A-Za-z_\.-]+)",
     "lora_name":       r"@w1\.lora_name:([0-9A-Za-z_\.-]+)",
     "lora_strength":   r"@w1\.lora_strength:([0-9]*\.[0-9]+)",
-    "aspect":          r"@aspect:([0-9]*\.[0-9]+)",
+    "aspect":          r"@aspect:([0-9]*\.?[0-9]+(?::[0-9]*\.?[0-9]+)?)",
 }
 
 
@@ -180,17 +180,24 @@ def parse_range_arg(arg: str):
     value_list = [v.strip() for v in values.split(',')]
     return key, value_list
 
-def apply_aspect(width: int, height: int, aspect: float) -> tuple[int, int]:
-    """Force aspect ratio choosing the option that keeps both dims <= originals."""
-    # Option A: keep width, compute height
-    h_from_w = int(width / aspect)
-    # Option B: keep height, compute width
-    w_from_h = int(height * aspect)
+def apply_aspect(width: int, height: int, aspect_str: str) -> tuple[int, int]:
+    """Resize to the given aspect ratio while preserving total pixel count.
 
-    if h_from_w <= height:
-        return width, h_from_w
+    Accepts either a decimal ratio ("1.7778") or a colon-separated pair
+    ("16:9").  The result satisfies new_w / new_h ≈ aspect and
+    new_w * new_h ≈ width * height (rounded to the nearest integer).
+    """
+    if ":" in aspect_str:
+        a, b = aspect_str.split(":", 1)
+        aspect = float(a) / float(b)
     else:
-        return w_from_h, height
+        aspect = float(aspect_str)
+
+    total_pixels = width * height
+    # new_w = aspect * new_h  →  aspect * new_h² = total_pixels
+    new_h = round((total_pixels / aspect) ** 0.5)
+    new_w = round(total_pixels / new_h)
+    return new_w, new_h
 
 def submit(args):
     # --w1 injects the bundled config as an implicit leading prompt file
@@ -237,9 +244,8 @@ def submit(args):
         resolved = extract_tags(current_prompt)
 
         if resolved["aspect"]:
-            aspect = float(resolved["aspect"])
-            new_width, new_height = apply_aspect(int(resolved["width"]), int(resolved["height"]), aspect)
-            print(f"Adjusting size for aspect {aspect}: {new_width} x {new_height}")
+            new_width, new_height = apply_aspect(int(resolved["width"]), int(resolved["height"]), resolved["aspect"])
+            print(f"Adjusting size for aspect {resolved['aspect']}: {new_width} x {new_height}")
             resolved["width"]  = str(new_width)
             resolved["height"] = str(new_height)
 
