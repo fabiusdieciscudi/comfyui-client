@@ -12,7 +12,7 @@ WORKFLOWS	:= workflows/api
 W1			:= $(WORKFLOWS)/'W1 (diffusion based).json'
 
 CLIENT		:= ./ComfyUIClient
-Z_IMAGE_T	:= --workflow $(W1) --prompt-file $(CONFIGS)/w1-z_image_turbo_bf16.txt
+Z_IMAGE_T	:= --w1 --prompt-file $(CONFIGS)/w1-z_image_turbo_bf16.txt
 
 ifeq ($(filter fast,$(MAKECMDGOALS)),fast)
 OPTIONS 	:= $(OPTIONS) --range w1.steps=2 --scale 0.5
@@ -22,6 +22,7 @@ ifeq ($(filter dry-run,$(MAKECMDGOALS)),dry-run)
 OPTIONS		:= $(OPTIONS) --dry-run
 endif
 
+.PHONY: al cat clean build output prompt cat moonlight
 
 all: cat
 

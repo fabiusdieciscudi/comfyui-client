@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: © 2026-present Fabius Dieciscudi
 # SPDX-License-Identifier: MIT
 
+.PHONY: venv-prepare venv-init venv-clean venv-bash pip-install-tools pip-install pip-compile pip-audit pip-freeze
+
 venv-prepare: venv-clean venv-init pip-install-tools pip-install
 	@true
 
