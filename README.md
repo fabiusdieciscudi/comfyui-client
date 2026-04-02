@@ -110,10 +110,7 @@ Commands are invoked via the `ComfyUIClient` wrapper script, which activates the
 **1. Submit a test image:**
 
 ```bash
-./ComfyUIClient submit \
-    --workflow "workflows/api/W1 (diffusion based).json" \
-    --prompt-file prompts/configs/w1-z_image_turbo_bf16.txt \
-    --prompt "A cat sitting on a sofa, smoking a pipe"
+./ComfyUIClient submit --w1 --prompt-file prompts/configs/w1-z_image_turbo_bf16.txt --prompt "A cat sitting on a sofa, smoking a pipe"
 ```
 
 Or use the Makefile shortcut:
@@ -125,11 +122,7 @@ make cat
 **2. Do a quick dry run to verify tag resolution before submitting:**
 
 ```bash
-./ComfyUIClient submit \
-    --workflow "workflows/api/W1 (diffusion based).json" \
-    --prompt-file prompts/configs/w1-z_image_turbo_bf16.txt \
-    --prompt "A moonlit forest @w1.steps:5" \
-    --dry-run
+./ComfyUIClient submit --w1 --prompt-file prompts/configs/w1-z_image_turbo_bf16.txt --prompt "A moonlit forest @w1.steps:5" --dry-run
 ```
 
 **3. Write metadata keywords to all images in today's output folder:**
