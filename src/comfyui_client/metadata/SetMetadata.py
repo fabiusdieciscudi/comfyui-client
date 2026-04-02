@@ -58,26 +58,34 @@ def exiftool_write(path: Path, keywords: list[str], hierarchicals: list[str]) ->
 # Tag extraction
 # ---------------------------------------------------------------------------
 
+def _showtext_value(node: dict) -> str:
+    """Return the widget value from a ShowText|pysssss node.
+
+    Older ComfyUI API exports used 'text_0'; newer exports use 'text'.
+    We probe the actual inputs dict so the code works regardless of
+    which version of ComfyUI wrote the metadata.
+    """
+    inputs = node.get("inputs", {})
+    return str(inputs.get("text_0", inputs.get("text", "n/a")))
+
+
 def extract_tags_from_prompt(prompt_json: dict) -> tuple[list[tuple[str, str]], list[str]]:
     """
     New format: the Prompt JSON is a flat dict of node_id → node.
-    Find all ShowText|pysssss nodes whose _meta.title starts with "Tag:"
-    and return:
-      - [(title, value), ...] for AI parameter tags
-      - [keyword, ...] for user keywords from the "Keywords" node
+    Find all nodes whose _meta.title starts with "Tag:" or equals "Keywords".
     """
     tags = []
     user_keywords = []
 
     for node in prompt_json.values():
-        if isinstance(node, dict) and node.get("class_type") == "ShowText|pysssss":
-            title = node.get("_meta", {}).get("title", "")
-            if title.startswith("Tag:"):
-                value = node.get("inputs", {}).get("text_0", "n/a")
-                tags.append((title, str(value)))
-            elif title == "Keywords":
-                keywords_text = node.get("inputs", {}).get("text_0", "")
-                user_keywords = [k.strip() for k in keywords_text.split("\n") if k.strip()]
+        if not isinstance(node, dict):
+            continue
+        title = node.get("_meta", {}).get("title", "")
+
+        if title.startswith("Tag:"):
+            tags.append((title, _showtext_value(node)))
+        elif title == "Keywords":
+            user_keywords = [k.strip() for k in _showtext_value(node).split("\n") if k.strip()]
 
     return sorted(tags), user_keywords
 
@@ -177,16 +185,7 @@ def process_file(path: Path) -> None:
         log("")
         return
 
-    # Filter tags: drop lora_present always; drop lora_name and lora_strength
-    # when lora_name has no value (empty string after #).
-    lora_name_value = next((v for t, v in tags if t == "Tag: w1.lora_name"), "")
-    filtered_tags = [
-        (title, value) for title, value in tags
-        if title != "Tag: w1.lora_present"
-           and not (title in ("Tag: w1.lora_name", "Tag: w1.lora_strength") and not lora_name_value)
-    ]
-
-    ai_keywords   = tags_to_keywords(filtered_tags)
+    ai_keywords   = tags_to_keywords(tags)
     flat_keywords = [kw for parent, child, _ in ai_keywords for kw in (parent, child)]
     hierarchicals = [hier for _, _, hier in ai_keywords]
 

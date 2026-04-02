@@ -110,6 +110,20 @@ def find_node_by_title(wf: dict, title: str) -> dict:
             return node
     raise RuntimeError(f"Node '{title}' not found in workflow.")
 
+
+def _showtext_input_key(node: dict) -> str:
+    """Return the widget input key for a ShowText|pysssss node.
+
+    Older ComfyUI API exports used 'text_0'; newer exports use 'text'.
+    We probe the node's actual inputs dict so the code stays correct
+    regardless of which version of ComfyUI exported the workflow.
+    """
+    inputs = node.get("inputs", {})
+    if "text_0" in inputs:
+        return "text_0"
+    return "text"
+
+
 def patch_workflow(workflow: dict, prompt: str, resolved: dict, merger_node_id: str, keywords: list[str]) -> dict:
     wf = json.loads(json.dumps(workflow))  # deep copy
 
@@ -120,16 +134,25 @@ def patch_workflow(workflow: dict, prompt: str, resolved: dict, merger_node_id: 
     node["inputs"]["text_c"] = ""
 
     # Patch 2: resolved tag values → ShowText nodes
+    # The input key was "text_0" in older ComfyUI exports, "text" in newer ones.
     for tag, title in TAG_NODE_TITLES.items():
-        find_node_by_title(wf, title)["inputs"]["text_0"] = resolved[tag]
+        tag_node = find_node_by_title(wf, title)
+        tag_node["inputs"][_showtext_input_key(tag_node)] = resolved[tag]
 
     # Patch 3: clean prompt → Prompt node
-    find_node_by_title(wf, "Prompt")["inputs"]["text_0"] = re.sub(
+    prompt_node = find_node_by_title(wf, "Prompt")
+    prompt_node["inputs"][_showtext_input_key(prompt_node)] = re.sub(
         r"@[^:\s]+(:[^,\s]+)*\s*[,]*", "", strip_comments(prompt)
     )
 
     # Patch 4: keywords → Keywords node
-    find_node_by_title(wf, "Keywords")["inputs"]["text_0"] = "\n".join(keywords)
+    # Older workflows used ShowText|pysssss ("text_0" / "text");
+    # newer workflows use DF_Text ("Text", capital T).
+    kw_node = find_node_by_title(wf, "Keywords")
+    if kw_node.get("class_type") == "DF_Text":
+        kw_node["inputs"]["Text"] = "\n".join(keywords)
+    else:
+        kw_node["inputs"][_showtext_input_key(kw_node)] = "\n".join(keywords)
 
     return wf
 

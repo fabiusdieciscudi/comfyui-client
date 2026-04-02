@@ -378,9 +378,11 @@
       "title": "Preview Image"
     }
   },
-  "312": {
-    "inputs": {},
-    "class_type": "ShowText|pysssss",
+  "314": {
+    "inputs": {
+      "Text": ""
+    },
+    "class_type": "DF_Text",
     "_meta": {
       "title": "Keywords"
     }
