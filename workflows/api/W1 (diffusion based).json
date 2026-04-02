@@ -385,6 +385,17 @@
       "title": "Keywords"
     }
   },
+  "313": {
+    "inputs": {
+      "lora_name": "zit_sda_v1.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA (Model and CLIP)"
+    }
+  },
   "37:45": {
     "inputs": {
       "round_integer": "round",
@@ -441,7 +452,6 @@
   },
   "37:59": {
     "inputs": {
-      "text_0": "1600",
       "text": [
         "37:62",
         0
@@ -454,7 +464,6 @@
   },
   "37:51": {
     "inputs": {
-      "text_0": "9",
       "text": [
         "37:63",
         0
@@ -542,7 +551,6 @@
   },
   "37:270": {
     "inputs": {
-      "text_0": "1.0",
       "text": [
         "37:271",
         0
@@ -570,7 +578,6 @@
   },
   "37:258": {
     "inputs": {
-      "text_0": "1.0",
       "text": [
         "37:259",
         0
@@ -656,7 +663,6 @@
   },
   "37:262": {
     "inputs": {
-      "text_0": "ddim",
       "text": [
         "37:263",
         0
@@ -669,7 +675,6 @@
   },
   "37:266": {
     "inputs": {
-      "text_0": "sgm_uniform",
       "text": [
         "37:267",
         0
@@ -739,7 +744,6 @@
   },
   "37:60": {
     "inputs": {
-      "text_0": "56234532624987",
       "text": [
         "37:61",
         0
@@ -810,7 +814,6 @@
   },
   "37:58": {
     "inputs": {
-      "text_0": "1024",
       "text": [
         "37:64",
         0
@@ -903,7 +906,6 @@
   },
   "37:279": {
     "inputs": {
-      "text_0": "1.0",
       "text": [
         "37:280",
         0
@@ -914,39 +916,8 @@
       "title": "Tag: w1.lora_strength"
     }
   },
-  "37:284": {
-    "inputs": {
-      "Text": [
-        "37:275",
-        0
-      ],
-      "Pattern": "^$",
-      "Replace_With": "false",
-      "Mode": "RegEx"
-    },
-    "class_type": "DF_String_Replace",
-    "_meta": {
-      "title": "Default value"
-    }
-  },
-  "37:287": {
-    "inputs": {
-      "Text": [
-        "37:284",
-        0
-      ],
-      "Pattern": "^$",
-      "Replace_With": "true",
-      "Mode": "RegEx"
-    },
-    "class_type": "DF_String_Replace",
-    "_meta": {
-      "title": "Default value"
-    }
-  },
   "37:68": {
     "inputs": {
-      "text_0": "z_image_turbo_bf16.safetensors",
       "text": [
         "37:67",
         0
@@ -959,7 +930,6 @@
   },
   "37:285": {
     "inputs": {
-      "text_0": "false",
       "text": [
         "37:287",
         0
@@ -1137,7 +1107,6 @@
   },
   "37:300": {
     "inputs": {
-      "text_0": "qwen_3_4b.safetensors",
       "text": [
         "37:301",
         0
@@ -1177,7 +1146,6 @@
   },
   "37:305": {
     "inputs": {
-      "text_0": "qwen_image",
       "text": [
         "37:304",
         0
@@ -1190,7 +1158,6 @@
   },
   "37:308": {
     "inputs": {
-      "text_0": "ae.safetensors",
       "text": [
         "37:307",
         0
@@ -1223,6 +1190,36 @@
     "class_type": "CR String To Combo",
     "_meta": {
       "title": "Convert vae_name"
+    }
+  },
+  "37:284": {
+    "inputs": {
+      "Text": [
+        "37:275",
+        0
+      ],
+      "Pattern": "^.*$",
+      "Replace_With": "true",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
+    }
+  },
+  "37:287": {
+    "inputs": {
+      "Text": [
+        "37:284",
+        0
+      ],
+      "Pattern": "^$",
+      "Replace_With": "false",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
     }
   }
 }
