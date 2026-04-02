@@ -177,7 +177,16 @@ def process_file(path: Path) -> None:
         log("")
         return
 
-    ai_keywords   = tags_to_keywords(tags)
+    # Filter tags: drop lora_present always; drop lora_name and lora_strength
+    # when lora_name has no value (empty string after #).
+    lora_name_value = next((v for t, v in tags if t == "Tag: w1.lora_name"), "")
+    filtered_tags = [
+        (title, value) for title, value in tags
+        if title != "Tag: w1.lora_present"
+           and not (title in ("Tag: w1.lora_name", "Tag: w1.lora_strength") and not lora_name_value)
+    ]
+
+    ai_keywords   = tags_to_keywords(filtered_tags)
     flat_keywords = [kw for parent, child, _ in ai_keywords for kw in (parent, child)]
     hierarchicals = [hier for _, _, hier in ai_keywords]
 
