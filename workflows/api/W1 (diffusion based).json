@@ -385,17 +385,6 @@
       "title": "Keywords"
     }
   },
-  "313": {
-    "inputs": {
-      "lora_name": "zit_sda_v1.safetensors",
-      "strength_model": 1,
-      "strength_clip": 1
-    },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "Load LoRA (Model and CLIP)"
-    }
-  },
   "37:45": {
     "inputs": {
       "round_integer": "round",
@@ -713,18 +702,6 @@
     "class_type": "DF_String_Replace",
     "_meta": {
       "title": "Extract cfg"
-    }
-  },
-  "37:274": {
-    "inputs": {
-      "text": [
-        "37:275",
-        0
-      ]
-    },
-    "class_type": "ShowText|pysssss",
-    "_meta": {
-      "title": "Tag: w1.lora_name"
     }
   },
   "37:280": {
@@ -1195,10 +1172,10 @@
   "37:284": {
     "inputs": {
       "Text": [
-        "37:275",
+        "37:274",
         0
       ],
-      "Pattern": "^.*$",
+      "Pattern": "^.+$",
       "Replace_With": "true",
       "Mode": "RegEx"
     },
@@ -1220,6 +1197,18 @@
     "class_type": "DF_String_Replace",
     "_meta": {
       "title": "Default value"
+    }
+  },
+  "37:274": {
+    "inputs": {
+      "text": [
+        "37:275",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Tag: w1.lora_name"
     }
   }
 }

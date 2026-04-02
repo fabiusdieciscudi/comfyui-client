@@ -494,15 +494,6 @@
             "type": "STRING"
           },
           {
-            "id": 368,
-            "origin_id": 275,
-            "origin_slot": 0,
-            "parentId": 79,
-            "target_id": 284,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
             "id": 369,
             "origin_id": 284,
             "origin_slot": 0,
@@ -645,6 +636,15 @@
             "target_id": -20,
             "target_slot": 15,
             "type": "*"
+          },
+          {
+            "id": 410,
+            "origin_id": 274,
+            "origin_slot": 0,
+            "parentId": 79,
+            "target_id": 284,
+            "target_slot": 0,
+            "type": "STRING"
           }
         ],
         "name": "Preprocess prompt",
@@ -2078,45 +2078,6 @@
           },
           {
             "flags": {},
-            "id": 274,
-            "inputs": [
-              {
-                "link": 335,
-                "localized_name": "text",
-                "name": "text",
-                "type": "STRING"
-              }
-            ],
-            "mode": 0,
-            "order": 38,
-            "outputs": [
-              {
-                "links": [
-                  346
-                ],
-                "localized_name": "STRING",
-                "name": "STRING",
-                "shape": 6,
-                "type": "STRING"
-              }
-            ],
-            "pos": [
-              -1470,
-              1905
-            ],
-            "properties": {
-              "Node name for S&R": "ShowText|pysssss"
-            },
-            "size": [
-              210,
-              80
-            ],
-            "title": "Tag: w1.lora_name",
-            "type": "ShowText|pysssss",
-            "widgets_values": []
-          },
-          {
-            "flags": {},
             "id": 280,
             "inputs": [
               {
@@ -2273,8 +2234,7 @@
             "outputs": [
               {
                 "links": [
-                  335,
-                  368
+                  335
                 ],
                 "localized_name": "TEXT",
                 "name": "TEXT",
@@ -2936,152 +2896,6 @@
             "title": "Tag: w1.lora_strength",
             "type": "ShowText|pysssss",
             "widgets_values": []
-          },
-          {
-            "flags": {},
-            "id": 284,
-            "inputs": [
-              {
-                "link": 368,
-                "localized_name": "Text",
-                "name": "Text",
-                "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Pattern",
-                "name": "Pattern",
-                "type": "STRING",
-                "widget": {
-                  "name": "Pattern"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Replace_With",
-                "name": "Replace_With",
-                "type": "STRING",
-                "widget": {
-                  "name": "Replace_With"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Mode",
-                "name": "Mode",
-                "type": "COMBO",
-                "widget": {
-                  "name": "Mode"
-                }
-              }
-            ],
-            "mode": 0,
-            "order": 44,
-            "outputs": [
-              {
-                "links": [
-                  369
-                ],
-                "localized_name": "TEXT",
-                "name": "TEXT",
-                "type": "STRING"
-              }
-            ],
-            "pos": [
-              -2120,
-              2125
-            ],
-            "properties": {
-              "Node name for S&R": "DF_String_Replace"
-            },
-            "size": [
-              210,
-              130
-            ],
-            "title": "Default value",
-            "type": "DF_String_Replace",
-            "widgets_values": [
-              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
-              "^$",
-              "false",
-              "RegEx"
-            ]
-          },
-          {
-            "flags": {},
-            "id": 287,
-            "inputs": [
-              {
-                "link": 369,
-                "localized_name": "Text",
-                "name": "Text",
-                "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Pattern",
-                "name": "Pattern",
-                "type": "STRING",
-                "widget": {
-                  "name": "Pattern"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Replace_With",
-                "name": "Replace_With",
-                "type": "STRING",
-                "widget": {
-                  "name": "Replace_With"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Mode",
-                "name": "Mode",
-                "type": "COMBO",
-                "widget": {
-                  "name": "Mode"
-                }
-              }
-            ],
-            "mode": 0,
-            "order": 47,
-            "outputs": [
-              {
-                "links": [
-                  370
-                ],
-                "localized_name": "TEXT",
-                "name": "TEXT",
-                "type": "STRING"
-              }
-            ],
-            "pos": [
-              -1765,
-              2120
-            ],
-            "properties": {
-              "Node name for S&R": "DF_String_Replace"
-            },
-            "size": [
-              210,
-              130
-            ],
-            "title": "Default value",
-            "type": "DF_String_Replace",
-            "widgets_values": [
-              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
-              "^$",
-              "true",
-              "RegEx"
-            ]
           },
           {
             "flags": {},
@@ -4305,6 +4119,192 @@
             "title": "Convert vae_name",
             "type": "CR String To Combo",
             "widgets_values": []
+          },
+          {
+            "flags": {},
+            "id": 284,
+            "inputs": [
+              {
+                "link": 410,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 44,
+            "outputs": [
+              {
+                "links": [
+                  369
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2120,
+              2125
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^.*$",
+              "true",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 287,
+            "inputs": [
+              {
+                "link": 369,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 47,
+            "outputs": [
+              {
+                "links": [
+                  370
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1765,
+              2120
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^$",
+              "false",
+              "RegEx"
+            ]
+          },
+          {
+            "flags": {},
+            "id": 274,
+            "inputs": [
+              {
+                "link": 335,
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING"
+              }
+            ],
+            "mode": 0,
+            "order": 38,
+            "outputs": [
+              {
+                "links": [
+                  346,
+                  410
+                ],
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -1470,
+              1905
+            ],
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "size": [
+              210,
+              80
+            ],
+            "title": "Tag: w1.lora_name",
+            "type": "ShowText|pysssss",
+            "widgets_values": []
           }
         ],
         "outputNode": {
@@ -4541,17 +4541,17 @@
           {
             "id": 78,
             "linkIds": [
-              368
+              410
             ],
             "pos": [
-              -1490,
-              2035
+              -1160,
+              2020
             ]
           },
           {
             "id": 79,
             "linkIds": [
-              368
+              410
             ],
             "parentId": 78,
             "pos": [
@@ -4573,8 +4573,8 @@
         "revision": 0,
         "state": {
           "lastGroupId": 12,
-          "lastLinkId": 409,
-          "lastNodeId": 312,
+          "lastLinkId": 410,
+          "lastNodeId": 313,
           "lastRerouteId": 92
         },
         "version": 1,
@@ -4589,10 +4589,10 @@
     "VHS_latentpreviewrate": 0,
     "ds": {
       "offset": [
-        3808.6056647361643,
-        1075.6489491939026
+        4293.22243651559,
+        1609.1666666666667
       ],
-      "scale": 1.1
+      "scale": 0.9185794337324148
     },
     "frontendVersion": "1.30.6",
     "linkExtensions": [
@@ -4954,9 +4954,9 @@
       "title": "Save"
     }
   ],
-  "id": "16cc0f0f-05f5-45de-8e8c-e1c9aac1e65b",
-  "last_link_id": 409,
-  "last_node_id": 312,
+  "id": "d7d26107-2476-48b2-a10b-3074f890c6f2",
+  "last_link_id": 410,
+  "last_node_id": 313,
   "links": [
     [
       2,
@@ -6143,7 +6143,7 @@
       "id": 38,
       "inputs": [],
       "mode": 0,
-      "order": 4,
+      "order": 0,
       "outputs": [],
       "pos": [
         -3270,
@@ -6270,7 +6270,7 @@
         }
       ],
       "mode": 0,
-      "order": 0,
+      "order": 1,
       "outputs": [
         {
           "links": [
@@ -6325,7 +6325,7 @@
         }
       ],
       "mode": 0,
-      "order": 1,
+      "order": 2,
       "outputs": [
         {
           "links": [
@@ -6380,7 +6380,7 @@
         }
       ],
       "mode": 0,
-      "order": 2,
+      "order": 3,
       "outputs": [
         {
           "links": [
@@ -6680,7 +6680,7 @@
         }
       ],
       "mode": 0,
-      "order": 3,
+      "order": 4,
       "outputs": [
         {
           "links": [
