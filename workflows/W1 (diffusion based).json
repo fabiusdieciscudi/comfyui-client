@@ -4122,79 +4122,6 @@
           },
           {
             "flags": {},
-            "id": 284,
-            "inputs": [
-              {
-                "link": 410,
-                "localized_name": "Text",
-                "name": "Text",
-                "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Pattern",
-                "name": "Pattern",
-                "type": "STRING",
-                "widget": {
-                  "name": "Pattern"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Replace_With",
-                "name": "Replace_With",
-                "type": "STRING",
-                "widget": {
-                  "name": "Replace_With"
-                }
-              },
-              {
-                "link": null,
-                "localized_name": "Mode",
-                "name": "Mode",
-                "type": "COMBO",
-                "widget": {
-                  "name": "Mode"
-                }
-              }
-            ],
-            "mode": 0,
-            "order": 44,
-            "outputs": [
-              {
-                "links": [
-                  369
-                ],
-                "localized_name": "TEXT",
-                "name": "TEXT",
-                "type": "STRING"
-              }
-            ],
-            "pos": [
-              -2120,
-              2125
-            ],
-            "properties": {
-              "Node name for S&R": "DF_String_Replace"
-            },
-            "size": [
-              210,
-              130
-            ],
-            "title": "Default value",
-            "type": "DF_String_Replace",
-            "widgets_values": [
-              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
-              "^.*$",
-              "true",
-              "RegEx"
-            ]
-          },
-          {
-            "flags": {},
             "id": 287,
             "inputs": [
               {
@@ -4305,6 +4232,79 @@
             "title": "Tag: w1.lora_name",
             "type": "ShowText|pysssss",
             "widgets_values": []
+          },
+          {
+            "flags": {},
+            "id": 284,
+            "inputs": [
+              {
+                "link": 410,
+                "localized_name": "Text",
+                "name": "Text",
+                "type": "STRING",
+                "widget": {
+                  "name": "Text"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Pattern",
+                "name": "Pattern",
+                "type": "STRING",
+                "widget": {
+                  "name": "Pattern"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Replace_With",
+                "name": "Replace_With",
+                "type": "STRING",
+                "widget": {
+                  "name": "Replace_With"
+                }
+              },
+              {
+                "link": null,
+                "localized_name": "Mode",
+                "name": "Mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "Mode"
+                }
+              }
+            ],
+            "mode": 0,
+            "order": 44,
+            "outputs": [
+              {
+                "links": [
+                  369
+                ],
+                "localized_name": "TEXT",
+                "name": "TEXT",
+                "type": "STRING"
+              }
+            ],
+            "pos": [
+              -2120,
+              2125
+            ],
+            "properties": {
+              "Node name for S&R": "DF_String_Replace"
+            },
+            "size": [
+              210,
+              130
+            ],
+            "title": "Default value",
+            "type": "DF_String_Replace",
+            "widgets_values": [
+              "[\\s\\S]*@steps:([0-9]+)[\\s\\S]*",
+              "^.+$",
+              "true",
+              "RegEx"
+            ]
           }
         ],
         "outputNode": {
@@ -4954,7 +4954,7 @@
       "title": "Save"
     }
   ],
-  "id": "d7d26107-2476-48b2-a10b-3074f890c6f2",
+  "id": "2c91a4ae-cc11-43cb-b837-fd7733d72986",
   "last_link_id": 410,
   "last_node_id": 313,
   "links": [

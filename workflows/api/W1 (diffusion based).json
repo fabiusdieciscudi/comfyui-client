@@ -1169,21 +1169,6 @@
       "title": "Convert vae_name"
     }
   },
-  "37:284": {
-    "inputs": {
-      "Text": [
-        "37:274",
-        0
-      ],
-      "Pattern": "^.+$",
-      "Replace_With": "true",
-      "Mode": "RegEx"
-    },
-    "class_type": "DF_String_Replace",
-    "_meta": {
-      "title": "Default value"
-    }
-  },
   "37:287": {
     "inputs": {
       "Text": [
@@ -1209,6 +1194,21 @@
     "class_type": "ShowText|pysssss",
     "_meta": {
       "title": "Tag: w1.lora_name"
+    }
+  },
+  "37:284": {
+    "inputs": {
+      "Text": [
+        "37:274",
+        0
+      ],
+      "Pattern": "^.+$",
+      "Replace_With": "true",
+      "Mode": "RegEx"
+    },
+    "class_type": "DF_String_Replace",
+    "_meta": {
+      "title": "Default value"
     }
   }
 }
