@@ -1094,7 +1094,6 @@
         "",
         "",
         [
-          "@w1.diffusion_model:z_image_turbo_bf16.safetensors\n@w1.width:1024 @w1.height:1024\n@w1.steps:9\n@w1.cfg:1.0\n@w1.denoise:1.0\n@w1.clip_name:qwen_3_4b.safetensors\n@w1.clip_type:qwen_image\n@w1.vae_name:ae.safetensors\n@w1.sampler_name:ddim\n@w1.scheduler:sgm_uniform\n\n@w1.up_model:4x_NickelbackFS_72000_G.pth\n@w1.up_steps:25\n@w1.up_cfg:1.0\n@w1.up_denoise:0.4\n@w1.up_sampler_name:dpmpp_2m_sde\n@w1.up_scheduler:karras\nA cat.\n\n@w1.steps:1\n@w1.up_steps:1\n\n@w1.up_width:1536\n@w1.up_height:1536\n@w1.up_model:4x_NickelbackFS_72000_G.pth"
         ]
       ]
     },
