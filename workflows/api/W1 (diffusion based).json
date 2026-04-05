@@ -307,6 +307,24 @@
       "title": "Keywords"
     }
   },
+  "3141": {
+    "inputs": {
+      "Text": ""
+    },
+    "class_type": "DF_Text",
+    "_meta": {
+      "title": "Title"
+    }
+  },
+  "3142": {
+    "inputs": {
+      "Text": ""
+    },
+    "class_type": "DF_Text",
+    "_meta": {
+      "title": "Description"
+    }
+  },
   "364": {
     "inputs": {
       "switch": [
