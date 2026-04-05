@@ -6,7 +6,6 @@
 import argparse
 import json
 import re
-import subprocess
 import time
 import requests
 from pathlib import Path
@@ -268,7 +267,7 @@ class SubmitCommand(CommandBase):
                 return node
         raise RuntimeError(f"Node '{title}' not found in workflow.")
 
-    def patch_workflow(self, workflow: dict, prompt: str, resolved: dict, merger_node_id: str, keywords: list[str]) -> dict:
+    def patch_workflow(self, workflow: dict, prompt: str, resolved: dict, merger_node_id: str, keywords: list[str], title: str, description: str) -> dict:
         wf = json.loads(json.dumps(workflow))  # deep copy
 
         # Patch 1: prompt text
@@ -278,8 +277,8 @@ class SubmitCommand(CommandBase):
         node["inputs"]["text_c"] = ""
 
         # Patch 2: resolved tag values → ShowText nodes
-        for tag, title in TAG_NODE_TITLES.items():
-            self.find_node_by_title(wf, title)["inputs"]["text_0"] = resolved[tag]
+        for tag, title_ in TAG_NODE_TITLES.items():
+            self.find_node_by_title(wf, title_)["inputs"]["text_0"] = resolved[tag]
 
         # Patch 3: clean prompt → Prompt node
         clean_prompt = self.strip_comments(prompt)
@@ -287,7 +286,13 @@ class SubmitCommand(CommandBase):
         self.find_node_by_title(wf, "Prompt")["inputs"]["text_0"] = re.sub(r"@[^:\s]+(:[^,\s]+)*\s*[,]*", "", clean_prompt)
 
         # Patch 4: keywords → Keywords node
-        self.find_node_by_title(wf, "Keywords")["inputs"]["text_0"] = "\n".join(keywords)
+        self.find_node_by_title(wf, "Keywords")["inputs"]["Text"] = "\n".join(keywords)
+
+        # Patch 5: title and description → their respective placeholder nodes.
+        # SetMetadataCommand reads these back from the embedded Prompt JSON and
+        # writes them to XMP/IPTC fields via exiftool.
+        self.find_node_by_title(wf, "Title")["inputs"]["Text"] = title
+        self.find_node_by_title(wf, "Description")["inputs"]["Text"] = description
 
         return wf
 
@@ -387,36 +392,6 @@ class SubmitCommand(CommandBase):
             saved.append(dest)
 
         return saved
-
-    def write_image_metadata(self, paths: list[Path], title: str, description: str) -> None:
-        """Write title and/or description into the standard metadata fields of
-        each image file using exiftool.
-
-        Written fields:
-            XMP:Title                — primary title, read by most XMP-aware tools
-            IPTC:Headline            — IPTC equivalent of title
-            XMP:Description          — primary description / caption
-            IPTC:Caption-Abstract    — IPTC equivalent of description
-
-        Only fields for which a non-empty value is provided are written.
-        If neither title nor description has a value this method is a no-op.
-        """
-        if not title and not description:
-            return
-
-        args = ["exiftool", "-overwrite_original", "-m"]
-        if title:
-            args += [f"-XMP:Title={title}", f"-IPTC:Headline={title}"]
-        if description:
-            args += [f"-XMP:Description={description}", f"-IPTC:Caption-Abstract={description}"]
-
-        args += [str(p) for p in paths]
-
-        debug(f"exiftool metadata write: {args}")
-        try:
-            subprocess.run(args, capture_output=True, check=True)
-        except subprocess.CalledProcessError as e:
-            log(f"  [ERROR] exiftool metadata write failed: {e.stderr.decode(errors='replace').strip()}")
 
     # --- Upscale helpers ------------------------------------------------------
 
@@ -551,7 +526,7 @@ class SubmitCommand(CommandBase):
 
         base_url = args.comfyui.rstrip('/')
 
-        # --output forces blocking mode
+        # --output forces blocking mode; warn if --wait was not also passed
         output_dir = Path(args.output) if args.output else None
         blocking = args.wait or output_dir is not None
 
@@ -616,7 +591,7 @@ class SubmitCommand(CommandBase):
                 log("-" * 80)
                 continue
 
-            wf = self.patch_workflow(workflow_template, current_prompt, resolved, merger_node_id, all_keywords)
+            wf = self.patch_workflow(workflow_template, current_prompt, resolved, merger_node_id, all_keywords, title, description)
 
             prompt_id = self.submit_prompt(base_url, wf)
             log(f"  [OK] Prompt ID: {prompt_id}")
@@ -632,9 +607,7 @@ class SubmitCommand(CommandBase):
                 if output_dir is not None:
                     images = self.collect_output_images(outputs)
                     if images:
-                        saved = self.download_images(base_url, images, output_dir)
-                        if saved and (title or description):
-                            self.write_image_metadata(saved, title, description)
+                        self.download_images(base_url, images, output_dir)
                     else:
                         log("  [WARN] No output images found in job history.")
 
