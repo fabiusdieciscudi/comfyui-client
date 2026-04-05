@@ -15,3 +15,4 @@
 @w1.up_denoise:0.4
 @w1.up_sampler_name:dpmpp_2m_sde
 @w1.up_scheduler:karras
+@w1.up_method:bislerp
