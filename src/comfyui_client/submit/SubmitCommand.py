@@ -100,6 +100,10 @@ TAG_PATTERNS = {
     "aspect":          r"@aspect:([0-9]*\.?[0-9]+(?::[0-9]*\.?[0-9]+)?)",
 }
 
+# Line-oriented tags: value is everything after the colon to end of line.
+# @keyword is multi-valued; @title and @description are last-wins.
+_LINE_TAG_PATTERN = re.compile(r"^@(keyword|title|description):(.+)$", re.MULTILINE)
+
 
 # Named pixel-count shortcuts in megapixels
 _NAMED_PIXELS = {
@@ -125,7 +129,8 @@ class SubmitCommand(CommandBase):
         parser.add_argument("--comfyui",      default="http://127.0.0.1:8000")
         parser.add_argument("--scale",        type=float, default=1.0, help="Multiply width and height by this factor")
         parser.add_argument("--upscale",      default=None, metavar="VALUE", help="Upscale target: (e.g. 2.5 or a named pixel count target: 4k, 8k, 4mp).")
-        parser.add_argument("--title",        default="", help="Title info to embed in the image")
+        parser.add_argument("--title",        default="", help="Title to embed in the image metadata.")
+        parser.add_argument("--description",  default="", help="Description to embed in the image metadata.")
         parser.add_argument("--keyword",      action="append", default=[], help="Keyword to embed in the image (repeatable).")
         parser.add_argument("--wait",         action="store_true", help="Wait for each job to finish before submitting the next")
         parser.add_argument("--output",       default=None, metavar="DIR", help="Download generated images into this directory (implies --wait).")
@@ -203,6 +208,37 @@ class SubmitCommand(CommandBase):
         text = re.sub(r"#.*$",      "", text, flags=re.MULTILINE)  # node 37:66: inline comments
         return text
 
+    def extract_line_tags(self, text: str) -> tuple[list[str], str, str]:
+        """Extract line-oriented @keyword, @title, and @description tags.
+
+        These tags differ from @w1.* tags in that their value is the entire
+        remainder of the line after the colon (including spaces, commas, and
+        additional colons), making them suitable for free-form text.
+
+        Must be called on comment-stripped text so that commented-out tags
+        are not picked up.
+
+        Returns:
+            keywords    – list of all @keyword values found (preserves order)
+            title       – value of the last @title tag, or "" if absent
+            description – value of the last @description tag, or "" if absent
+        """
+        keywords: list[str] = []
+        title = ""
+        description = ""
+
+        for match in _LINE_TAG_PATTERN.finditer(text):
+            tag_name = match.group(1)
+            value    = match.group(2).strip()
+            if tag_name == "keyword":
+                keywords.append(value)
+            elif tag_name == "title":
+                title = value
+            elif tag_name == "description":
+                description = value
+
+        return keywords, title, description
+
     def extract_tags(self, text: str) -> dict:
         clean = self.strip_comments(text)
         resolved = {}
@@ -231,7 +267,7 @@ class SubmitCommand(CommandBase):
                 return node
         raise RuntimeError(f"Node '{title}' not found in workflow.")
 
-    def patch_workflow(self, workflow: dict, prompt: str, resolved: dict, merger_node_id: str, keywords: list[str]) -> dict:
+    def patch_workflow(self, workflow: dict, prompt: str, resolved: dict, merger_node_id: str, keywords: list[str], title: str, description: str) -> dict:
         wf = json.loads(json.dumps(workflow))  # deep copy
 
         # Patch 1: prompt text
@@ -241,17 +277,15 @@ class SubmitCommand(CommandBase):
         node["inputs"]["text_c"] = ""
 
         # Patch 2: resolved tag values → ShowText nodes
-        for tag, title in TAG_NODE_TITLES.items():
-            self.find_node_by_title(wf, title)["inputs"]["text_0"] = resolved[tag]
+        for tag, title_ in TAG_NODE_TITLES.items():
+            self.find_node_by_title(wf, title_)["inputs"]["text_0"] = resolved[tag]
 
-        # Patch 3: clean prompt → Prompt node
         clean_prompt = self.strip_comments(prompt)
         log(f"Words in prompt: {count_words(clean_prompt)}")
         self.find_node_by_title(wf, "Prompt")["inputs"]["text_0"] = re.sub(r"@[^:\s]+(:[^,\s]+)*\s*[,]*", "", clean_prompt)
-
-        # Patch 4: keywords → Keywords node
         self.find_node_by_title(wf, "Keywords")["inputs"]["text_0"] = "\n".join(keywords)
-
+        self.find_node_by_title(wf, "Title")["inputs"]["text_0"] = title
+        self.find_node_by_title(wf, "Description")["inputs"]["text_0"] = description
         return wf
 
     # --- ComfyUI API ----------------------------------------------------------
@@ -450,11 +484,23 @@ class SubmitCommand(CommandBase):
 
         # Strip comments first, then expand fragment inclusions.
         # Order matters: a comment like  # :some/key  must not trigger expansion.
+        comment_stripped = self.strip_comments(raw_prompt)
         if fragment_library:
-            comment_stripped = self.strip_comments(raw_prompt)
             full_prompt = self.expand_fragments(comment_stripped, fragment_library)
         else:
-            full_prompt = raw_prompt
+            full_prompt = comment_stripped
+
+        # Extract line-oriented tags from the fully expanded, comment-stripped prompt.
+        # These are merged with values supplied via CLI arguments (CLI wins on
+        # title/description; CLI keywords are appended after prompt keywords).
+        prompt_keywords, prompt_title, prompt_description = self.extract_line_tags(full_prompt)
+
+        # CLI --title / --description override prompt tags (last-wins convention).
+        title       = args.title       if args.title       else prompt_title
+        description = args.description if args.description else prompt_description
+
+        # Keywords: prompt tags first, then --keyword arguments.
+        all_keywords = prompt_keywords + args.keyword
 
         ranges = {}
         for r in args.range:
@@ -524,16 +570,20 @@ class SubmitCommand(CommandBase):
                     # up_present is derived, not a prompt tag — show it explicitly
                     up_present = resolved["up_width"] != "0" and resolved["up_width"] != ""
                     log(f"  up_present: {str(up_present).lower()}")
-                if args.keyword:
+                if all_keywords:
                     log("\nKeywords:")
-                    for kw in args.keyword:
+                    for kw in all_keywords:
                         log(f"  {kw}")
+                if title:
+                    log(f"\nTitle:       {title}")
+                if description:
+                    log(f"Description: {description}")
                 log("\nFull prompt:\n")
                 log(current_prompt)
                 log("-" * 80)
                 continue
 
-            wf = self.patch_workflow(workflow_template, current_prompt, resolved, merger_node_id, args.keyword)
+            wf = self.patch_workflow(workflow_template, current_prompt, resolved, merger_node_id, all_keywords, title, description)
 
             prompt_id = self.submit_prompt(base_url, wf)
             log(f"  [OK] Prompt ID: {prompt_id}")
