@@ -10,3 +10,7 @@
 + tag regex should go into an external config file.
 + Add @keyword, @title, @description
 + Document which node packs W1 requires
++ Actually SubmitCommand sets the title and description, only if the image is downloaded; instead it must set them to special nodes in the workflow, and delegate the operation to set-metadata;
++ for sure, if the image is downloaded, it could call set-metadata on it, but I'd do this later, in a separate issue.
++ Add a warning if the number of tokens (computed from words in the prompt) is > the maximum suggested for a given model.
++ Check matching defaults between JSON and PY.
