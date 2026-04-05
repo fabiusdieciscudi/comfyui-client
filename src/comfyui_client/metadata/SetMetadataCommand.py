@@ -57,8 +57,18 @@ class SetMetadataCommand(CommandBase):
         data = json.loads(result.stdout)
         return data[0] if data else {}
 
-    def exiftool_write(self, path: Path, keywords: list[str], hierarchicals: list[str]) -> None:
-        """Write all keywords and hierarchical subjects in a single exiftool call."""
+    def exiftool_write(self, path: Path, keywords: list[str], hierarchicals: list[str], title: str, description: str) -> None:
+        """Write keywords, hierarchical subjects, title, and description in a
+        single exiftool call.
+
+        Keyword and hierarchical subject fields are written with remove-then-add
+        pairs to avoid duplicates while preserving any values already present
+        that are not being touched.
+
+        Title is written to XMP:Title and IPTC:Headline.
+        Description is written to XMP:Description and IPTC:Caption-Abstract.
+        Empty title or description values are skipped.
+        """
         args = ["exiftool", "-overwrite_original", "-m"]
 
         for kw in keywords:
@@ -67,6 +77,12 @@ class SetMetadataCommand(CommandBase):
 
         for h in hierarchicals:
             args += [f"-XMP-lr:HierarchicalSubject-={h}", f"-XMP-lr:HierarchicalSubject+={h}"]
+
+        if title:
+            args += [f"-XMP:Title={title}", f"-IPTC:Headline={title}"]
+
+        if description:
+            args += [f"-XMP:Description={description}", f"-IPTC:Caption-Abstract={description}"]
 
         tmp_path = None
 
@@ -88,39 +104,50 @@ class SetMetadataCommand(CommandBase):
 
     # --- Tag extraction -------------------------------------------------------
 
-    def extract_tags_from_prompt(self, prompt_json: dict) -> tuple[list[tuple[str, str]], list[str]]:
+    def extract_tags_from_prompt(self, prompt_json: dict) -> tuple[list[tuple[str, str]], list[str], str, str]:
         """
         New format: the Prompt JSON is a flat dict of node_id → node.
         Find all ShowText|pysssss nodes whose _meta.title starts with "Tag:"
         and return:
           - [(title, value), ...] for AI parameter tags
-          - [keyword, ...] for user keywords from the "Keywords" node
+          - [keyword, ...]        for user keywords from the "Keywords" node
+          - str                   for the image title from the "Title" node
+          - str                   for the image description from the "Description" node
         """
         tags = []
         user_keywords = []
+        title = ""
+        description = ""
 
         for node in prompt_json.values():
             if isinstance(node, dict):
-                title = node.get("_meta", {}).get("title", "")
-                if title.startswith("Tag:"):
+                node_title = node.get("_meta", {}).get("title", "")
+                if node_title.startswith("Tag:"):
                     value = node.get("inputs", {}).get("text_0", "n/a")
-                    tags.append((title, str(value)))
-                elif title == "Keywords":
-                    keywords_text = node.get("inputs", {}).get("text_0", "")
+                    tags.append((node_title, str(value)))
+                elif node_title == "Keywords":
+                    keywords_text = node.get("inputs", {}).get("Text", "")
                     user_keywords = [k.strip() for k in keywords_text.split("\n") if k.strip()]
+                elif node_title == "Title":
+                    title = node.get("inputs", {}).get("Text", "").strip()
+                elif node_title == "Description":
+                    description = node.get("inputs", {}).get("Text", "").strip()
 
-        return sorted(tags), user_keywords
+        return sorted(tags), user_keywords, title, description
 
-    def extract_tags_from_workflow(self, workflow_json: dict) -> tuple[list[tuple[str, str]], list[str]]:
+    def extract_tags_from_workflow(self, workflow_json: dict) -> tuple[list[tuple[str, str]], list[str], str, str]:
         """
         Old format: the Workflow JSON has a nested structure.
-        Walk it recursively looking for ShowText|pysssss nodes with a Tag: title
-        or a Keywords title.
+        Walk it recursively looking for ShowText|pysssss nodes with a Tag: title,
+        a Keywords title, a Title title, or a Description title.
         """
         tags = []
         user_keywords = []
+        title = ""
+        description = ""
 
         def walk(obj):
+            nonlocal title, description
             if isinstance(obj, dict):
                 node_title = obj.get("title", "")
                 if node_title.startswith("Tag:"):
@@ -131,6 +158,14 @@ class SetMetadataCommand(CommandBase):
                     values = obj.get("widgets_values", [])
                     if values:
                         user_keywords.extend(k.strip() for k in str(values[0]).split("\n") if k.strip())
+                elif node_title == "Title":
+                    values = obj.get("widgets_values", [])
+                    if values:
+                        title = str(values[0]).strip()
+                elif node_title == "Description":
+                    values = obj.get("widgets_values", [])
+                    if values:
+                        description = str(values[0]).strip()
                 for v in obj.values():
                     walk(v)
             elif isinstance(obj, list):
@@ -138,7 +173,7 @@ class SetMetadataCommand(CommandBase):
                     walk(item)
 
         walk(workflow_json)
-        return sorted(tags), user_keywords
+        return sorted(tags), user_keywords, title, description
 
     def tags_to_keywords(self, tags: list[tuple[str, str]]) -> list[tuple[str, str, str]]:
         """
@@ -175,26 +210,28 @@ class SetMetadataCommand(CommandBase):
         # Prefer new Prompt-based format; fall back to old Workflow format
         tags = []
         user_keywords = []
+        title = ""
+        description = ""
         prompt_raw   = meta.get("Prompt")
         workflow_raw = meta.get("Workflow")
 
         if not workflow_raw and prompt_raw:
             try:
-                tags, user_keywords = self.extract_tags_from_prompt(json.loads(prompt_raw))
+                tags, user_keywords, title, description = self.extract_tags_from_prompt(json.loads(prompt_raw))
             except (json.JSONDecodeError, AttributeError) as e:
                 log(f"[ERROR] Failed to parse Prompt JSON in {path}: {e}")
                 return
         elif workflow_raw:
             try:
-                tags, user_keywords = self.extract_tags_from_workflow(json.loads(workflow_raw))
+                tags, user_keywords, title, description = self.extract_tags_from_workflow(json.loads(workflow_raw))
             except (json.JSONDecodeError, AttributeError) as e:
                 log(f"[ERROR] Failed to parse Workflow JSON in {path}: {e}")
                 return
         else:
             return  # no metadata to process
 
-        if not tags and not user_keywords:
-            log("  (no tags or keywords found)")
+        if not tags and not user_keywords and not title and not description:
+            log("  (no tags, keywords, title, or description found)")
             log("")
             return
 
@@ -209,14 +246,14 @@ class SetMetadataCommand(CommandBase):
         # - drop all w1.lora_* tags when no LoRA was applied
         # - drop all w1.up_* tags when the upscale pass did not run
         filtered_tags = []
-        for title, value in tags:
-            if title in _DERIVED_TAGS:
+        for tag_title, value in tags:
+            if tag_title in _DERIVED_TAGS:
                 continue
-            if title.startswith(_LORA_TAG_PREFIX) and not lora_name_value:
+            if tag_title.startswith(_LORA_TAG_PREFIX) and not lora_name_value:
                 continue
-            if title.startswith(_UP_TAG_PREFIX) and not up_present:
+            if tag_title.startswith(_UP_TAG_PREFIX) and not up_present:
                 continue
-            filtered_tags.append((title, value))
+            filtered_tags.append((tag_title, value))
 
         ai_keywords   = self.tags_to_keywords(filtered_tags)
         flat_keywords = [kw for parent, child, _ in ai_keywords for kw in (parent, child)]
@@ -233,9 +270,13 @@ class SetMetadataCommand(CommandBase):
             log(f"  + Keyword:   {kw}")
         for kw in hier_user:
             log(f"  + Hierarchy: {kw}")
+        if title:
+            log(f"  + Title:     {title}")
+        if description:
+            log(f"  + Desc:      {description}")
 
         try:
-            self.exiftool_write(path, flat_keywords, hierarchicals)
+            self.exiftool_write(path, flat_keywords, hierarchicals, title, description)
         except subprocess.CalledProcessError as e:
             log(f"[ERROR] exiftool write failed for {path}: {e}")
 
