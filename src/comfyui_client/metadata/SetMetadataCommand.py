@@ -126,12 +126,12 @@ class SetMetadataCommand(CommandBase):
                     value = node.get("inputs", {}).get("text_0", "n/a")
                     tags.append((node_title, str(value)))
                 elif node_title == "Keywords":
-                    keywords_text = node.get("inputs", {}).get("Text", "")
+                    keywords_text = node.get("inputs", {}).get("text_0", "")
                     user_keywords = [k.strip() for k in keywords_text.split("\n") if k.strip()]
                 elif node_title == "Title":
-                    title = node.get("inputs", {}).get("Text", "").strip()
+                    title = node.get("inputs", {}).get("text_0", "").strip()
                 elif node_title == "Description":
-                    description = node.get("inputs", {}).get("Text", "").strip()
+                    description = node.get("inputs", {}).get("text_0", "").strip()
 
         return sorted(tags), user_keywords, title, description
 
