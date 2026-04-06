@@ -13,3 +13,5 @@
 + for sure, if the image is downloaded, submit could call set-metadata on it, but I'd do this later, in a separate issue.
 + Add a warning if the number of tokens (computed from words in the prompt) is > the maximum suggested for a given model.
 + Check matching defaults between JSON and PY.
+
+-  w1.up_width_present = true sbagliato
