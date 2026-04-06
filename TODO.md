@@ -1,5 +1,3 @@
-+ Putting @w1.clip_type:qwen_imagex in the config, it takes it but CpmfyUI doesn't complain -- so it seems the setting is ignored.
-
 Quick summary of roles in a Flux workflowclip_l + t5xxl → together encode your prompt (CLIP for style/keywords, T5 for deep understanding).
 Main UNET (e.g. flux1-dev-fp16.safetensors) → does the actual image generation.
 VAE → turns the generated latent into a real image.
