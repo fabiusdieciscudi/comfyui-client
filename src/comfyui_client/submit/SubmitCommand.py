@@ -71,7 +71,7 @@ TAG_NODE_TITLES = {
     "up_denoise":      "Tag: w1.up_denoise",
     "up_sampler_name": "Tag: w1.up_sampler_name",
     "up_scheduler":    "Tag: w1.up_scheduler",
-    "up_model":        "Tag: w1.up_model",
+# FIXME: missing in the JSON    "up_model":        "Tag: w1.up_model",
 }
 
 TAG_PATTERNS = {
