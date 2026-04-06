@@ -44,8 +44,21 @@ class SetMetadataCommand(CommandBase):
 
     def process_args(self, parser: argparse.ArgumentParser) -> None:
         parser.add_argument("target", nargs="?", default=".", help="Image file or directory to process (default: current directory).")
+        parser.add_argument("--tags", action="store_true", default=False, help="Write AI generation parameters as XMP/IPTC keyword hierarchies.")
+        parser.add_argument("--keywords", action="store_true", default=False, help="Write user-supplied keywords as XMP/IPTC keywords.")
+        parser.add_argument("--prompt-to-description", action="store_true", default=False, help="Copy the generation prompt to XMP:Description and IPTC:Caption-Abstract.")
+        parser.add_argument("--all", action="store_true", default=False, help="Enable --tags, --keywords, and --prompt-to-description.")
 
     def _run(self, args) -> None:
+        if args.all:
+            args.tags = True
+            args.keywords = True
+            args.prompt_to_description = True
+
+        if not args.tags and not args.keywords and not args.prompt_to_description:
+            log("Nothing to do. Specify at least one of --tags, --keywords, --prompt-to-description, or --all.")
+            sys.exit(1)
+
         self.set_metadata(args)
 
     # --- exiftool helpers -----------------------------------------------------
@@ -193,9 +206,35 @@ class SetMetadataCommand(CommandBase):
             result.append((parent, child, hier))
         return result
 
+    def extract_prompt_text_from_prompt(self, prompt_json: dict) -> str:
+        """Return the text from the 'Prompt' ShowText node in a Prompt-format JSON."""
+        for node in prompt_json.values():
+            if isinstance(node, dict) and node.get("_meta", {}).get("title", "") == "Prompt":
+                return node.get("inputs", {}).get("text_0", "")
+        return ""
+
+    def extract_prompt_text_from_workflow(self, workflow_json: dict) -> str:
+        """Return the text from the 'Prompt' ShowText node in a Workflow-format JSON."""
+        result = []
+
+        def walk(obj):
+            if isinstance(obj, dict):
+                if obj.get("title", "") == "Prompt":
+                    values = obj.get("widgets_values", [])
+                    if values:
+                        result.append(str(values[0]))
+                for v in obj.values():
+                    walk(v)
+            elif isinstance(obj, list):
+                for item in obj:
+                    walk(item)
+
+        walk(workflow_json)
+        return result[0] if result else ""
+
     # --- Per-file processing --------------------------------------------------
 
-    def process_file(self, path: Path) -> None:
+    def process_file(self, path: Path, args) -> None:
         if path.suffix.lower() not in IMAGE_SUFFIXES:
             return
 
@@ -261,22 +300,45 @@ class SetMetadataCommand(CommandBase):
 
         flat_user = [kw for kw in user_keywords if "|" not in kw]
         hier_user = [kw for kw in user_keywords if "|" in kw]
-        flat_keywords += flat_user
-        hierarchicals += hier_user
 
-        for parent, child, hier in ai_keywords:
-            log(f"  + Hierarchy: {hier}")
-        for kw in flat_user:
-            log(f"  + Keyword:   {kw}")
-        for kw in hier_user:
-            log(f"  + Hierarchy: {kw}")
+        if args.tags:
+            for parent, child, hier in ai_keywords:
+                log(f"  + Hierarchy: {hier}")
+
+        if args.keywords:
+            for kw in flat_user:
+                log(f"  + Keyword:   {kw}")
+            for kw in hier_user:
+                log(f"  + Hierarchy: {kw}")
+
         if title:
             log(f"  + Title:     {title}")
         if description:
             log(f"  + Desc:      {description}")
 
+        write_keywords      = (flat_keywords if args.tags else []) + (flat_user if args.keywords else [])
+        write_hierarchicals = (hierarchicals if args.tags else []) + (hier_user if args.keywords else [])
+
+        # --prompt-to-description: overwrite description with the prompt text
+        write_description = description
+        if args.prompt_to_description:
+            if prompt_raw:
+                prompt_text = self.extract_prompt_text_from_prompt(json.loads(prompt_raw))
+            elif workflow_raw:
+                prompt_text = self.extract_prompt_text_from_workflow(json.loads(workflow_raw))
+            else:
+                prompt_text = ""
+
+            prompt_text = "\n".join(line for line in prompt_text.splitlines() if line.strip())
+
+            if prompt_text:
+                write_description = prompt_text
+                log(f"  + Prompt→Desc: {prompt_text[:80].replace(chr(10), ' ')}{'…' if len(prompt_text) > 80 else ''}")
+            else:
+                log("  (no prompt found; skipping --prompt-to-description)")
+
         try:
-            self.exiftool_write(path, flat_keywords, hierarchicals, title, description)
+            self.exiftool_write(path, write_keywords, write_hierarchicals, title, write_description)
         except subprocess.CalledProcessError as e:
             log(f"[ERROR] exiftool write failed for {path}: {e}")
 
@@ -286,11 +348,11 @@ class SetMetadataCommand(CommandBase):
         target = Path(args.target)
 
         if target.is_file():
-            self.process_file(target)
+            self.process_file(target, args)
         elif target.is_dir():
             for path in sorted(target.rglob("*")):
                 if path.is_file():
-                    self.process_file(path)
+                    self.process_file(path, args)
         else:
             log(f"Error: '{target}' is neither a file nor a directory.")
             sys.exit(1)
