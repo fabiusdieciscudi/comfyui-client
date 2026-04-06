@@ -1,5 +1,6 @@
-+ @title non filtrato bene nel prompt se c'è uno spazio
-+ Sbarazzarsi di merger_node_id
++ FORSE FATTO: @title non filtrato bene nel prompt se c'è uno spazio
++ Putting @w1.clip_type:qwen_imagex in the config, it takes it but CpmfyUI doesn't complain -- so it seems the setting is ignored.
++ w1.up_width_present = true sbagliato
 
 + --config shortcut for the model configuration
   + submit command: add a --model option that works as a shortcut for a model config; that is, --model foobar is the same of --prompt-file prompts/configs/[wf]-foobar.txt. It must use the same relative path resolving used by --w1. Note that [wf] must be resolved with the workflow name (w1 for --w1), so this arg can be only used if --w1 has been previously passed.
@@ -13,5 +14,3 @@
 + for sure, if the image is downloaded, submit could call set-metadata on it, but I'd do this later, in a separate issue.
 + Add a warning if the number of tokens (computed from words in the prompt) is > the maximum suggested for a given model.
 + Check matching defaults between JSON and PY.
-
--  w1.up_width_present = true sbagliato
