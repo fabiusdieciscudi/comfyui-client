@@ -104,6 +104,11 @@ TAG_PATTERNS = {
 # @keyword is multi-valued; @title and @description are last-wins.
 _LINE_TAG_PATTERN = re.compile(r"^@(keyword|title|description):(.+)$", re.MULTILINE)
 
+# Regex used to strip @tags from the prompt text before sending to the text
+# encoder. Matches @namespace.param:value where value runs to the next @ or
+# end of line, correctly handling multi-word values such as:
+#   @title:Ritratto di Claire
+_STRIP_TAGS_RE = re.compile(r"@\S+:[^@\n]*")
 
 # Named pixel-count shortcuts in megapixels
 _NAMED_PIXELS = {
@@ -276,10 +281,12 @@ class SubmitCommand(CommandBase):
 
         clean_prompt = self.strip_comments(prompt)
         log(f"Words in prompt: {count_words(clean_prompt)}")
-        self.find_node_by_title(wf, "Prompt")["inputs"]["text_0"] = re.sub(r"@[^:\s]+(:[^,\s]+)*\s*[,]*", "", clean_prompt)
+        self.find_node_by_title(wf, "Prompt")["inputs"]["text_0"] = _STRIP_TAGS_RE.sub("", clean_prompt).strip()
+
         self.find_node_by_title(wf, "Keywords")["inputs"]["text_0"] = "\n".join(keywords)
         self.find_node_by_title(wf, "Title")["inputs"]["text_0"] = title
         self.find_node_by_title(wf, "Description")["inputs"]["text_0"] = description
+
         return wf
 
     # --- ComfyUI API ----------------------------------------------------------
