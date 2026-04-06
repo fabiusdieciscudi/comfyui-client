@@ -1,10 +1,12 @@
 # ComfyUI Client — `set-metadata` Command
 
-The `set-metadata` command reads AI generation parameters embedded in ComfyUI output images and writes them as standard photo metadata — XMP Subject, IPTC Keywords, and XMP hierarchical subjects. This makes generation parameters searchable and browsable in any photo management application that supports keyword hierarchies (Lightroom, Capture One, digiKam, etc.).
+The `set-metadata` command reads AI generation parameters embedded in ComfyUI output images and writes them as standard photo metadata — XMP Subject, IPTC Keywords, XMP hierarchical subjects, and/or XMP/IPTC description fields. This makes generation parameters searchable and browsable in any photo management application that supports keyword hierarchies (Lightroom, Capture One, digiKam, etc.).
 
 - [How It Works](#how-it-works)
+- [Operations](#operations)
 - [Keyword Structure](#keyword-structure)
 - [User Keywords](#user-keywords)
+- [Prompt-to-Description](#prompt-to-description)
 - [Supported Formats](#supported-formats)
 - [Command-Line Reference](#command-line-reference)
 - [Requirements](#requirements)
@@ -13,7 +15,7 @@ The `set-metadata` command reads AI generation parameters embedded in ComfyUI ou
 
 ## How It Works
 
-ComfyUI embeds generation metadata directly into output image files. The `set-metadata` command reads this metadata, extracts the `Tag: w1.*` nodes that were resolved during generation, and writes them back into the image as structured photo keywords.
+ComfyUI embeds generation metadata directly into output image files. The `set-metadata` command reads this metadata, extracts the relevant nodes that were resolved during generation, and writes the requested information back into the image as structured photo metadata.
 
 Two metadata formats are supported:
 
@@ -22,11 +24,28 @@ Two metadata formats are supported:
 
 The command processes a single file or an entire directory tree recursively. Files are modified in place; originals are not kept.
 
+At least one operation flag must be supplied. Without any flag the command exits immediately with a usage message.
+
+---
+
+## Operations
+
+The command is controlled by four flags. Multiple flags can be combined freely; `--all` is a convenience shorthand for all three explicit flags.
+
+| Flag                      | Description                                                                           |
+|---------------------------|---------------------------------------------------------------------------------------|
+| `--tags`                  | Write AI generation parameters (`Tag: w1.*` nodes) as XMP/IPTC keyword hierarchies    |
+| `--keywords`              | Write user-supplied keywords (from the `Keywords` workflow node) as XMP/IPTC keywords |
+| `--prompt-to-description` | Copy the generation prompt to `XMP:Description` and `IPTC:Caption-Abstract`           |
+| `--all`                   | Enable `--tags`, `--keywords`, and `--prompt-to-description`                          |
+
+All three operations that are enabled share a single `exiftool` call per file, so the file is only written once regardless of how many flags are set.
+
 ---
 
 ## Keyword Structure
 
-Each `Tag: w1.<param>` node found in the image metadata produces two flat keywords and one hierarchical subject.
+Each `Tag: w1.<param>` node found in the image metadata produces two flat keywords and one hierarchical subject (only when `--tags` is active).
 
 Given a tag `w1.steps` with value `9`:
 
@@ -56,7 +75,7 @@ All three forms are written to:
 
 ## User Keywords
 
-In addition to the automatically generated `Tag: w1.*` keywords, the `Keywords` node in the workflow can carry user-supplied keywords set via the `--keyword` option of the `submit` command.
+When `--keywords` is active, the `Keywords` node in the workflow can carry user-supplied keywords set via the `--keyword` option of the `submit` command.
 
 User keywords are written as-is if they contain no `|` character, or as hierarchical subjects if they do:
 
@@ -66,6 +85,18 @@ User keywords are written as-is if they contain no `|` character, or as hierarch
 | `Style\|painterly\|oil` | hierarchical subject in XMP-lr:HierarchicalSubject |
 
 This allows user keywords to participate in the same hierarchy tree as AI parameter keywords.
+
+---
+
+## Prompt-to-Description
+
+When `--prompt-to-description` is active, the text from the `Prompt` workflow node is written to:
+- `XMP:Description`
+- `IPTC:Caption-Abstract`
+
+`@tag` directives (e.g. `@w1.steps:9`) are stripped from the text before writing, so the description contains only the human-readable prompt. Excess blank lines are collapsed.
+
+If no prompt node is found in the image metadata, this operation is skipped with a warning; other enabled operations still proceed normally.
 
 ---
 
@@ -82,7 +113,7 @@ This allows user keywords to participate in the same hierarchy tree as AI parame
 ## Command-Line Reference
 
 ```
-ComfyUIClient set-metadata [target]
+ComfyUIClient set-metadata [--tags] [--keywords] [--prompt-to-description] [--all] [target]
 ```
 
 ### Arguments
@@ -93,31 +124,37 @@ ComfyUIClient set-metadata [target]
 
 When `target` is a directory, all files are processed recursively in sorted order. Non-image files are skipped silently.
 
-### Examples
-
-Process a single image:
-
-```bash
-./ComfyUIClient set-metadata build/output/2026-04-02/W1\ 2026-04-02\ 14-32F00001.png
-```
-
-Process all images in a dated output folder:
-
-```bash
-./ComfyUIClient set-metadata build/output/2026-04-02/
-```
-
-Process everything in the output tree:
-
-```bash
-./ComfyUIClient set-metadata build/output/
-```
-
 ### Options
 
-| Option    | Description                                                         |
-|-----------|---------------------------------------------------------------------|
-| `--debug` | Enable verbose logging, including the full `exiftool` command lines |
+| Option                    | Description                                                         |
+|---------------------------|---------------------------------------------------------------------|
+| `--tags`                  | Write AI generation parameters as XMP/IPTC keyword hierarchies      |
+| `--keywords`              | Write user-supplied keywords as XMP/IPTC keywords                   |
+| `--prompt-to-description` | Copy the prompt to XMP:Description and IPTC:Caption-Abstract        |
+| `--all`                   | Enable all three operations above                                   |
+| `--debug`                 | Enable verbose logging, including the full `exiftool` command lines |
+
+At least one of `--tags`, `--keywords`, `--prompt-to-description`, or `--all` must be specified.
+
+### Examples
+
+Write only AI parameter keywords for a single image:
+
+```bash
+ComfyUIClient set-metadata --tags 'build/output/2026-04-02/2026-04-02 14-32-00001.png'
+```
+
+Write user keywords and copy the prompt to the description for all images in a folder:
+
+```bash
+ComfyUIClient set-metadata --keywords --prompt-to-description build/output/2026-04-02/
+```
+
+Do everything in one pass across the full output tree:
+
+```bash
+ComfyUIClient set-metadata --all build/output/
+```
 
 ---
 
