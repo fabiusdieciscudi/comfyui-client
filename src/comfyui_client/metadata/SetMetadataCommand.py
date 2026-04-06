@@ -104,7 +104,7 @@ class SetMetadataCommand(CommandBase):
 
     # --- Tag extraction -------------------------------------------------------
 
-    def extract_tags_from_prompt(self, prompt_json: dict) -> tuple[list[tuple[str, str]], list[str], str, str]:
+    def extract_info_from_prompt(self, prompt_json: dict) -> tuple[list[tuple[str, str]], list[str], str, str]:
         """
         New format: the Prompt JSON is a flat dict of node_id → node.
         Find all ShowText|pysssss nodes whose _meta.title starts with "Tag:"
@@ -135,7 +135,7 @@ class SetMetadataCommand(CommandBase):
 
         return sorted(tags), user_keywords, title, description
 
-    def extract_tags_from_workflow(self, workflow_json: dict) -> tuple[list[tuple[str, str]], list[str], str, str]:
+    def extract_info_from_workflow(self, workflow_json: dict) -> tuple[list[tuple[str, str]], list[str], str, str]:
         """
         Old format: the Workflow JSON has a nested structure.
         Walk it recursively looking for ShowText|pysssss nodes with a Tag: title,
@@ -217,13 +217,13 @@ class SetMetadataCommand(CommandBase):
 
         if not workflow_raw and prompt_raw:
             try:
-                tags, user_keywords, title, description = self.extract_tags_from_prompt(json.loads(prompt_raw))
+                tags, user_keywords, title, description = self.extract_info_from_prompt(json.loads(prompt_raw))
             except (json.JSONDecodeError, AttributeError) as e:
                 log(f"[ERROR] Failed to parse Prompt JSON in {path}: {e}")
                 return
         elif workflow_raw:
             try:
-                tags, user_keywords, title, description = self.extract_tags_from_workflow(json.loads(workflow_raw))
+                tags, user_keywords, title, description = self.extract_info_from_workflow(json.loads(workflow_raw))
             except (json.JSONDecodeError, AttributeError) as e:
                 log(f"[ERROR] Failed to parse Workflow JSON in {path}: {e}")
                 return
