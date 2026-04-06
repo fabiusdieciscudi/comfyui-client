@@ -255,23 +255,17 @@ class SubmitCommand(CommandBase):
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
 
-    def find_merger_node(self, workflow: dict) -> str:
-        for node_id, node in workflow.items():
-            if node.get("_meta", {}).get("title") == "Prompt merger":
-                return node_id
-        raise RuntimeError("'Prompt merger' node not found in workflow.")
-
     def find_node_by_title(self, wf: dict, title: str) -> dict:
         for node in wf.values():
             if node.get("_meta", {}).get("title", "") == title:
                 return node
         raise RuntimeError(f"Node '{title}' not found in workflow.")
 
-    def patch_workflow(self, workflow: dict, prompt: str, resolved: dict, merger_node_id: str, keywords: list[str], title: str, description: str) -> dict:
+    def patch_workflow(self, workflow: dict, prompt: str, resolved: dict, keywords: list[str], title: str, description: str) -> dict:
         wf = json.loads(json.dumps(workflow))  # deep copy
 
         # Patch 1: prompt text
-        node = wf[merger_node_id]
+        node = self.find_node_by_title(wf, "Prompt merger")
         node["inputs"]["text_a"] = prompt
         node["inputs"]["text_b"] = ""
         node["inputs"]["text_c"] = ""
@@ -510,11 +504,9 @@ class SubmitCommand(CommandBase):
         combinations = list(product(*ranges.values())) if ranges else [()]
 
         workflow_template = None
-        merger_node_id    = None
 
         if not args.dry_run:
             workflow_template = self.load_workflow(args.workflow)
-            merger_node_id    = self.find_merger_node(workflow_template)
 
         base_url = args.comfyui.rstrip('/')
 
@@ -583,7 +575,7 @@ class SubmitCommand(CommandBase):
                 log("-" * 80)
                 continue
 
-            wf = self.patch_workflow(workflow_template, current_prompt, resolved, merger_node_id, all_keywords, title, description)
+            wf = self.patch_workflow(workflow_template, current_prompt, resolved, all_keywords, title, description)
 
             prompt_id = self.submit_prompt(base_url, wf)
             log(f"  [OK] Prompt ID: {prompt_id}")
