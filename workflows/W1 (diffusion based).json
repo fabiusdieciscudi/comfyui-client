@@ -1,23 +1,22 @@
 {
   "id": "2c91a4ae-cc11-43cb-b837-fd7733d72986",
   "revision": 0,
-  "last_node_id": 396,
-  "last_link_id": 622,
+  "last_node_id": 402,
+  "last_link_id": 639,
   "nodes": [
     {
       "id": 3,
       "type": "VAELoader",
       "pos": [
-        -2325,
-        -330
+        -2385,
+        -95
       ],
       "size": [
         210,
         60
       ],
       "flags": {
-        "collapsed": false,
-        "pinned": true
+        "collapsed": false
       },
       "order": 15,
       "mode": 0,
@@ -36,8 +35,8 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            8,
-            413
+            413,
+            625
           ]
         }
       ],
@@ -59,8 +58,8 @@
       "id": 4,
       "type": "KSampler",
       "pos": [
-        -1410,
-        -1110
+        -1635,
+        -1200
       ],
       "size": [
         390,
@@ -213,7 +212,7 @@
           "type": "LATENT",
           "links": [
             33,
-            575
+            637
           ]
         }
       ],
@@ -239,8 +238,8 @@
       "id": 8,
       "type": "VAEDecode",
       "pos": [
-        -2030,
-        -345
+        -1135,
+        -1090
       ],
       "size": [
         160,
@@ -260,7 +259,7 @@
         {
           "name": "vae",
           "type": "VAE",
-          "link": 8
+          "link": 625
         }
       ],
       "outputs": [
@@ -268,8 +267,8 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            524,
-            557
+            626,
+            630
           ]
         }
       ],
@@ -294,7 +293,7 @@
       ],
       "size": [
         210,
-        558
+        560
       ],
       "flags": {
         "collapsed": false,
@@ -328,7 +327,7 @@
           "type": "INT",
           "links": [
             51,
-            618
+            624
           ]
         },
         {
@@ -488,7 +487,7 @@
           "name": "BOOLEAN",
           "type": "BOOLEAN",
           "links": [
-            560
+            632
           ]
         },
         {
@@ -538,17 +537,17 @@
       "id": 38,
       "type": "MarkdownNote",
       "pos": [
-        -3365,
-        45
+        -4025,
+        -1270
       ],
       "size": [
-        680,
-        755
+        690,
+        1375
       ],
       "flags": {
         "pinned": true
       },
-      "order": 3,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -906,8 +905,8 @@
       "id": 314,
       "type": "DF_Text",
       "pos": [
-        -2500,
-        545
+        -3170,
+        230
       ],
       "size": [
         210,
@@ -916,7 +915,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -938,14 +937,16 @@
       "id": 318,
       "type": "1221367d-0565-415b-beca-f09f26af4a07",
       "pos": [
-        -1670,
-        -160
+        -1710,
+        -500
       ],
       "size": [
         280,
-        350
+        355
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 19,
       "mode": 4,
       "inputs": [
@@ -975,7 +976,7 @@
           "widget": {
             "name": "seed"
           },
-          "link": 618
+          "link": 624
         },
         {
           "name": "steps",
@@ -988,7 +989,7 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 524
+          "link": 626
         },
         {
           "name": "width",
@@ -1060,7 +1061,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            559
+            631
           ]
         }
       ],
@@ -1115,7 +1116,7 @@
       "type": "cf9e03a5-c515-4fe7-8cdb-7a37b0251b13",
       "pos": [
         -2120,
-        -570
+        -600
       ],
       "size": [
         210,
@@ -1197,70 +1198,11 @@
       "widgets_values": []
     },
     {
-      "id": 373,
-      "type": "7be7950a-481c-4758-a95d-3a2d0ea5b161",
-      "pos": [
-        -1260,
-        -310
-      ],
-      "size": [
-        455,
-        485
-      ],
-      "flags": {},
-      "order": 20,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "image",
-          "name": "images",
-          "type": "IMAGE",
-          "link": 557
-        },
-        {
-          "label": "upscaled_image",
-          "name": "on_true",
-          "type": "IMAGE",
-          "link": 559
-        },
-        {
-          "label": "up_present",
-          "name": "switch",
-          "type": "BOOLEAN",
-          "widget": {
-            "name": "switch"
-          },
-          "link": 560
-        },
-        {
-          "label": "latent",
-          "name": "samples_1",
-          "type": "LATENT",
-          "link": 575
-        }
-      ],
-      "outputs": [],
-      "title": "Save",
-      "properties": {
-        "proxyWidgets": [
-          [
-            "364",
-            "switch"
-          ],
-          [
-            "299",
-            "$$canvas-image-preview"
-          ]
-        ]
-      },
-      "widgets_values": []
-    },
-    {
       "id": 374,
       "type": "DF_Text",
       "pos": [
-        -2500,
-        425
+        -3170,
+        110
       ],
       "size": [
         210,
@@ -1269,7 +1211,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1291,8 +1233,8 @@
       "id": 375,
       "type": "DF_Text",
       "pos": [
-        -2500,
-        305
+        -3170,
+        -10
       ],
       "size": [
         210,
@@ -1301,7 +1243,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1328,7 +1270,7 @@
       ],
       "size": [
         210,
-        176
+        180
       ],
       "flags": {
         "pinned": true
@@ -1382,7 +1324,6 @@
           ]
         }
       ],
-      "title": "Clip",
       "properties": {
         "proxyWidgets": [
           [
@@ -1400,6 +1341,97 @@
         ]
       },
       "widgets_values": []
+    },
+    {
+      "id": 399,
+      "type": "ComfySwitchNode",
+      "pos": [
+        -1370,
+        -470
+      ],
+      "size": [
+        210,
+        80
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 20,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "on_false",
+          "type": "IMAGE",
+          "link": 630
+        },
+        {
+          "name": "on_true",
+          "type": "IMAGE",
+          "link": 631
+        },
+        {
+          "name": "switch",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "switch"
+          },
+          "link": 632
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "IMAGE",
+          "links": [
+            639
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ComfySwitchNode"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 402,
+      "type": "46a6dbfb-8ac8-4d1a-8b29-94ea3a35f23e",
+      "pos": [
+        -1105,
+        -480
+      ],
+      "size": [
+        345,
+        345
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 639
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 637
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "proxyWidgets": [
+          [
+            "397",
+            "$$canvas-image-preview"
+          ]
+        ]
+      },
+      "widgets_values": []
     }
   ],
   "links": [
@@ -1410,14 +1442,6 @@
       8,
       0,
       "LATENT"
-    ],
-    [
-      8,
-      3,
-      0,
-      8,
-      1,
-      "VAE"
     ],
     [
       33,
@@ -1644,44 +1668,12 @@
       "BOOLEAN"
     ],
     [
-      524,
-      8,
-      0,
-      318,
-      6,
-      "IMAGE"
-    ],
-    [
       527,
       363,
       0,
       318,
       1,
       "MODEL"
-    ],
-    [
-      557,
-      8,
-      0,
-      373,
-      0,
-      "IMAGE"
-    ],
-    [
-      559,
-      318,
-      0,
-      373,
-      1,
-      "IMAGE"
-    ],
-    [
-      560,
-      37,
-      21,
-      373,
-      2,
-      "BOOLEAN"
     ],
     [
       562,
@@ -1740,14 +1732,6 @@
       "CONDITIONING"
     ],
     [
-      575,
-      7,
-      0,
-      373,
-      3,
-      "LATENT"
-    ],
-    [
       615,
       37,
       22,
@@ -1772,14 +1756,6 @@
       "COMBO"
     ],
     [
-      618,
-      37,
-      1,
-      318,
-      4,
-      "INT"
-    ],
-    [
       619,
       363,
       0,
@@ -1794,6 +1770,70 @@
       318,
       9,
       "COMBO"
+    ],
+    [
+      624,
+      37,
+      1,
+      318,
+      4,
+      "INT"
+    ],
+    [
+      625,
+      3,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      626,
+      8,
+      0,
+      318,
+      6,
+      "IMAGE"
+    ],
+    [
+      630,
+      8,
+      0,
+      399,
+      0,
+      "IMAGE"
+    ],
+    [
+      631,
+      318,
+      0,
+      399,
+      1,
+      "IMAGE"
+    ],
+    [
+      632,
+      37,
+      21,
+      399,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      637,
+      7,
+      0,
+      402,
+      1,
+      "LATENT"
+    ],
+    [
+      639,
+      399,
+      0,
+      402,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -1814,8 +1854,8 @@
       "id": 15,
       "title": "Placeholders",
       "bounding": [
-        -2510,
-        231.4,
+        -3180,
+        -85,
         230,
         383.6
       ],
@@ -1831,9 +1871,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -2227,7 +2267,7 @@
               130
             ],
             "flags": {},
-            "order": 3,
+            "order": 20,
             "mode": 0,
             "inputs": [
               {
@@ -2275,7 +2315,7 @@
             "flags": {
               "pinned": true
             },
-            "order": 5,
+            "order": 22,
             "mode": 0,
             "inputs": [
               {
@@ -2323,7 +2363,7 @@
             "flags": {
               "pinned": true
             },
-            "order": 8,
+            "order": 25,
             "mode": 0,
             "inputs": [
               {
@@ -2369,7 +2409,7 @@
               80
             ],
             "flags": {},
-            "order": 4,
+            "order": 21,
             "mode": 0,
             "inputs": [
               {
@@ -2410,7 +2450,7 @@
               80
             ],
             "flags": {},
-            "order": 7,
+            "order": 24,
             "mode": 0,
             "inputs": [
               {
@@ -2451,7 +2491,7 @@
               130
             ],
             "flags": {},
-            "order": 6,
+            "order": 23,
             "mode": 0,
             "inputs": [
               {
@@ -2497,7 +2537,7 @@
               130
             ],
             "flags": {},
-            "order": 2,
+            "order": 19,
             "mode": 0,
             "inputs": [
               {
@@ -2545,14 +2585,14 @@
             "flags": {
               "pinned": true
             },
-            "order": 19,
+            "order": 0,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 542
+                "link": null
               },
               {
                 "name": "Text",
@@ -2565,9 +2605,7 @@
                 "localized_name": "STRING",
                 "name": "STRING",
                 "type": "STRING",
-                "links": [
-                  590
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -2594,14 +2632,14 @@
             "flags": {
               "pinned": true
             },
-            "order": 20,
+            "order": 1,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 544
+                "link": null
               },
               {
                 "name": "Text",
@@ -2614,9 +2652,7 @@
                 "localized_name": "INT",
                 "name": "INT",
                 "type": "INT",
-                "links": [
-                  591
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -2643,14 +2679,14 @@
             "flags": {
               "pinned": true
             },
-            "order": 21,
+            "order": 2,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 546
+                "link": null
               },
               {
                 "name": "Text",
@@ -2663,9 +2699,7 @@
                 "localized_name": "STRING",
                 "name": "STRING",
                 "type": "STRING",
-                "links": [
-                  594
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -2692,14 +2726,14 @@
             "flags": {
               "pinned": true
             },
-            "order": 18,
+            "order": 3,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 537
+                "link": null
               },
               {
                 "name": "Text",
@@ -2712,9 +2746,7 @@
                 "localized_name": "FLOAT",
                 "name": "FLOAT",
                 "type": "FLOAT",
-                "links": [
-                  589
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -2741,14 +2773,14 @@
             "flags": {
               "pinned": true
             },
-            "order": 22,
+            "order": 4,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 548
+                "link": null
               },
               {
                 "name": "Text",
@@ -2761,9 +2793,7 @@
                 "localized_name": "FLOAT",
                 "name": "FLOAT",
                 "type": "FLOAT",
-                "links": [
-                  582
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -2790,14 +2820,14 @@
             "flags": {
               "pinned": true
             },
-            "order": 9,
+            "order": 5,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 596
+                "link": null
               },
               {
                 "name": "Text",
@@ -2811,54 +2841,42 @@
                 "localized_name": "FLOAT",
                 "name": "FLOAT",
                 "type": "FLOAT",
-                "links": [
-                  588
-                ]
+                "links": []
               },
               {
                 "label": "LORA_PRESENT",
                 "localized_name": "BOOLEAN",
                 "name": "BOOLEAN",
                 "type": "BOOLEAN",
-                "links": [
-                  587
-                ]
+                "links": []
               },
               {
                 "label": "CLIP_NAME",
                 "localized_name": "any",
                 "name": "any",
                 "type": "*",
-                "links": [
-                  584
-                ]
+                "links": []
               },
               {
                 "label": "CLIP_TYPE",
                 "localized_name": "any_1",
                 "name": "any_1",
                 "type": "*",
-                "links": [
-                  585
-                ]
+                "links": []
               },
               {
                 "label": "VAE_NAME",
                 "localized_name": "any_2",
                 "name": "any_2",
                 "type": "*",
-                "links": [
-                  586
-                ]
+                "links": []
               },
               {
                 "label": "LORA_NAME",
                 "localized_name": "STRING",
                 "name": "STRING",
                 "type": "STRING",
-                "links": [
-                  583
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -2886,14 +2904,14 @@
               "collapsed": false,
               "pinned": true
             },
-            "order": 10,
+            "order": 6,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 597
+                "link": null
               },
               {
                 "name": "Text",
@@ -2907,9 +2925,7 @@
                 "localized_name": "INT",
                 "name": "INT",
                 "type": "INT",
-                "links": [
-                  577
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -2936,14 +2952,14 @@
             "flags": {
               "pinned": true
             },
-            "order": 13,
+            "order": 7,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 598
+                "link": null
               },
               {
                 "name": "Text",
@@ -2957,9 +2973,7 @@
                 "localized_name": "FLOAT",
                 "name": "FLOAT",
                 "type": "FLOAT",
-                "links": [
-                  581
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -2987,14 +3001,14 @@
               "collapsed": false,
               "pinned": true
             },
-            "order": 12,
+            "order": 8,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 599
+                "link": null
               },
               {
                 "name": "Text",
@@ -3008,9 +3022,7 @@
                 "localized_name": "FLOAT",
                 "name": "FLOAT",
                 "type": "FLOAT",
-                "links": [
-                  580
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -3037,14 +3049,14 @@
             "flags": {
               "pinned": true
             },
-            "order": 15,
+            "order": 9,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 600
+                "link": null
               },
               {
                 "name": "Text",
@@ -3058,9 +3070,7 @@
                 "localized_name": "INT",
                 "name": "INT",
                 "type": "INT",
-                "links": [
-                  578
-                ]
+                "links": []
               },
               {
                 "label": "UP_WIDTH_PRESENT",
@@ -3096,14 +3106,14 @@
               "collapsed": false,
               "pinned": true
             },
-            "order": 11,
+            "order": 10,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 601
+                "link": null
               },
               {
                 "name": "Text",
@@ -3117,9 +3127,7 @@
                 "localized_name": "INT",
                 "name": "INT",
                 "type": "INT",
-                "links": [
-                  579
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -3141,20 +3149,20 @@
             ],
             "size": [
               210,
-              70
+              80
             ],
             "flags": {
               "collapsed": false,
               "pinned": true
             },
-            "order": 14,
+            "order": 11,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 602
+                "link": null
               },
               {
                 "name": "Text",
@@ -3168,9 +3176,7 @@
                 "localized_name": "INT",
                 "name": "INT",
                 "type": "INT",
-                "links": [
-                  595
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -3197,14 +3203,14 @@
             "flags": {
               "pinned": true
             },
-            "order": 17,
+            "order": 12,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 603
+                "link": null
               },
               {
                 "name": "Text",
@@ -3217,9 +3223,7 @@
                 "localized_name": "INT",
                 "name": "INT",
                 "type": "INT",
-                "links": [
-                  593
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -3246,14 +3250,14 @@
             "flags": {
               "pinned": true
             },
-            "order": 16,
+            "order": 13,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "link": 604
+                "link": null
               },
               {
                 "name": "Text",
@@ -3266,9 +3270,7 @@
                 "localized_name": "INT",
                 "name": "INT",
                 "type": "INT",
-                "links": [
-                  592
-                ]
+                "links": []
               }
             ],
             "properties": {
@@ -3295,17 +3297,19 @@
             "flags": {
               "pinned": true
             },
-            "order": 24,
+            "order": 14,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                },
-                "link": 613
+                "link": null
+              },
+              {
+                "name": "Text",
+                "type": "STRING",
+                "link": null
               }
             ],
             "outputs": [
@@ -3318,7 +3322,6 @@
                 ]
               }
             ],
-            "title": "up_sampler_name",
             "properties": {
               "proxyWidgets": [
                 [
@@ -3338,23 +3341,24 @@
             ],
             "size": [
               210,
-              80
+              105
             ],
             "flags": {
               "pinned": true
             },
-            "order": 25,
+            "order": 15,
             "mode": 0,
             "inputs": [
               {
-                "label": "prompt",
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                },
-                "link": 614
+                "link": null
+              },
+              {
+                "name": "Text",
+                "type": "STRING",
+                "link": null
               }
             ],
             "outputs": [
@@ -3367,7 +3371,6 @@
                 ]
               }
             ],
-            "title": "up_scheduler",
             "properties": {
               "proxyWidgets": [
                 [
@@ -3392,17 +3395,19 @@
             "flags": {
               "pinned": true
             },
-            "order": 23,
+            "order": 16,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                },
-                "link": 608
+                "link": null
+              },
+              {
+                "name": "Text",
+                "type": "STRING",
+                "link": null
               }
             ],
             "outputs": [
@@ -3415,7 +3420,6 @@
                 ]
               }
             ],
-            "title": "up_method",
             "properties": {
               "proxyWidgets": [
                 [
@@ -3435,23 +3439,24 @@
             ],
             "size": [
               210,
-              80
+              105
             ],
             "flags": {
               "pinned": true
             },
-            "order": 24,
+            "order": 17,
             "mode": 0,
             "inputs": [
               {
-                "label": "prompt",
                 "localized_name": "Text",
                 "name": "Text",
                 "type": "STRING",
-                "widget": {
-                  "name": "Text"
-                },
-                "link": 621
+                "link": null
+              },
+              {
+                "name": "Text",
+                "type": "STRING",
+                "link": null
               }
             ],
             "outputs": [
@@ -3464,7 +3469,6 @@
                 ]
               }
             ],
-            "title": "up_model_name",
             "properties": {
               "proxyWidgets": [
                 [
@@ -3487,7 +3491,7 @@
               130
             ],
             "flags": {},
-            "order": 1,
+            "order": 18,
             "mode": 0,
             "inputs": [
               {
@@ -3522,15 +3526,6 @@
                   544,
                   546,
                   548,
-                  596,
-                  597,
-                  598,
-                  599,
-                  600,
-                  601,
-                  602,
-                  603,
-                  604,
                   608,
                   613,
                   614,
@@ -3915,230 +3910,6 @@
             "type": "FLOAT"
           },
           {
-            "id": 577,
-            "origin_id": 343,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 16,
-            "type": "INT"
-          },
-          {
-            "id": 578,
-            "origin_id": 356,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 17,
-            "type": "INT"
-          },
-          {
-            "id": 579,
-            "origin_id": 345,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 18,
-            "type": "INT"
-          },
-          {
-            "id": 580,
-            "origin_id": 346,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 19,
-            "type": "FLOAT"
-          },
-          {
-            "id": 581,
-            "origin_id": 347,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 20,
-            "type": "FLOAT"
-          },
-          {
-            "id": 582,
-            "origin_id": 372,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 9,
-            "type": "FLOAT"
-          },
-          {
-            "id": 583,
-            "origin_id": 334,
-            "origin_slot": 5,
-            "target_id": -20,
-            "target_slot": 10,
-            "type": "STRING"
-          },
-          {
-            "id": 584,
-            "origin_id": 334,
-            "origin_slot": 2,
-            "target_id": -20,
-            "target_slot": 13,
-            "type": "*"
-          },
-          {
-            "id": 585,
-            "origin_id": 334,
-            "origin_slot": 3,
-            "target_id": -20,
-            "target_slot": 14,
-            "type": "*"
-          },
-          {
-            "id": 586,
-            "origin_id": 334,
-            "origin_slot": 4,
-            "target_id": -20,
-            "target_slot": 15,
-            "type": "*"
-          },
-          {
-            "id": 587,
-            "origin_id": 334,
-            "origin_slot": 1,
-            "target_id": -20,
-            "target_slot": 11,
-            "type": "BOOLEAN"
-          },
-          {
-            "id": 588,
-            "origin_id": 334,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 12,
-            "type": "FLOAT"
-          },
-          {
-            "id": 589,
-            "origin_id": 368,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 6,
-            "type": "FLOAT"
-          },
-          {
-            "id": 590,
-            "origin_id": 369,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 5,
-            "type": "STRING"
-          },
-          {
-            "id": 591,
-            "origin_id": 370,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 4,
-            "type": "INT"
-          },
-          {
-            "id": 592,
-            "origin_id": 366,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 3,
-            "type": "INT"
-          },
-          {
-            "id": 593,
-            "origin_id": 367,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 2,
-            "type": "INT"
-          },
-          {
-            "id": 594,
-            "origin_id": 371,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 595,
-            "origin_id": 348,
-            "origin_slot": 0,
-            "target_id": -20,
-            "target_slot": 1,
-            "type": "INT"
-          },
-          {
-            "id": 596,
-            "origin_id": 66,
-            "origin_slot": 0,
-            "target_id": 334,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 597,
-            "origin_id": 66,
-            "origin_slot": 0,
-            "target_id": 343,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 598,
-            "origin_id": 66,
-            "origin_slot": 0,
-            "target_id": 347,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 599,
-            "origin_id": 66,
-            "origin_slot": 0,
-            "target_id": 346,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 600,
-            "origin_id": 66,
-            "origin_slot": 0,
-            "target_id": 356,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 601,
-            "origin_id": 66,
-            "origin_slot": 0,
-            "target_id": 345,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 602,
-            "origin_id": 66,
-            "origin_slot": 0,
-            "target_id": 348,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 603,
-            "origin_id": 66,
-            "origin_slot": 0,
-            "target_id": 367,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 604,
-            "origin_id": 66,
-            "origin_slot": 0,
-            "target_id": 366,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
             "id": 608,
             "origin_id": 66,
             "origin_slot": 0,
@@ -4203,18 +3974,6 @@
             "type": "STRING"
           }
         ],
-        "reroutes": [
-          {
-            "id": 77,
-            "pos": [
-              -720,
-              55
-            ],
-            "linkIds": [
-              547
-            ]
-          }
-        ],
         "extra": {
           "workflowRendererVersion": "LG"
         }
@@ -4224,9 +3983,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -4466,7 +4225,9 @@
               165,
               50
             ],
-            "flags": {},
+            "flags": {
+              "pinned": true
+            },
             "order": 3,
             "mode": 0,
             "inputs": [
@@ -4509,7 +4270,9 @@
               270,
               150
             ],
-            "flags": {},
+            "flags": {
+              "pinned": true
+            },
             "order": 4,
             "mode": 0,
             "inputs": [
@@ -4557,7 +4320,9 @@
               235,
               50
             ],
-            "flags": {},
+            "flags": {
+              "pinned": true
+            },
             "order": 0,
             "mode": 0,
             "inputs": [
@@ -4600,7 +4365,9 @@
               270,
               60
             ],
-            "flags": {},
+            "flags": {
+              "pinned": true
+            },
             "order": 5,
             "mode": 0,
             "inputs": [
@@ -4642,7 +4409,9 @@
               270,
               265
             ],
-            "flags": {},
+            "flags": {
+              "pinned": true
+            },
             "order": 2,
             "mode": 0,
             "inputs": [
@@ -4760,7 +4529,9 @@
               270,
               130
             ],
-            "flags": {},
+            "flags": {
+              "pinned": true
+            },
             "order": 1,
             "mode": 0,
             "inputs": [
@@ -5097,9 +4868,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -6529,9 +6300,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -6676,7 +6447,7 @@
               "Node name for S&R": "ShowText|pysssss"
             },
             "widgets_values": [
-              "9"
+              "1"
             ]
           },
           {
@@ -6832,9 +6603,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -7027,7 +6798,7 @@
               "Node name for S&R": "ShowText|pysssss"
             },
             "widgets_values": [
-              "1600"
+              "1536"
             ]
           },
           {
@@ -7135,9 +6906,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -7438,9 +7209,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -7733,9 +7504,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -8036,9 +7807,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -8378,7 +8149,7 @@
               "Node name for S&R": "ShowText|pysssss"
             },
             "widgets_values": [
-              "0"
+              "1536"
             ]
           },
           {
@@ -8562,9 +8333,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -8619,8 +8390,7 @@
               130
             ],
             "flags": {
-              "collapsed": true,
-              "pinned": true
+              "collapsed": true
             },
             "order": 0,
             "mode": 0,
@@ -8657,8 +8427,7 @@
               370
             ],
             "flags": {
-              "collapsed": true,
-              "pinned": true
+              "collapsed": true
             },
             "order": 1,
             "mode": 0,
@@ -8725,9 +8494,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -9074,9 +8843,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -9260,7 +9029,9 @@
             "properties": {
               "Node name for S&R": "ShowText|pysssss"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "1024"
+            ]
           },
           {
             "id": 55,
@@ -9365,9 +9136,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -9603,7 +9374,9 @@
             "properties": {
               "Node name for S&R": "ShowText|pysssss"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "1"
+            ]
           }
         ],
         "groups": [],
@@ -9656,9 +9429,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -9894,7 +9667,9 @@
             "properties": {
               "Node name for S&R": "ShowText|pysssss"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "1.0"
+            ]
           }
         ],
         "groups": [],
@@ -9947,9 +9722,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -10088,7 +9863,9 @@
             "properties": {
               "Node name for S&R": "ShowText|pysssss"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "z_image_turbo_bf16.safetensors"
+            ]
           },
           {
             "id": 69,
@@ -10179,9 +9956,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -10417,7 +10194,9 @@
             "properties": {
               "Node name for S&R": "ShowText|pysssss"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "1600"
+            ]
           }
         ],
         "groups": [],
@@ -10470,9 +10249,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -10565,7 +10344,9 @@
             "properties": {
               "Node name for S&R": "ShowText|pysssss"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "A cat.\n\n"
+            ]
           },
           {
             "id": 57,
@@ -10648,9 +10429,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -10742,7 +10523,9 @@
             "properties": {
               "Node name for S&R": "ShowText|pysssss"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "1.0"
+            ]
           },
           {
             "id": 271,
@@ -10935,413 +10718,13 @@
         "extra": {}
       },
       {
-        "id": "7be7950a-481c-4758-a95d-3a2d0ea5b161",
-        "version": 1,
-        "state": {
-          "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
-        },
-        "revision": 0,
-        "config": {},
-        "name": "Save",
-        "inputNode": {
-          "id": -10,
-          "bounding": [
-            -1930,
-            -85,
-            132.126953125,
-            120
-          ]
-        },
-        "outputNode": {
-          "id": -20,
-          "bounding": [
-            -840,
-            106.80000000000001,
-            120,
-            40
-          ]
-        },
-        "inputs": [
-          {
-            "id": "9e3ddda7-df0f-401c-a708-f3f5c2ee240e",
-            "name": "images",
-            "type": "IMAGE",
-            "linkIds": [
-              526,
-              531
-            ],
-            "localized_name": "images",
-            "label": "image",
-            "pos": [
-              -1817.873046875,
-              -65
-            ]
-          },
-          {
-            "id": "ca5a3f66-61ce-434e-beb9-dcd3bf7f29e1",
-            "name": "on_true",
-            "type": "IMAGE",
-            "linkIds": [
-              520
-            ],
-            "localized_name": "on_true",
-            "label": "upscaled_image",
-            "pos": [
-              -1817.873046875,
-              -45
-            ]
-          },
-          {
-            "id": "c8e7cf86-865e-4f37-856c-48de54f45beb",
-            "name": "switch",
-            "type": "BOOLEAN",
-            "linkIds": [
-              532
-            ],
-            "localized_name": "switch",
-            "label": "up_present",
-            "pos": [
-              -1817.873046875,
-              -25
-            ]
-          },
-          {
-            "id": "6657be22-8e07-4802-a78a-b8419c32c715",
-            "name": "samples_1",
-            "type": "LATENT",
-            "linkIds": [
-              574
-            ],
-            "label": "latent",
-            "pos": [
-              -1817.873046875,
-              -5
-            ]
-          }
-        ],
-        "outputs": [],
-        "widgets": [],
-        "nodes": [
-          {
-            "id": 299,
-            "type": "PreviewImage",
-            "pos": [
-              -1675,
-              150
-            ],
-            "size": [
-              415,
-              350
-            ],
-            "flags": {
-              "pinned": true
-            },
-            "order": 3,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "images",
-                "name": "images",
-                "type": "IMAGE",
-                "link": 526
-              }
-            ],
-            "outputs": [],
-            "properties": {
-              "Node name for S&R": "PreviewImage"
-            },
-            "widgets_values": []
-          },
-          {
-            "id": 362,
-            "type": "29acf4d6-6e49-486b-8cd0-e2c53bf1b6c8",
-            "pos": [
-              -1685,
-              -55
-            ],
-            "size": [
-              175,
-              30
-            ],
-            "flags": {
-              "pinned": true
-            },
-            "order": 0,
-            "mode": 0,
-            "inputs": [],
-            "outputs": [
-              {
-                "localized_name": "STRING",
-                "name": "STRING",
-                "type": "STRING",
-                "links": [
-                  510,
-                  511
-                ]
-              }
-            ],
-            "properties": {
-              "proxyWidgets": []
-            },
-            "widgets_values": []
-          },
-          {
-            "id": 364,
-            "type": "ComfySwitchNode",
-            "pos": [
-              -1665,
-              -190
-            ],
-            "size": [
-              210,
-              80
-            ],
-            "flags": {},
-            "order": 4,
-            "mode": 4,
-            "inputs": [
-              {
-                "localized_name": "on_false",
-                "name": "on_false",
-                "type": "IMAGE",
-                "link": 531
-              },
-              {
-                "localized_name": "on_true",
-                "name": "on_true",
-                "type": "IMAGE",
-                "link": 520
-              },
-              {
-                "localized_name": "switch",
-                "name": "switch",
-                "type": "BOOLEAN",
-                "widget": {
-                  "name": "switch"
-                },
-                "link": 532
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "output",
-                "name": "output",
-                "type": "IMAGE",
-                "links": [
-                  561
-                ]
-              }
-            ],
-            "properties": {
-              "Node name for S&R": "ComfySwitchNode"
-            },
-            "widgets_values": [
-              false
-            ]
-          },
-          {
-            "id": 298,
-            "type": "SaveImageExtended",
-            "pos": [
-              -1230,
-              -210
-            ],
-            "size": [
-              320,
-              730
-            ],
-            "flags": {
-              "pinned": true
-            },
-            "order": 2,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "images",
-                "name": "images",
-                "type": "IMAGE",
-                "link": 561
-              },
-              {
-                "localized_name": "positive_text_opt",
-                "name": "positive_text_opt",
-                "shape": 7,
-                "type": "STRING",
-                "link": null
-              },
-              {
-                "localized_name": "negative_text_opt",
-                "name": "negative_text_opt",
-                "shape": 7,
-                "type": "STRING",
-                "link": null
-              },
-              {
-                "localized_name": "filename_prefix",
-                "name": "filename_prefix",
-                "type": "STRING",
-                "widget": {
-                  "name": "filename_prefix"
-                },
-                "link": 511
-              }
-            ],
-            "outputs": [],
-            "properties": {
-              "Node name for S&R": "SaveImageExtended"
-            },
-            "widgets_values": [
-              "%F/W6 %F %H-%MF",
-              "",
-              "",
-              "",
-              "_",
-              "disabled",
-              true,
-              "",
-              true,
-              5,
-              "last",
-              true,
-              true,
-              ".png",
-              100
-            ]
-          },
-          {
-            "id": 44,
-            "type": "SaveLatent",
-            "pos": [
-              -1470,
-              -15
-            ],
-            "size": [
-              210,
-              60
-            ],
-            "flags": {
-              "pinned": true
-            },
-            "order": 1,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "samples",
-                "name": "samples",
-                "type": "LATENT",
-                "link": 574
-              },
-              {
-                "localized_name": "filename_prefix",
-                "name": "filename_prefix",
-                "type": "STRING",
-                "widget": {
-                  "name": "filename_prefix"
-                },
-                "link": 510
-              }
-            ],
-            "outputs": [],
-            "properties": {},
-            "widgets_values": [
-              "%date:yyyy-MM-dd%/W1 %date:yyyy-MM-dd hh-mm%F"
-            ]
-          }
-        ],
-        "groups": [
-          {
-            "id": 12,
-            "title": "Save",
-            "bounding": [
-              -1715,
-              -280,
-              815,
-              813.6
-            ],
-            "color": "#3f789e",
-            "font_size": 24,
-            "flags": {}
-          }
-        ],
-        "links": [
-          {
-            "id": 511,
-            "origin_id": 362,
-            "origin_slot": 0,
-            "target_id": 298,
-            "target_slot": 3,
-            "type": "STRING"
-          },
-          {
-            "id": 510,
-            "origin_id": 362,
-            "origin_slot": 0,
-            "target_id": 44,
-            "target_slot": 1,
-            "type": "STRING"
-          },
-          {
-            "id": 526,
-            "origin_id": -10,
-            "origin_slot": 0,
-            "target_id": 299,
-            "target_slot": 0,
-            "type": "IMAGE"
-          },
-          {
-            "id": 531,
-            "origin_id": -10,
-            "origin_slot": 0,
-            "target_id": 364,
-            "target_slot": 0,
-            "type": "IMAGE"
-          },
-          {
-            "id": 520,
-            "origin_id": -10,
-            "origin_slot": 1,
-            "target_id": 364,
-            "target_slot": 1,
-            "type": "IMAGE"
-          },
-          {
-            "id": 532,
-            "origin_id": -10,
-            "origin_slot": 2,
-            "target_id": 364,
-            "target_slot": 2,
-            "type": "BOOLEAN"
-          },
-          {
-            "id": 561,
-            "origin_id": 364,
-            "origin_slot": 0,
-            "target_id": 298,
-            "target_slot": 0,
-            "type": "IMAGE"
-          },
-          {
-            "id": 574,
-            "origin_id": -10,
-            "origin_slot": 3,
-            "target_id": 44,
-            "target_slot": 0,
-            "type": "LATENT"
-          }
-        ],
-        "extra": {}
-      },
-      {
         "id": "def2bdc6-ead2-45ed-b78a-21ade0508578",
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -11676,9 +11059,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -11745,7 +11128,7 @@
               130
             ],
             "flags": {},
-            "order": 3,
+            "order": 2,
             "mode": 0,
             "inputs": [
               {
@@ -11791,7 +11174,7 @@
               80
             ],
             "flags": {},
-            "order": 2,
+            "order": 1,
             "mode": 0,
             "inputs": [
               {
@@ -11816,7 +11199,9 @@
             "properties": {
               "Node name for S&R": "ShowText|pysssss"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "bislerp"
+            ]
           },
           {
             "id": 381,
@@ -11826,11 +11211,11 @@
               855
             ],
             "size": [
-              196.2935546875,
-              46
+              200,
+              50
             ],
             "flags": {},
-            "order": 0,
+            "order": 3,
             "mode": 0,
             "inputs": [
               {
@@ -11869,11 +11254,11 @@
               855
             ],
             "size": [
-              210,
+              230,
               130
             ],
             "flags": {},
-            "order": 1,
+            "order": 0,
             "mode": 0,
             "inputs": [
               {
@@ -11958,9 +11343,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -12071,7 +11456,7 @@
               855
             ],
             "size": [
-              210,
+              275,
               130
             ],
             "flags": {
@@ -12150,7 +11535,9 @@
             "properties": {
               "Node name for S&R": "ShowText|pysssss"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "dpmpp_2m_sde"
+            ]
           },
           {
             "id": 385,
@@ -12248,9 +11635,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -12386,7 +11773,9 @@
             "properties": {
               "Node name for S&R": "ShowText|pysssss"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "karras"
+            ]
           },
           {
             "id": 387,
@@ -12442,7 +11831,7 @@
               855
             ],
             "size": [
-              210,
+              245,
               130
             ],
             "flags": {},
@@ -12531,9 +11920,9 @@
         "version": 1,
         "state": {
           "lastGroupId": 15,
-          "lastNodeId": 396,
-          "lastLinkId": 622,
-          "lastRerouteId": 126
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
         },
         "revision": 0,
         "config": {},
@@ -12633,45 +12022,6 @@
             "widgets_values": []
           },
           {
-            "id": 394,
-            "type": "ShowText|pysssss",
-            "pos": [
-              -1455,
-              850
-            ],
-            "size": [
-              220,
-              80
-            ],
-            "flags": {},
-            "order": 2,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "text",
-                "name": "text",
-                "type": "STRING",
-                "link": 97
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "STRING",
-                "name": "STRING",
-                "shape": 6,
-                "type": "STRING",
-                "links": [
-                  606
-                ]
-              }
-            ],
-            "title": "Tag: w1.up_model_name",
-            "properties": {
-              "Node name for S&R": "ShowText|pysssss"
-            },
-            "widgets_values": []
-          },
-          {
             "id": 392,
             "type": "DF_String_Replace",
             "pos": [
@@ -12725,7 +12075,7 @@
               855
             ],
             "size": [
-              210,
+              265,
               130
             ],
             "flags": {},
@@ -12761,6 +12111,47 @@
               "^$",
               "4x_NickelbackFS_72000_G.pth",
               "RegEx"
+            ]
+          },
+          {
+            "id": 394,
+            "type": "ShowText|pysssss",
+            "pos": [
+              -1455,
+              850
+            ],
+            "size": [
+              220,
+              80
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING",
+                "link": 97
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "shape": 6,
+                "type": "STRING",
+                "links": [
+                  606
+                ]
+              }
+            ],
+            "title": "Tag: w1.up_model_name",
+            "properties": {
+              "Node name for S&R": "ShowText|pysssss"
+            },
+            "widgets_values": [
+              "4x_NickelbackFS_72000_G.pth"
             ]
           }
         ],
@@ -12805,6 +12196,279 @@
             "target_id": 395,
             "target_slot": 0,
             "type": "STRING"
+          }
+        ],
+        "extra": {}
+      },
+      {
+        "id": "46a6dbfb-8ac8-4d1a-8b29-94ea3a35f23e",
+        "version": 1,
+        "state": {
+          "lastGroupId": 15,
+          "lastNodeId": 402,
+          "lastLinkId": 639,
+          "lastRerouteId": 144
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Save",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            -1590,
+            -104.30000000000001,
+            120,
+            80
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            -575,
+            -74.30000000000001,
+            120,
+            40
+          ]
+        },
+        "inputs": [
+          {
+            "id": "1ec722f1-1e19-4cd6-b12f-6b55333f9c32",
+            "name": "images",
+            "type": "IMAGE",
+            "linkIds": [
+              629,
+              638
+            ],
+            "localized_name": "images",
+            "pos": [
+              -1490,
+              -84.30000000000001
+            ]
+          },
+          {
+            "id": "97a18940-5953-4c43-a0e3-ea45731fe1d8",
+            "name": "samples",
+            "type": "LATENT",
+            "linkIds": [
+              634
+            ],
+            "localized_name": "samples",
+            "pos": [
+              -1490,
+              -64.30000000000001
+            ]
+          }
+        ],
+        "outputs": [],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 397,
+            "type": "PreviewImage",
+            "pos": [
+              -1400,
+              -45
+            ],
+            "size": [
+              415,
+              350
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "images",
+                "name": "images",
+                "type": "IMAGE",
+                "link": 629
+              }
+            ],
+            "outputs": [],
+            "properties": {
+              "Node name for S&R": "PreviewImage"
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 398,
+            "type": "29acf4d6-6e49-486b-8cd0-e2c53bf1b6c8",
+            "pos": [
+              -1410,
+              -250
+            ],
+            "size": [
+              175,
+              30
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  627,
+                  628
+                ]
+              }
+            ],
+            "properties": {
+              "proxyWidgets": []
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 401,
+            "type": "SaveLatent",
+            "pos": [
+              -1195,
+              -210
+            ],
+            "size": [
+              210,
+              60
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "samples",
+                "name": "samples",
+                "type": "LATENT",
+                "link": 634
+              },
+              {
+                "localized_name": "filename_prefix",
+                "name": "filename_prefix",
+                "type": "STRING",
+                "widget": {
+                  "name": "filename_prefix"
+                },
+                "link": 628
+              }
+            ],
+            "outputs": [],
+            "properties": {},
+            "widgets_values": [
+              "%date:yyyy-MM-dd%/W1 %date:yyyy-MM-dd hh-mm%F"
+            ]
+          },
+          {
+            "id": 400,
+            "type": "SaveImageExtended",
+            "pos": [
+              -955,
+              -405
+            ],
+            "size": [
+              320,
+              730
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "images",
+                "name": "images",
+                "type": "IMAGE",
+                "link": 638
+              },
+              {
+                "localized_name": "positive_text_opt",
+                "name": "positive_text_opt",
+                "shape": 7,
+                "type": "STRING",
+                "link": null
+              },
+              {
+                "localized_name": "negative_text_opt",
+                "name": "negative_text_opt",
+                "shape": 7,
+                "type": "STRING",
+                "link": null
+              },
+              {
+                "localized_name": "filename_prefix",
+                "name": "filename_prefix",
+                "type": "STRING",
+                "widget": {
+                  "name": "filename_prefix"
+                },
+                "link": 627
+              }
+            ],
+            "outputs": [],
+            "properties": {
+              "Node name for S&R": "SaveImageExtended"
+            },
+            "widgets_values": [
+              "%F/W6 %F %H-%MF",
+              "",
+              "",
+              "",
+              "_",
+              "disabled",
+              true,
+              "",
+              true,
+              5,
+              "last",
+              true,
+              true,
+              ".png",
+              100
+            ]
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 627,
+            "origin_id": 398,
+            "origin_slot": 0,
+            "target_id": 400,
+            "target_slot": 3,
+            "type": "STRING"
+          },
+          {
+            "id": 628,
+            "origin_id": 398,
+            "origin_slot": 0,
+            "target_id": 401,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 629,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 397,
+            "target_slot": 0,
+            "type": "IMAGE",
+            "parentId": 139
+          },
+          {
+            "id": 634,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 401,
+            "target_slot": 0,
+            "type": "LATENT",
+            "parentId": 129
+          },
+          {
+            "id": 638,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 400,
+            "target_slot": 0,
+            "type": "IMAGE"
           }
         ],
         "extra": {}
@@ -12863,16 +12527,6 @@
         ]
       },
       {
-        "id": 8,
-        "pos": [
-          -975,
-          -390
-        ],
-        "linkIds": [
-          7
-        ]
-      },
-      {
         "id": 67,
         "parentId": 73,
         "pos": [
@@ -12921,7 +12575,7 @@
         ],
         "linkIds": [
           51,
-          618
+          624
         ]
       },
       {
@@ -12990,7 +12644,7 @@
         "parentId": 122,
         "pos": [
           -1810,
-          -125
+          -440
         ],
         "linkIds": [
           570
@@ -13011,22 +12665,11 @@
         "id": 100,
         "parentId": 98,
         "pos": [
-          -1775,
-          -135
+          -1780,
+          -455
         ],
         "linkIds": [
           568
-        ]
-      },
-      {
-        "id": 108,
-        "parentId": 8,
-        "pos": [
-          -2050,
-          -385
-        ],
-        "linkIds": [
-          7
         ]
       },
       {
@@ -13041,20 +12684,10 @@
         ]
       },
       {
-        "id": 115,
-        "pos": [
-          -1845,
-          -105
-        ],
-        "linkIds": [
-          524
-        ]
-      },
-      {
         "id": 118,
         "pos": [
-          -1745,
-          -570
+          -1760,
+          -585
         ],
         "linkIds": [
           527,
@@ -13065,8 +12698,8 @@
         "id": 120,
         "parentId": 118,
         "pos": [
-          -1740,
-          -140
+          -1750.3079086232988,
+          -469.09296651773633
         ],
         "linkIds": [
           527
@@ -13085,44 +12718,197 @@
       },
       {
         "id": 123,
+        "parentId": 144,
         "pos": [
-          -2070,
-          -270
+          -1725,
+          -485
         ],
         "linkIds": [
-          413
+          413,
+          625
         ]
       },
       {
         "id": 125,
         "parentId": 71,
         "pos": [
-          -1710,
-          -1010
+          -1880,
+          -1065
         ],
         "linkIds": [
           51,
-          618
+          624
         ]
       },
       {
-        "id": 126,
-        "parentId": 125,
+        "id": 127,
         "pos": [
-          -1705,
-          -290
+          -1935,
+          -1100
         ],
         "linkIds": [
-          618
+          33,
+          637
+        ]
+      },
+      {
+        "id": 128,
+        "parentId": 127,
+        "pos": [
+          -1686.9567151132374,
+          -1125.9399736434368
+        ],
+        "linkIds": [
+          33,
+          637
+        ]
+      },
+      {
+        "id": 129,
+        "parentId": 135,
+        "pos": [
+          -1140,
+          -585
+        ],
+        "linkIds": [
+          637
+        ]
+      },
+      {
+        "id": 130,
+        "parentId": 125,
+        "pos": [
+          -1885,
+          -385
+        ],
+        "linkIds": [
+          624
+        ]
+      },
+      {
+        "id": 131,
+        "parentId": 118,
+        "pos": [
+          -1735,
+          -1185
+        ],
+        "linkIds": [
+          619
+        ]
+      },
+      {
+        "id": 135,
+        "parentId": 128,
+        "pos": [
+          -1685,
+          -590
+        ],
+        "linkIds": [
+          637
+        ]
+      },
+      {
+        "id": 136,
+        "parentId": 123,
+        "pos": [
+          -1715,
+          -605
+        ],
+        "linkIds": [
+          625
+        ]
+      },
+      {
+        "id": 137,
+        "parentId": 136,
+        "pos": [
+          -1210,
+          -615
+        ],
+        "linkIds": [
+          625
+        ]
+      },
+      {
+        "id": 138,
+        "pos": [
+          -925,
+          -570
+        ],
+        "linkIds": [
+          626,
+          630
+        ]
+      },
+      {
+        "id": 139,
+        "parentId": 138,
+        "pos": [
+          -1390,
+          -555
+        ],
+        "linkIds": [
+          626,
+          630
+        ]
+      },
+      {
+        "id": 140,
+        "parentId": 139,
+        "pos": [
+          -1830,
+          -550
+        ],
+        "linkIds": [
+          626
+        ]
+      },
+      {
+        "id": 141,
+        "parentId": 140,
+        "pos": [
+          -1830,
+          -415
+        ],
+        "linkIds": [
+          626
+        ]
+      },
+      {
+        "id": 142,
+        "pos": [
+          -1405,
+          -110
+        ],
+        "linkIds": [
+          632
+        ]
+      },
+      {
+        "id": 144,
+        "pos": [
+          -1860,
+          -485
+        ],
+        "linkIds": [
+          413,
+          625
         ]
       }
     ],
     "ue_links": [],
     "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 0.9390574430597745,
+      "offset": [
+        3781.4643211077364,
+        1550.3774103405283
+      ]
+    },
     "linkExtensions": [
       {
-        "id": 7,
-        "parentId": 108
+        "id": 33,
+        "parentId": 128
       },
       {
         "id": 51,
@@ -13165,10 +12951,6 @@
         "parentId": 81
       },
       {
-        "id": 524,
-        "parentId": 115
-      },
-      {
         "id": 527,
         "parentId": 120
       },
@@ -13197,21 +12979,34 @@
         "parentId": 122
       },
       {
-        "id": 618,
-        "parentId": 126
+        "id": 619,
+        "parentId": 131
       },
       {
-        "id": 619,
-        "parentId": 118
+        "id": 624,
+        "parentId": 130
+      },
+      {
+        "id": 625,
+        "parentId": 137
+      },
+      {
+        "id": 626,
+        "parentId": 141
+      },
+      {
+        "id": 630,
+        "parentId": 139
+      },
+      {
+        "id": 632,
+        "parentId": 142
+      },
+      {
+        "id": 637,
+        "parentId": 129
       }
-    ],
-    "ds": {
-      "scale": 2.18503839319056,
-      "offset": [
-        2362.7155924479157,
-        -421.959814076532
-      ]
-    }
+    ]
   },
   "version": 0.4
 }
