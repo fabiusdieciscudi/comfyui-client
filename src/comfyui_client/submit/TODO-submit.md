@@ -14,3 +14,16 @@
 + for sure, if the image is downloaded, submit could call set-metadata on it, but I'd do this later, in a separate issue.
 + Add a warning if the number of tokens (computed from words in the prompt) is > the maximum suggested for a given model.
 + Check matching defaults between JSON and PY.
+  + Pre-check the model and LoRA names --- e.g. http://localhost:8000/models/loras etc... http://localhost:8188/object_info?node=KSampler
+    import requests
+  
+    response = requests.get("http://localhost:8188/object_info?node=KSampler")
+    data = response.json()
+  
+    samplers = data["KSampler"]["input"]["required"]["sampler_name"][0]
+    schedulers = data["KSampler"]["input"]["required"]["scheduler"][0]
+  
+    print("Sampler disponibili:", samplers)
+    print("Scheduler disponibili:", schedulers)
++ Preprocess the standard syntax <lora,strength> to generate @w1.lora_name and @e1.lora_strength
++ Allow multiple LoRAs.
