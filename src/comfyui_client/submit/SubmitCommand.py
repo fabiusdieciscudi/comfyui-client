@@ -15,11 +15,13 @@ from comfyui_client.Commons import log, count_words, debug, error, warning, info
 
 DEFAULT_WORKFLOW_PATH       = "w1_workflow_api.json"
 W1_WORKFLOW_PATH = Path(__file__).parent.parent.parent.parent / "workflows" / "api" / "W1 (diffusion based).json"
+W2_WORKFLOW_PATH = Path(__file__).parent.parent.parent.parent / "workflows" / "api" / "W2 (checkpoint based).json"
 CONFIGS_PATH     = Path(__file__).parent.parent.parent.parent / "prompts" / "configs"
 
 # Maps workflow flag name → config filename prefix (e.g. "w1" → "w1-foobar.txt").
 WORKFLOW_PREFIXES = {
     "w1": "w1",
+    "w2": "w2",
 }
 
 POLL_INTERVAL = 3           # seconds between /history polls
@@ -29,7 +31,37 @@ _MAX_INCLUDE_DEPTH = 16     # Maximum fragment-inclusion depth (guards against c
 
 # --- Tag extraction -----------------------------------------------------------
 
-DEFAULTS = {
+
+def _r_int(tag: str) -> str:
+    """Regex pattern capturing an integer value for the given tag.
+
+    *tag* must be the full dotted name including namespace, e.g. 'w1.seed'
+    or 'w2.seed'.
+    """
+    return rf"@{re.escape(tag)}:([0-9]+)"
+
+
+def _r_float(tag: str) -> str:
+    """Regex pattern capturing a float value (requires decimal point) for the given tag.
+
+    *tag* must be the full dotted name including namespace, e.g. 'w1.cfg'
+    or 'w2.cfg'.
+    """
+    return rf"@{re.escape(tag)}:([0-9]*\.[0-9]+)"
+
+
+def _r_name(tag: str) -> str:
+    """Regex pattern capturing an identifier value for the given tag.
+
+    *tag* must be the full dotted name including namespace, e.g.
+    'w1.sampler_name' or 'w2.sampler_name'.
+
+    Allows alphanumeric characters, spaces, underscores, dots, and hyphens.
+    """
+    return rf"@{re.escape(tag)}:([0-9A-Za-z _\.-]+)"
+
+
+W1_DEFAULTS = {
     "seed":             "56234532624987",
     "steps":            "9",
     "width":            "1024",
@@ -57,58 +89,99 @@ DEFAULTS = {
     "up_denoise":       "0.4",
     "up_sampler_name":  "dpmpp_2m_sde",
     "up_scheduler":     "karras",
-    "up_model":         "4x_NickelbackFS_72000_G.pth",
+    "up_model_name":    "4x_NickelbackFS_72000_G.pth",
+    "aspect":           "",      # empty means no aspect forcing
+}
+
+W1_TAG_PATTERNS = {
+    "seed":             _r_int("w1.seed"),
+    "steps":            _r_int("w1.steps"),
+    "width":            _r_int("w1.width"),
+    "height":           _r_int("w1.height"),
+    "cfg":              _r_float("w1.cfg"),
+    "denoise":          _r_float("w1.denoise"),
+    "sampler_name":     _r_name("w1.sampler_name"),
+    "scheduler":        _r_name("w1.scheduler"),
+    "diffusion_model":  _r_name("w1.diffusion_model"),
+    "clip_name":        _r_name("w1.clip_name"),
+    "clip_type":        _r_name("w1.clip_type"),
+    "vae_name":         _r_name("w1.vae_name"),
+    "lora_name_01":     _r_name("w1.lora_name_01"),
+    "lora_strength_01": _r_float("w1.lora_strength_01"),
+    "lora_name_02":     _r_name("w1.lora_name_02"),
+    "lora_strength_02": _r_float("w1.lora_strength_02"),
+    "lora_name_03":     _r_name("w1.lora_name_03"),
+    "lora_strength_03": _r_float("w1.lora_strength_03"),
+    "lora_name_04":     _r_name("w1.lora_name_04"),
+    "lora_strength_04": _r_float("w1.lora_strength_04"),
+    "up_steps":         _r_int("w1.up_steps"),
+    "up_width":         _r_int("w1.up_width"),
+    "up_height":        _r_int("w1.up_height"),
+    "up_cfg":           _r_float("w1.up_cfg"),
+    "up_denoise":       _r_float("w1.up_denoise"),
+    "up_sampler_name":  _r_name("w1.up_sampler_name"),
+    "up_scheduler":     _r_name("w1.up_scheduler"),
+    "up_model_name":    _r_name("w1.up_model_name"),
+    "aspect":           r"@aspect:([0-9]*\.?[0-9]+(?::[0-9]*\.?[0-9]+)?)",
+}
+
+
+W2_DEFAULTS = {
+    "seed":             "56234532624987",
+    "steps":            "9",
+    "width":            "1024",
+    "height":           "1600",
+    "cfg":              "1.0",
+    "denoise":          "1.0",
+    "sampler_name":     "ddim",
+    "scheduler":        "sgm_uniform",
+    "checkpoint":       "cyberrealisticXL_v90.safetensors",
+    # "lora_name_01":     "None",
+    # "lora_strength_01": "0.0",
+    # "lora_name_02":     "None",
+    # "lora_strength_02": "0.0",
+    # "lora_name_03":     "None",
+    # "lora_strength_03": "0.0",
+    # "lora_name_04":     "None",
+    # "lora_strength_04": "0.0",
+    "up_steps":         "25",
+    "up_width":         "0",     # 0 means "not set" (up_present will be false)
+    "up_height":        "0",
+    "up_cfg":           "1.0",
+    "up_denoise":       "0.4",
+    # "up_sampler_name":  "dpmpp_2m_sde",
+    # "up_scheduler":     "karras",
+    # "up_model_name":    "4x_NickelbackFS_72000_G.pth",
     "aspect":           "",      # empty means no aspect forcing
 }
 
 
-def _r_int(tag: str) -> str:
-    """Regex pattern capturing an integer value for the given @w1.<tag>."""
-    return rf"@w1\.{tag}:([0-9]+)"
-
-
-def _r_float(tag: str) -> str:
-    """Regex pattern capturing a float value (requires decimal point) for the given @w1.<tag>."""
-    return rf"@w1\.{tag}:([0-9]*\.[0-9]+)"
-
-
-def _r_name(tag: str) -> str:
-    """Regex pattern capturing an identifier value for the given @w1.<tag>.
-
-    Allows alphanumeric characters, spaces, underscores, dots, and hyphens.
-    """
-    return rf"@w1\.{tag}:([0-9A-Za-z _\.-]+)"
-
-
-TAG_PATTERNS = {
-    "seed":             _r_int("seed"),
-    "steps":            _r_int("steps"),
-    "width":            _r_int("width"),
-    "height":           _r_int("height"),
-    "cfg":              _r_float("cfg"),
-    "denoise":          _r_float("denoise"),
-    "sampler_name":     _r_name("sampler_name"),
-    "scheduler":        _r_name("scheduler"),
-    "diffusion_model":  _r_name("diffusion_model"),
-    "clip_name":        _r_name("clip_name"),
-    "clip_type":        _r_name("clip_type"),
-    "vae_name":         _r_name("vae_name"),
-    "lora_name_01":     _r_name("lora_name_01"),
-    "lora_strength_01": _r_float("lora_strength_01"),
-    "lora_name_02":     _r_name("lora_name_02"),
-    "lora_strength_02": _r_float("lora_strength_02"),
-    "lora_name_03":     _r_name("lora_name_03"),
-    "lora_strength_03": _r_float("lora_strength_03"),
-    "lora_name_04":     _r_name("lora_name_04"),
-    "lora_strength_04": _r_float("lora_strength_04"),
-    "up_steps":         _r_int("up_steps"),
-    "up_width":         _r_int("up_width"),
-    "up_height":        _r_int("up_height"),
-    "up_cfg":           _r_float("up_cfg"),
-    "up_denoise":       _r_float("up_denoise"),
-    "up_sampler_name":  _r_name("up_sampler_name"),
-    "up_scheduler":     _r_name("up_scheduler"),
-    "up_model":         _r_name("up_model"),
+W2_TAG_PATTERNS = {
+    "seed":             _r_int("w2.seed"),
+    "steps":            _r_int("w2.steps"),
+    "width":            _r_int("w2.width"),
+    "height":           _r_int("w2.height"),
+    "cfg":              _r_float("w2.cfg"),
+    "denoise":          _r_float("w2.denoise"),
+    "sampler_name":     _r_name("w2.sampler_name"),
+    "scheduler":        _r_name("w2.scheduler"),
+    "checkpoint":       _r_name("w2.checkpoint"),
+    # "lora_name_01":     _r_name("w2.lora_name_01"),
+    # "lora_strength_01": _r_float("w2.lora_strength_01"),
+    # "lora_name_02":     _r_name("w2.lora_name_02"),
+    # "lora_strength_02": _r_float("w2.lora_strength_02"),
+    # "lora_name_03":     _r_name("w2.lora_name_03"),
+    # "lora_strength_03": _r_float("w2.lora_strength_03"),
+    # "lora_name_04":     _r_name("w2.lora_name_04"),
+    # "lora_strength_04": _r_float("w2.lora_strength_04"),
+    "up_steps":         _r_int("w2.up_steps"),
+    "up_width":         _r_int("w2.up_width"),
+    "up_height":        _r_int("w2.up_height"),
+    "up_cfg":           _r_float("w2.up_cfg"),
+    "up_denoise":       _r_float("w2.up_denoise"),
+    # "up_sampler_name":  _r_name("w2.up_sampler_name"),
+    # "up_scheduler":     _r_name("w2.up_scheduler"),
+    # "up_model":         _r_name("w2.up_model"),
     "aspect":           r"@aspect:([0-9]*\.?[0-9]+(?::[0-9]*\.?[0-9]+)?)",
 }
 
@@ -156,10 +229,11 @@ class SubmitCommand(CommandBase):
         parser.add_argument("--prompt-file",  action="append", default=[], help="Path to a prompt text file (repeatable, concatenated).")
         parser.add_argument("--prompt",       action="append", default=[], help="Additional inline prompt text (repeatable, concatenated after --prompt-file content).")
         parser.add_argument("--prompt-path",  action="append", default=[], metavar="DIR", help="Directory of prompt fragments (repeatable). ")
-        parser.add_argument("--model",        default=None, metavar="NAME", help="Configures the model to use. Requires --w1.")
+        parser.add_argument("--model",        default=None, metavar="NAME", help="Configures the model to use. Requires --w1 or --w2.")
         parser.add_argument("--range",        action="append", default=[], help="Tag sweep, e.g. w1.seed=123,456 or @w1.steps=5,8")
         parser.add_argument("--workflow",     default=DEFAULT_WORKFLOW_PATH)
         parser.add_argument("--w1",           action="store_true", help="Use the built-in W1 workflow and its default config file.")
+        parser.add_argument("--w2",           action="store_true", help="Use the built-in W2 workflow and its default config file.")
         parser.add_argument("--comfyui",      default="http://127.0.0.1:8000")
         parser.add_argument("--scale",        type=float, default=1.0, help="Multiply width and height by this factor")
         parser.add_argument("--upscale",      default=None, metavar="VALUE", help="Upscale target: (e.g. 2.5 or a named pixel count target: 4k, 8k, 4mp).")
@@ -178,9 +252,9 @@ class SubmitCommand(CommandBase):
         """Resolve --model NAME to a config file path.
 
         The workflow prefix is derived from whichever workflow flag is active
-        (currently only --w1, giving prefix "w1"). Fails with a clear message
-        if no workflow flag was passed or if the config file does not exist,
-        listing the available options from the configs directory.
+        (--w1 giving prefix "w1", --w2 giving prefix "w2"). Fails with a clear
+        message if no workflow flag was passed or if the config file does not
+        exist, listing the available options from the configs directory.
 
         :param model_name:  the value passed to --model
         :param args:        parsed command-line arguments
@@ -191,9 +265,11 @@ class SubmitCommand(CommandBase):
 
         if args.w1:
             prefix = WORKFLOW_PREFIXES["w1"]
+        elif args.w2:
+            prefix = WORKFLOW_PREFIXES["w2"]
 
         if prefix is None:
-            raise RuntimeError("--model requires a workflow flag (e.g. --w1) to determine the config prefix.")
+            raise RuntimeError("--model requires a workflow flag (e.g. --w1 or --w2) to determine the config prefix.")
 
         config_path = CONFIGS_PATH / f"{prefix}-{model_name}.txt"
 
@@ -281,14 +357,14 @@ class SubmitCommand(CommandBase):
         text = text.replace('__ESCAPED_HASH__', '#')
         return text
 
-    def expand_lora_syntax(self, text: str) -> str:
-        """Replace <name,strength> shorthands with numbered @w1.lora_* tags.
+    def expand_lora_syntax(self, text: str, wf_name: str) -> str:
+        """Replace <lora:name:strength> shorthands with numbered @<wf_name>.lora_* tags.
 
-        Each occurrence of ``<filename, strength>`` in *text* is replaced by a
-        pair of tags:
+        Each occurrence of ``<lora:filename:strength>`` in *text* is replaced
+        by a pair of tags:
 
-            @w1.lora_name_01:filename
-            @w1.lora_strength_01:strength
+            @<wf_name>.lora_name_01:filename
+            @<wf_name>.lora_strength_01:strength
 
         The index is a zero-padded two-digit counter that starts at 01 and
         increments for each successive LoRA found in document order.
@@ -299,9 +375,10 @@ class SubmitCommand(CommandBase):
         Raises RuntimeError for any malformed ``<...>`` token whose content
         looks like a LoRA spec but is invalid (non-numeric strength, empty
         name).  Unrelated angle-bracket usage in the prompt is not affected
-        because the regex requires the exact ``<name,float>`` shape.
+        because the regex requires the exact ``<lora:name:float>`` shape.
 
         :param text:    comment-stripped prompt text
+        :param wf_name: workflow namespace, e.g. 'w1' or 'w2'
         :return:        prompt text with all LoRA shorthands replaced
         """
 
@@ -329,8 +406,8 @@ class SubmitCommand(CommandBase):
 
             nn = f"{idx:02d}"
             replacement = (
-                f"@w1.lora_name_{nn}:{lora_name}.safetensors\n"
-                f"@w1.lora_strength_{nn}:{lora_strength}\n"
+                f"@{wf_name}.lora_name_{nn}:{lora_name}.safetensors\n"
+                f"@{wf_name}.lora_strength_{nn}:{lora_strength}\n"
             )
 
             result.append(text[prev_end:m.start()])
@@ -344,9 +421,9 @@ class SubmitCommand(CommandBase):
     def extract_line_tags(self, text: str) -> tuple[list[str], str, str]:
         """Extract line-oriented @keyword, @title, and @description tags.
 
-        These tags differ from @w1.* tags in that their value is the entire
-        remainder of the line after the colon (including spaces, commas, and
-        additional colons), making them suitable for free-form text.
+        These tags differ from @w1.* / @w2.* tags in that their value is the
+        entire remainder of the line after the colon (including spaces, commas,
+        and additional colons), making them suitable for free-form text.
 
         Must be called on comment-stripped text so that commented-out tags
         are not picked up.
@@ -372,13 +449,15 @@ class SubmitCommand(CommandBase):
 
         return keywords, title, description
 
-    def extract_tags(self, text: str) -> dict:
+    def extract_tags(self, text: str, wf_name: str) -> dict:
         clean = self.strip_comments(text)
+        patterns = W1_TAG_PATTERNS if wf_name == "w1" else W2_TAG_PATTERNS
+        defaults = W1_DEFAULTS if wf_name == "w1" else W2_DEFAULTS
         resolved = {}
 
-        for tag, pattern in TAG_PATTERNS.items():
+        for tag, pattern in patterns.items():
             matches = re.findall(pattern, clean)
-            resolved[tag] = matches[-1].strip() if matches else DEFAULTS.get(tag, "")
+            resolved[tag] = matches[-1].strip() if matches else defaults.get(tag, "")
 
         return resolved
 
@@ -394,7 +473,7 @@ class SubmitCommand(CommandBase):
                 return node
         raise RuntimeError(f"Node '{title}' not found in workflow.")
 
-    def patch_workflow(self, workflow: dict, prompt: str, resolved: dict, keywords: list[str], title: str, description: str) -> dict:
+    def patch_workflow(self, workflow: dict, prompt: str, resolved: dict, keywords: list[str], title: str, description: str, wf_name: str) -> dict:
         clean_prompt = self.strip_comments(prompt)
         info("Patching workflow...")
         wf = json.loads(json.dumps(workflow))  # deep copy
@@ -416,8 +495,10 @@ class SubmitCommand(CommandBase):
         # + At the input of any ShowText node a new dynamic PrimitiveString node is created with the proper value
         # + A text_0 input field is embedded in any ShowText node (this is at this point redundant, but it's needed for retro-compatibility with metadata).
         # This ensures that the data captured into metadata are actually the data fed to the processing nodes.
-        for tag in (t for t in DEFAULTS if t != "aspect"):
-            node_title = f"Tag: w1.{tag}"
+        defaults = W1_DEFAULTS if wf_name == "w1" else W2_DEFAULTS
+
+        for tag in (t for t in defaults if t != "aspect"):
+            node_title = f"Tag: {wf_name}.{tag}"
             wf[str(current_node_id)] = {
                 "inputs": {
                     "value": resolved[tag]
@@ -703,7 +784,7 @@ class SubmitCommand(CommandBase):
 
     # --- CLI ------------------------------------------------------------------
 
-    def parse_range_arg(self, arg: str):
+    def parse_range_arg(arg: str):
         key, values = arg.split('=', 1)
         key = key.strip().lstrip('@')   # tolerate leading @
         value_list = [v.strip() for v in values.split(',')]
@@ -729,14 +810,22 @@ class SubmitCommand(CommandBase):
         return new_w, new_h
 
     def submit(self, args):
-        # --w1 injects the bundled config as an implicit leading prompt file
+        if args.w1 and args.w2:
+            raise RuntimeError("--w1 and --w2 are mutually exclusive.")
+
+        wf_name = "w2" if args.w2 else "w1"
+
+        # Inject the bundled workflow path for the active workflow flag.
         if args.w1:
             if not hasattr(args, 'workflow') or args.workflow == DEFAULT_WORKFLOW_PATH:
                 args.workflow = str(W1_WORKFLOW_PATH)
+        elif args.w2:
+            if not hasattr(args, 'workflow') or args.workflow == DEFAULT_WORKFLOW_PATH:
+                args.workflow = str(W2_WORKFLOW_PATH)
 
         # --model resolves to a config file and prepends it to --prompt-file.
         # Resolution depends on the active workflow flag, so it must happen
-        # after --w1 has been handled above.
+        # after --w1/--w2 have been handled above.
         if args.model is not None:
             config_path = self.resolve_model_config(args.model, args)
             args.prompt_file.insert(0, str(config_path))
@@ -763,7 +852,7 @@ class SubmitCommand(CommandBase):
             full_prompt = self.expand_fragments(full_prompt, fragment_library)
 
         # AFTER expanding fragments
-        full_prompt = self.expand_lora_syntax(full_prompt)
+        full_prompt = self.expand_lora_syntax(full_prompt, wf_name)
         # Extract line-oriented tags from the fully expanded, comment-stripped prompt.
         # These are merged with values supplied via CLI arguments (CLI wins on
         # title/description; CLI keywords are appended after prompt keywords).
@@ -816,7 +905,7 @@ class SubmitCommand(CommandBase):
             for k, v in combo_dict.items():
                 info(f"  @{k}:{v}")
 
-            resolved = self.extract_tags(current_prompt)
+            resolved = self.extract_tags(current_prompt, wf_name)
             has_scale = args.scale != 1.0
             has_aspect = resolved["aspect"]
 
@@ -833,7 +922,7 @@ class SubmitCommand(CommandBase):
                 info(f"Adjusting size for scale {args.scale}: {new_width} x {new_height}")
 
             if has_scale or has_aspect:
-                current_prompt += f"\n\n@w1.width:{new_width} @w1.height:{new_height}"
+                current_prompt += f"\n\n@{wf_name}.width:{new_width} @{wf_name}.height:{new_height}"
 
             # --upscale: compute up_width / up_height from the final base dimensions
             # and append them to the prompt so the workflow picks them up.
@@ -842,11 +931,11 @@ class SubmitCommand(CommandBase):
                 base_h = int(new_height)
                 up_w, up_h = self.parse_upscale(args.upscale, base_w, base_h)
                 info(f"Upscale target ({args.upscale}): {up_w} x {up_h}")
-                current_prompt += f"\n\n@w1.up_width:{up_w} @w1.up_height:{up_h}"
+                current_prompt += f"\n\n@{wf_name}.up_width:{up_w} @{wf_name}.up_height:{up_h}"
 
             if has_scale or has_aspect or args.upscale:
                 # Re-extract so that resolved reflects the newly appended tags.
-                resolved = self.extract_tags(current_prompt)
+                resolved = self.extract_tags(current_prompt, wf_name)
 
             if args.dry_run:
                 info("\nResolved tags:")
@@ -886,7 +975,7 @@ class SubmitCommand(CommandBase):
             except Exception as e:
                 warning(f"Could not validate options against ComfyUI: {e}")
 
-            wf = self.patch_workflow(workflow_template, current_prompt, resolved, all_keywords, title, description)
+            wf = self.patch_workflow(workflow_template, current_prompt, resolved, all_keywords, title, description, wf_name)
 
             prompt_id = self.submit_prompt(base_url, wf)
             log(f"[OK] Prompt ID: {prompt_id}")
