@@ -93,35 +93,54 @@ TAG_NODE_TITLES = {
     "up_model":         "Tag: w1.up_model",
 }
 
+
+def _r_int(tag: str) -> str:
+    """Regex pattern capturing an integer value for the given @w1.<tag>."""
+    return rf"@w1\.{tag}:([0-9]+)"
+
+
+def _r_float(tag: str) -> str:
+    """Regex pattern capturing a float value (requires decimal point) for the given @w1.<tag>."""
+    return rf"@w1\.{tag}:([0-9]*\.[0-9]+)"
+
+
+def _r_name(tag: str) -> str:
+    """Regex pattern capturing an identifier value for the given @w1.<tag>.
+
+    Allows alphanumeric characters, spaces, underscores, dots, and hyphens.
+    """
+    return rf"@w1\.{tag}:([0-9A-Za-z _\.-]+)"
+
+
 TAG_PATTERNS = {
-    "seed":             r"@w1\.seed:([0-9]+)",
-    "steps":            r"@w1\.steps:([0-9]+)",
-    "width":            r"@w1\.width:([0-9]+)",
-    "height":           r"@w1\.height:([0-9]+)",
-    "cfg":              r"@w1\.cfg:([0-9]*\.[0-9]+)",
-    "denoise":          r"@w1\.denoise:([0-9]*\.[0-9]+)",
-    "sampler_name":     r"@w1\.sampler_name:([0-9A-Za-z_\.-]+)",
-    "scheduler":        r"@w1\.scheduler:([0-9A-Za-z_\.]+)",
-    "diffusion_model":  r"@w1\.diffusion_model:([0-9A-Za-z_\.-]+)",
-    "clip_name":        r"@w1\.clip_name:([0-9A-Za-z_\.-]+)",
-    "clip_type":        r"@w1\.clip_type:([0-9A-Za-z_\.-]+)",
-    "vae_name":         r"@w1\.vae_name:([0-9A-Za-z_\.-]+)",
-    "lora_name_01":     r"@w1\.lora_name_01:([0-9A-Za-z _\.-]+)",
-    "lora_strength_01": r"@w1\.lora_strength_01:([0-9]*\.[0-9]+)",
-    "lora_name_02":     r"@w1\.lora_name_02:([0-9A-Za-z _\.-]+)",
-    "lora_strength_02": r"@w1\.lora_strength_02:([0-9]*\.[0-9]+)",
-    "lora_name_03":     r"@w1\.lora_name_03:([0-9A-Za-z _\.-]+)",
-    "lora_strength_03": r"@w1\.lora_strength_03:([0-9]*\.[0-9]+)",
-    "lora_name_04":     r"@w1\.lora_name_04:([0-9A-Za-z _\.-]+)",
-    "lora_strength_04": r"@w1\.lora_strength_04:([0-9]*\.[0-9]+)",
-    "up_steps":         r"@w1\.up_steps:([0-9]+)",
-    "up_width":         r"@w1\.up_width:([0-9]+)",
-    "up_height":        r"@w1\.up_height:([0-9]+)",
-    "up_cfg":           r"@w1\.up_cfg:([0-9]*\.[0-9]+)",
-    "up_denoise":       r"@w1\.up_denoise:([0-9]*\.[0-9]+)",
-    "up_sampler_name":  r"@w1\.up_sampler_name:([0-9A-Za-z_\.-]+)",
-    "up_scheduler":     r"@w1\.up_scheduler:([0-9A-Za-z_\.]+)",
-    "up_model":         r"@w1\.up_model:([0-9A-Za-z_\.-]+)",
+    "seed":             _r_int("seed"),
+    "steps":            _r_int("steps"),
+    "width":            _r_int("width"),
+    "height":           _r_int("height"),
+    "cfg":              _r_float("cfg"),
+    "denoise":          _r_float("denoise"),
+    "sampler_name":     _r_name("sampler_name"),
+    "scheduler":        _r_name("scheduler"),
+    "diffusion_model":  _r_name("diffusion_model"),
+    "clip_name":        _r_name("clip_name"),
+    "clip_type":        _r_name("clip_type"),
+    "vae_name":         _r_name("vae_name"),
+    "lora_name_01":     _r_name("lora_name_01"),
+    "lora_strength_01": _r_float("lora_strength_01"),
+    "lora_name_02":     _r_name("lora_name_02"),
+    "lora_strength_02": _r_float("lora_strength_02"),
+    "lora_name_03":     _r_name("lora_name_03"),
+    "lora_strength_03": _r_float("lora_strength_03"),
+    "lora_name_04":     _r_name("lora_name_04"),
+    "lora_strength_04": _r_float("lora_strength_04"),
+    "up_steps":         _r_int("up_steps"),
+    "up_width":         _r_int("up_width"),
+    "up_height":        _r_int("up_height"),
+    "up_cfg":           _r_float("up_cfg"),
+    "up_denoise":       _r_float("up_denoise"),
+    "up_sampler_name":  _r_name("up_sampler_name"),
+    "up_scheduler":     _r_name("up_scheduler"),
+    "up_model":         _r_name("up_model"),
     "aspect":           r"@aspect:([0-9]*\.?[0-9]+(?::[0-9]*\.?[0-9]+)?)",
 }
 
