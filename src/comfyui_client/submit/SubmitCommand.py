@@ -128,13 +128,13 @@ W1_TAG_PATTERNS = {
 
 W2_DEFAULTS = {
     "seed":             "56234532624987",
-    "steps":            "9",
-    "width":            "1024",
-    "height":           "1600",
-    "cfg":              "1.0",
+    "steps":            "30",
+    "width":            "896",
+    "height":           "1152",
+    "cfg":              "4.0",
     "denoise":          "1.0",
-    "sampler_name":     "ddim",
-    "scheduler":        "sgm_uniform",
+    "sampler_name":     "dpmpp_2m",
+    "scheduler":        "karras",
     "checkpoint":       "cyberrealisticXL_v90.safetensors",
     # "lora_name_01":     "None",
     # "lora_strength_01": "0.0",
@@ -911,10 +911,15 @@ class SubmitCommand(CommandBase):
             has_aspect = resolved["aspect"]
 
             if has_aspect:
-                new_width, new_height = self.apply_aspect(int(resolved["width"]), int(resolved["height"]), has_aspect)
-                info(f"Adjusting size for aspect {resolved['aspect']}: {new_width} x {new_height}")
-                resolved["width"]  = str(new_width)
-                resolved["height"] = str(new_height)
+                checkpoint = resolved["checkpoint"]
+
+                if checkpoint == 'cyberrealisticXL_v90.safetensors': # FIXME: use a list
+                    warning(f"Aspect fix disabled for {checkpoint}")
+                else:
+                    new_width, new_height = self.apply_aspect(int(resolved["width"]), int(resolved["height"]), has_aspect)
+                    info(f"Adjusting size for aspect {resolved['aspect']}: {new_width} x {new_height}")
+                    resolved["width"]  = str(new_width)
+                    resolved["height"] = str(new_height)
 
             new_width  = str(int(int(resolved["width"])  * args.scale))
             new_height = str(int(int(resolved["height"]) * args.scale))
