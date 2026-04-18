@@ -61,9 +61,6 @@ DEFAULTS = {
     "aspect":           "",      # empty means no aspect forcing
 }
 
-# Maps tag name → ShowText node title in the workflow
-TAG_NODE_TITLES = {tag: f"Tag: w1.{tag}" for tag in DEFAULTS if tag != "aspect"}
-
 
 def _r_int(tag: str) -> str:
     """Regex pattern capturing an integer value for the given @w1.<tag>."""
@@ -419,7 +416,8 @@ class SubmitCommand(CommandBase):
         # + At the input of any ShowText node a new dynamic PrimitiveString node is created with the proper value
         # + A text_0 input field is embedded in any ShowText node (this is at this point redundant, but it's needed for retro-compatibility with metadata).
         # This ensures that the data captured into metadata are actually the data fed to the processing nodes.
-        for tag, node_title in TAG_NODE_TITLES.items():
+        for tag in (t for t in DEFAULTS if t != "aspect"):
+            node_title = f"Tag: w1.{tag}"
             wf[str(current_node_id)] = {
                 "inputs": {
                     "value": resolved[tag]
