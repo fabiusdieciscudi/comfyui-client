@@ -62,36 +62,7 @@ DEFAULTS = {
 }
 
 # Maps tag name → ShowText node title in the workflow
-TAG_NODE_TITLES = {
-    "seed":             "Tag: w1.seed",
-    "steps":            "Tag: w1.steps",
-    "width":            "Tag: w1.width",
-    "height":           "Tag: w1.height",
-    "cfg":              "Tag: w1.cfg",
-    "denoise":          "Tag: w1.denoise",
-    "sampler_name":     "Tag: w1.sampler_name",
-    "scheduler":        "Tag: w1.scheduler",
-    "diffusion_model":  "Tag: w1.diffusion_model",
-    "clip_name":        "Tag: w1.clip_name",
-    "clip_type":        "Tag: w1.clip_type",
-    "vae_name":         "Tag: w1.vae_name",
-    "lora_name_01":     "Tag: w1.lora_name_01",
-    "lora_strength_01": "Tag: w1.lora_strength_01",
-    "lora_name_02":     "Tag: w1.lora_name_02",
-    "lora_strength_02": "Tag: w1.lora_strength_02",
-    "lora_name_03":     "Tag: w1.lora_name_03",
-    "lora_strength_03": "Tag: w1.lora_strength_03",
-    "lora_name_04":     "Tag: w1.lora_name_04",
-    "lora_strength_04": "Tag: w1.lora_strength_04",
-    "up_steps":         "Tag: w1.up_steps",
-    "up_width":         "Tag: w1.up_width",
-    "up_height":        "Tag: w1.up_height",
-    "up_cfg":           "Tag: w1.up_cfg",
-    "up_denoise":       "Tag: w1.up_denoise",
-    "up_sampler_name":  "Tag: w1.up_sampler_name",
-    "up_scheduler":     "Tag: w1.up_scheduler",
-    "up_model":         "Tag: w1.up_model",
-}
+TAG_NODE_TITLES = {tag: f"Tag: w1.{tag}" for tag in DEFAULTS if tag != "aspect"}
 
 
 def _r_int(tag: str) -> str:
