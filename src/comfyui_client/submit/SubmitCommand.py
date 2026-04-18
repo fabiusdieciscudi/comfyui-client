@@ -912,9 +912,9 @@ class SubmitCommand(CommandBase):
             has_aspect = resolved["aspect"]
 
             if has_aspect:
-                checkpoint = resolved["checkpoint"]
+                checkpoint = resolved.get("checkpoint", "")
 
-                if checkpoint == 'cyberrealisticXL_v90.safetensors': # FIXME: use a list
+                if checkpoint and checkpoint == 'cyberrealisticXL_v90.safetensors': # FIXME: use a list
                     warning(f"Aspect fix disabled for {checkpoint}")
                 else:
                     new_width, new_height = self.apply_aspect(int(resolved["width"]), int(resolved["height"]), has_aspect)
