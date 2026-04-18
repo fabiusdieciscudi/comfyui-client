@@ -972,10 +972,7 @@ class SubmitCommand(CommandBase):
                 if validation_errors:
                     for msg in validation_errors:
                         error(msg)
-                    raise RuntimeError(
-                        f"Aborting: {len(validation_errors)} unsupported value(s). "
-                        "Fix the prompt or check your ComfyUI model files."
-                    )
+                    raise RuntimeError(f"Aborting: {'\n'.join(validation_errors)}. Fix the prompt or check your ComfyUI model files.")
             except RuntimeError:
                 raise
             except Exception as e:
