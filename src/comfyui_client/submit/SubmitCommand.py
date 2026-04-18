@@ -621,10 +621,7 @@ class SubmitCommand(CommandBase):
 
             options = available.get(avail_key, [])
             if value and options and value not in options:
-                errors.append(
-                    f"Unsupported {tag_key} '{value}'. "
-                    f"Available: {', '.join(sorted(options))}"
-                )
+                errors.append(f"Unsupported {tag_key} '{value}'. Available: {', '.join(sorted(options))}")
 
         # LoRA slots — only validate non-empty, non-"None" slots
         _INACTIVE = {"", "none"}
