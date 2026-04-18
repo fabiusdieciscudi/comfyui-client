@@ -12,29 +12,25 @@ import argparse
 import filecmp
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 from comfyui_client.CommandBase import CommandBase
-from comfyui_client.Commons import log, debug
+from comfyui_client.Commons import log, debug, warning
 
 IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg"}
 
 # Tags that should be suppressed when the upscale pass did not run.
-_UP_TAG_PREFIX = "Tag: w1.up_"
+_UP_TAG_RE = re.compile(r"^Tag:\s+w\d+\.up_")
 
 # Tags that should be suppressed when no LoRA was applied.
-_LORA_TAG_PREFIX = "Tag: w1.lora_"
+_LORA_TAG_RE = re.compile(r"^Tag:\s+w\d+\.lora_")
 
-# Derived boolean tags that are never useful as keywords.
-_DERIVED_TAGS = {
-    "Tag: w1.lora_present",
-    "Tag: w1.up_width_present", # legacy
-    "Tag: w1.up_present",
-}
-
+# Derived boolean tags that are never useful as keywords (any wN. prefix).
+_DERIVED_TAG_RE = re.compile(r"^Tag:\s+w\d+\.(lora_present|up_width_present|up_present)$")
 
 class SetMetadataCommand(CommandBase):
 
@@ -245,15 +241,16 @@ class SetMetadataCommand(CommandBase):
         A slot is considered active when its value is non-empty and not "None".
         """
         _INACTIVE = {"", "none"}
+        _LORA_NAME_RE = re.compile(r"^Tag:\s+w\d+\.lora_name(_\d+)?$")
 
         # Legacy single-slot tag (old workflow format).
-        legacy = next((v for t, v in tags if t == "Tag: w1.lora_name"), None)
+        legacy = next((v for t, v in tags if _LORA_NAME_RE.match(t)), None)
         if legacy is not None and legacy.strip().lower() not in _INACTIVE:
             return True
 
         # Current numbered slots: lora_name_01 … lora_name_04.
         for tag_title, value in tags:
-            if tag_title.startswith("Tag: w1.lora_name_"):
+            if _LORA_NAME_RE.match(tag_title):
                 return value.strip().lower() not in _INACTIVE
 
         return False
@@ -299,9 +296,9 @@ class SetMetadataCommand(CommandBase):
             return
 
         # Determine whether the upscale pass ran and whether a LoRA was applied.
-        up_present_value = next((v for t, v in tags if t == "Tag: w1.up_present"), "false")
+        _UP_PRESENT_RE = re.compile(r"^Tag:\s+w\d+\.up_present$")
+        up_present_value = next((v for t, v in tags if _UP_PRESENT_RE.match(t)), "false")
         up_present = up_present_value.strip().lower() == "true"
-
         lora_active = self._lora_is_active(tags)
 
         # Filter tags:
@@ -310,11 +307,11 @@ class SetMetadataCommand(CommandBase):
         # - drop all w1.up_* tags when the upscale pass did not run
         filtered_tags = []
         for tag_title, value in tags:
-            if tag_title in _DERIVED_TAGS:
+            if _DERIVED_TAG_RE.match(tag_title):
                 continue
-            if tag_title.startswith(_LORA_TAG_PREFIX) and not lora_active:
+            if _LORA_TAG_RE.match(tag_title) and not lora_active:
                 continue
-            if tag_title.startswith(_UP_TAG_PREFIX) and not up_present:
+            if _UP_TAG_RE.match(tag_title) and not up_present:
                 continue
             filtered_tags.append((tag_title, value))
 
