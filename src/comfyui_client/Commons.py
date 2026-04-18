@@ -6,7 +6,7 @@
 """
 Commons.py — Shared utilities for ComfyUI Client.
 """
-
+import re
 import sys
 import time
 from typing import Any, Tuple, Callable
@@ -194,3 +194,32 @@ def measure_time(func: Callable[[], Any]) -> Tuple[Any, float]:
     result = func()
     end = time.perf_counter_ns()
     return result, (end - start) / 1_000_000_000
+
+
+def _r_int(tag: str) -> str:
+    """Regex pattern capturing an integer value for the given tag.
+
+    *tag* must be the full dotted name including namespace, e.g. 'w1.seed'
+    or 'w2.seed'.
+    """
+    return rf"@{re.escape(tag)}:([0-9]+)"
+
+
+def _r_float(tag: str) -> str:
+    """Regex pattern capturing a float value (requires decimal point) for the given tag.
+
+    *tag* must be the full dotted name including namespace, e.g. 'w1.cfg'
+    or 'w2.cfg'.
+    """
+    return rf"@{re.escape(tag)}:([0-9]*\.[0-9]+)"
+
+
+def _r_name(tag: str) -> str:
+    """Regex pattern capturing an identifier value for the given tag.
+
+    *tag* must be the full dotted name including namespace, e.g.
+    'w1.sampler_name' or 'w2.sampler_name'.
+
+    Allows alphanumeric characters, spaces, underscores, dots, and hyphens.
+    """
+    return rf"@{re.escape(tag)}:([0-9A-Za-z _\.-]+)"
