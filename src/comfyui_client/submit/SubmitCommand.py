@@ -214,9 +214,10 @@ _MAX_LORA_COUNT = 4
 # A warning is issued when the word count exceeds the limit; submission still
 # proceeds, because the encoder may silently truncate rather than error out.
 MODEL_MAX_WORDS: dict[str, int] = {
-    "z_image_turbo_bf16": 300,
-    "z_image_bf16":       300,
-    "flux2_dev_fp8":      500,
+    "z_image_turbo_bf16":   300,
+    "z_image_bf16":         300,
+    "flux2_dev_fp8":        500,
+    "cyberrealisticXL_v90": 75,
 }
 
 
