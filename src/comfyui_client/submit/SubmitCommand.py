@@ -615,6 +615,10 @@ class SubmitCommand(CommandBase):
 
         for tag_key, avail_key in single_checks:
             value = resolved.get(tag_key, "")
+
+            if tag_key == "scheduler" and value == "automatic":
+                continue
+
             options = available.get(avail_key, [])
             if value and options and value not in options:
                 errors.append(
