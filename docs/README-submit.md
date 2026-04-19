@@ -88,7 +88,7 @@ When `@w1.lora_name` is not set, the LoRA loader is bypassed automatically via a
 | `@w1.up_denoise`      | `0.4`                         | Denoising strength for the upscale pass                |
 | `@w1.up_sampler_name` | `dpmpp_2m_sde`                | Sampler algorithm for the upscale pass                 |
 | `@w1.up_scheduler`    | `karras`                      | Noise schedule for the upscale pass                    |
-| `@w1.up_model`        | `4x_NickelbackFS_72000_G.pth` | Upscale model filename (from `models/upscale_models/`) |
+| `@w1.up_model_name`   | `4x_NickelbackFS_72000_G.pth` | Upscale model filename (from `models/upscale_models/`) |
 
 When `@w1.up_width` is `0` (the default), the upscale pass is bypassed automatically. These tags can be set directly in a prompt or config file, but the recommended way to enable upscaling is via the `--upscale` command-line option, which computes `@w1.up_width` and `@w1.up_height` automatically from the base image dimensions.
 

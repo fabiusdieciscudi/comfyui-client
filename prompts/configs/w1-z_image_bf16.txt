@@ -9,7 +9,7 @@
 @w1.sampler_name:dpmpp_sde
 @w1.scheduler:simple
 
-@w1.up_model:4x_NickelbackFS_72000_G.pth
+@w1.up_model_name:4x_NickelbackFS_72000_G.pth
 @w1.up_steps:25
 @w1.up_cfg:1.0
 @w1.up_denoise:0.4
