@@ -18,7 +18,7 @@ Run with:
 import pytest
 import requests
 from unittest.mock import MagicMock, patch
-from comfyui_client.submit.SubmitCommand import SubmitCommand, DEFAULTS
+from comfyui_client.submit.SubmitCommand import SubmitCommand, W1_DEFAULTS
 
 
 BASE_URL = "http://127.0.0.1:8000"
@@ -102,7 +102,7 @@ def cmd():
 @pytest.fixture
 def all_defaults():
     """A resolved dict where every value is the documented default."""
-    return dict(DEFAULTS)
+    return dict(W1_DEFAULTS)
 
 
 # ===========================================================================
@@ -290,7 +290,7 @@ class TestValidateNoErrors:
     def test_empty_available_list_for_a_key_skips_that_check(self, cmd):
         # given: diffusion_model list is empty (endpoint returned [])
         available = {**FULL_AVAILABLE, "diffusion_model": []}
-        resolved = {**DEFAULTS, "diffusion_model": "any_model.safetensors"}
+        resolved = {**W1_DEFAULTS, "diffusion_model": "any_model.safetensors"}
         # when
         errors = cmd.validate_resolved_tags(resolved, available)
         # then: no error raised for diffusion_model
@@ -310,7 +310,7 @@ class TestValidateSingleTagFailures:
             self, cmd, tag_key, avail_key, bad_value
     ):
         # given
-        resolved = {**DEFAULTS, tag_key: bad_value}
+        resolved = {**W1_DEFAULTS, tag_key: bad_value}
         # when
         errors = cmd.validate_resolved_tags(resolved, FULL_AVAILABLE)
         # then: exactly one error mentioning the tag and the bad value
@@ -329,7 +329,7 @@ class TestValidateSingleTagFailures:
             self, cmd, tag_key, avail_key, bad_value
     ):
         # given
-        resolved = {**DEFAULTS, tag_key: bad_value}
+        resolved = {**W1_DEFAULTS, tag_key: bad_value}
         # when
         errors = cmd.validate_resolved_tags(resolved, FULL_AVAILABLE)
         # then: the error message names at least one of the valid options
@@ -341,7 +341,7 @@ class TestValidateLoraSlots:
 
     def test_active_lora_slot_with_valid_name_produces_no_error(self, cmd):
         # given
-        resolved = {**DEFAULTS, "lora_name_01": "portrait_v2.safetensors"}
+        resolved = {**W1_DEFAULTS, "lora_name_01": "portrait_v2.safetensors"}
         # when
         errors = cmd.validate_resolved_tags(resolved, FULL_AVAILABLE)
         # then
@@ -349,7 +349,7 @@ class TestValidateLoraSlots:
 
     def test_active_lora_slot_with_invalid_name_produces_error(self, cmd):
         # given
-        resolved = {**DEFAULTS, "lora_name_01": "ghost_lora.safetensors"}
+        resolved = {**W1_DEFAULTS, "lora_name_01": "ghost_lora.safetensors"}
         # when
         errors = cmd.validate_resolved_tags(resolved, FULL_AVAILABLE)
         # then
@@ -359,7 +359,7 @@ class TestValidateLoraSlots:
 
     def test_none_lora_slot_is_skipped(self, cmd):
         # given: default value for an unused slot
-        resolved = {**DEFAULTS, "lora_name_01": "None"}
+        resolved = {**W1_DEFAULTS, "lora_name_01": "None"}
         # when
         errors = cmd.validate_resolved_tags(resolved, FULL_AVAILABLE)
         # then: no error for the inactive slot
@@ -367,7 +367,7 @@ class TestValidateLoraSlots:
 
     def test_empty_string_lora_slot_is_skipped(self, cmd):
         # given
-        resolved = {**DEFAULTS, "lora_name_02": ""}
+        resolved = {**W1_DEFAULTS, "lora_name_02": ""}
         # when
         errors = cmd.validate_resolved_tags(resolved, FULL_AVAILABLE)
         # then
@@ -375,7 +375,7 @@ class TestValidateLoraSlots:
 
     def test_lora_slot_case_insensitive_none_is_skipped(self, cmd):
         # given: "none" in lowercase should also be treated as inactive
-        resolved = {**DEFAULTS, "lora_name_03": "none"}
+        resolved = {**W1_DEFAULTS, "lora_name_03": "none"}
         # when
         errors = cmd.validate_resolved_tags(resolved, FULL_AVAILABLE)
         # then
@@ -384,7 +384,7 @@ class TestValidateLoraSlots:
     def test_all_four_lora_slots_validated_independently(self, cmd):
         # given: slots 01 and 03 are bad; 02 and 04 are fine / inactive
         resolved = {
-            **DEFAULTS,
+            **W1_DEFAULTS,
             "lora_name_01": "bad_lora_a.safetensors",
             "lora_name_02": "portrait_v2.safetensors",   # valid
             "lora_name_03": "bad_lora_b.safetensors",
@@ -400,7 +400,7 @@ class TestValidateLoraSlots:
     def test_empty_lora_name_list_skips_lora_validation(self, cmd):
         # given: the server returned an empty lora list
         available = {**FULL_AVAILABLE, "lora_name": []}
-        resolved  = {**DEFAULTS, "lora_name_01": "any_lora.safetensors"}
+        resolved  = {**W1_DEFAULTS, "lora_name_01": "any_lora.safetensors"}
         # when
         errors = cmd.validate_resolved_tags(resolved, available)
         # then: no error because there are no constraints
@@ -412,7 +412,7 @@ class TestValidateMultipleErrors:
     def test_two_bad_values_produce_two_errors(self, cmd):
         # given
         resolved = {
-            **DEFAULTS,
+            **W1_DEFAULTS,
             "sampler_name": "bogus_sampler",
             "scheduler":    "bogus_scheduler",
         }
@@ -424,7 +424,7 @@ class TestValidateMultipleErrors:
     def test_all_single_tags_bad_produces_five_errors(self, cmd):
         # given: every single-value tag is wrong
         resolved = {
-            **DEFAULTS,
+            **W1_DEFAULTS,
             "sampler_name":    "bad_sampler",
             "scheduler":       "bad_scheduler",
             "diffusion_model": "bad_model.safetensors",
@@ -439,7 +439,7 @@ class TestValidateMultipleErrors:
     def test_each_error_identifies_its_own_tag(self, cmd):
         # given
         resolved = {
-            **DEFAULTS,
+            **W1_DEFAULTS,
             "sampler_name":    "bad_sampler",
             "diffusion_model": "bad_model.safetensors",
         }

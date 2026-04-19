@@ -39,7 +39,7 @@ def cmd():
 
 def lora(cmd, text):
     """Thin wrapper for expand_lora_syntax."""
-    return cmd.expand_lora_syntax(text)
+    return cmd.expand_lora_syntax(text, "w1")
 
 
 def expand(cmd, text, library):

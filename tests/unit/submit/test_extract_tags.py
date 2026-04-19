@@ -15,7 +15,7 @@ Run with:
 """
 
 import pytest
-from comfyui_client.submit.SubmitCommand import SubmitCommand, DEFAULTS
+from comfyui_client.submit.SubmitCommand import SubmitCommand, W1_DEFAULTS
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -29,13 +29,13 @@ def cmd():
 
 def extract(cmd, prompt):
     """Thin wrapper so tests read naturally."""
-    return cmd.extract_tags(prompt)
+    return cmd.extract_tags(prompt, "w1")
 
 
 def assert_defaults(result, except_for=None):
-    """Assert that every key matches DEFAULTS, optionally skipping some."""
+    """Assert that every key matches W1_DEFAULTS, optionally skipping some."""
     except_for = except_for or {}
-    for key, default_value in DEFAULTS.items():
+    for key, default_value in W1_DEFAULTS.items():
         if key in except_for:
             assert result[key] == except_for[key], \
                 f"Expected {key}={except_for[key]!r}, got {result[key]!r}"
@@ -87,7 +87,7 @@ class TestCommentStripping:
         # when
         result = extract(cmd, prompt)
         # then: the tag is not extracted; steps falls back to its default
-        assert result["steps"] == DEFAULTS["steps"]
+        assert result["steps"] == W1_DEFAULTS["steps"]
 
     def test_inline_comment_is_ignored(self, cmd):
         # given: a tag that appears only after an inline # comment marker
@@ -95,7 +95,7 @@ class TestCommentStripping:
         # when
         result = extract(cmd, prompt)
         # then: the tag is not extracted; steps falls back to its default
-        assert result["steps"] == DEFAULTS["steps"]
+        assert result["steps"] == W1_DEFAULTS["steps"]
 
     def test_tag_before_inline_comment_is_extracted(self, cmd):
         # given: a valid tag followed by an inline comment on the same line
@@ -202,7 +202,7 @@ class TestFloatTags:
     #     # when
     #     result = extract(cmd, prompt)
     #     # then: the tag is not extracted; cfg falls back to its default
-    #     assert result["cfg"] == DEFAULTS["cfg"]
+    #     assert result["cfg"] == W1_DEFAULTS["cfg"]
 
     def test_integer_value_for_float_tag_not_matched(self, cmd):
         # given: a bare integer where a float (with dot) is required by the pattern
@@ -210,7 +210,7 @@ class TestFloatTags:
         # when
         result = extract(cmd, prompt)
         # then: the tag is not extracted; cfg falls back to its default
-        assert result["cfg"] == DEFAULTS["cfg"]
+        assert result["cfg"] == W1_DEFAULTS["cfg"]
 
 
 # ---------------------------------------------------------------------------
@@ -242,7 +242,7 @@ class TestStringTags:
         ("lora_name_04",    "face_fix.safetensors"),
         ("up_sampler_name", "dpmpp_2m_sde"),
         ("up_scheduler",    "karras"),
-        ("up_model",        "4x_NickelbackFS_72000_G.pth"),
+        ("up_model_name",   "4x_NickelbackFS_72000_G.pth"),
     ])
     def test_string_tag_extracted(self, cmd, tag, value):
         prompt = f"@w1.{tag}:{value}"
@@ -386,13 +386,13 @@ class TestDefaults:
         ("clip_type",        "qwen_image"),
         ("vae_name",         "ae.safetensors"),
         ("lora_name_01",     "None"),
-        ("lora_strength_01", "1.0"),
+        ("lora_strength_01", "0.0"),
         ("lora_name_02",     "None"),
-        ("lora_strength_02", "1.0"),
+        ("lora_strength_02", "0.0"),
         ("lora_name_03",     "None"),
-        ("lora_strength_03", "1.0"),
+        ("lora_strength_03", "0.0"),
         ("lora_name_04",     "None"),
-        ("lora_strength_04", "1.0"),
+        ("lora_strength_04", "0.0"),
         ("up_steps",         "25"),
         ("up_width",         "0"),
         ("up_height",        "0"),
@@ -400,7 +400,7 @@ class TestDefaults:
         ("up_denoise",       "0.4"),
         ("up_sampler_name",  "dpmpp_2m_sde"),
         ("up_scheduler",     "karras"),
-        ("up_model",         "4x_NickelbackFS_72000_G.pth"),
+        ("up_model_name",    "4x_NickelbackFS_72000_G.pth"),
         ("aspect",           ""),
     ])
     def test_missing_tag_falls_back_to_default(self, cmd, tag, expected_default):
